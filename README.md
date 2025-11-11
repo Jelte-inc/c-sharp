@@ -6,10 +6,11 @@ Maak een garageprogramma, je moet gegevens van auto's kunnen opvragen zoals merk
 de medewerkers kunnen hier eenvoudig de gegevens van een auto opvragen. 
 -meerdere "garagelocaties" mogelijk met elk een eigen inventaris & informatie over elke locatie (locatie, telefoonnummer, eigenaar enzo).
 -er moet een menubalk in komen (bijvoorbeeld dat je daar medewerkerinformatie kan aanpassen & tussen filialen kan switchen) 
--plekje 
-
-
+-plekje met statistieken per filiaal en totaal (gemiddelde vraagprijs en totale waarde voorraad.)
+-voor inleveren: 3 locaties ingeprogrammeerd met een bestaande voorraad
+-auto's moeten eigenschappen hebben (merk, model, kleur, aantal deuren (int), vraagprijs (float), afbeelding (img)
 
 ToDo:
 -repo aanmaken en zorgen dat iedereen er in kan
--mlr@calvijncollege toevoegen aan repo
+-Readme afmaken > fundament gedeelte van de opdracht nog toevoegen
+-ui/ux sketch
