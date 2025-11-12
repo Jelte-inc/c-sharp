@@ -1,3 +1,5 @@
+using cheraasje_epp.Models;
+
 namespace cheraasje_epp
 {
     internal static class Program
