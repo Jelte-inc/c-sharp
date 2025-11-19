@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\20029.CALVIJNCOLLEGE.001\\Source\\Repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj": {}
+    "C:\\Users\\18983\\Source\\Repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\20029.CALVIJNCOLLEGE.001\\Source\\Repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj": {
+    "C:\\Users\\18983\\Source\\Repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\20029.CALVIJNCOLLEGE.001\\Source\\Repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj",
+        "projectUniqueName": "C:\\Users\\18983\\Source\\Repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj",
         "projectName": "cheraasje epp",
-        "projectPath": "C:\\Users\\20029.CALVIJNCOLLEGE.001\\Source\\Repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj",
-        "packagesPath": "C:\\Users\\20029.CALVIJNCOLLEGE.001\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\20029.CALVIJNCOLLEGE.001\\Source\\Repos\\c-sharp\\cheraasje epp\\obj\\",
+        "projectPath": "C:\\Users\\18983\\Source\\Repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj",
+        "packagesPath": "C:\\Users\\18983\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\18983\\Source\\Repos\\c-sharp\\cheraasje epp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\20029.CALVIJNCOLLEGE.001\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\18983\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -68,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
