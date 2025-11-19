@@ -31,4 +31,4 @@ C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\n
 C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.pdb
 C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.genruntimeconfig.cache
 C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\ref\cheraasje epp.dll
-C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje_epp.Home.resources
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje_epp.UI.Login.Login.resources
