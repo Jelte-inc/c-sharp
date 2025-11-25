@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
+            branchButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -38,16 +39,26 @@
             pictureBox1.Image = Properties.Resources.Homepage_Background;
             pictureBox1.Location = new Point(-1, -1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1920, 1080);
+            pictureBox1.Size = new Size(1898, 1027);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // branchButton
+            // 
+            branchButton.Location = new Point(133, 125);
+            branchButton.Name = "branchButton";
+            branchButton.Size = new Size(199, 34);
+            branchButton.TabIndex = 1;
+            branchButton.Text = "Your Branch";
+            branchButton.Font = new Font(branchButton.Font, FontStyle.Bold);
+            branchButton.UseVisualStyleBackColor = true;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1898, 1024);
+            Controls.Add(branchButton);
             Controls.Add(pictureBox1);
             Name = "Home";
             Text = "Form1";
@@ -58,5 +69,6 @@
         #endregion
 
         private PictureBox pictureBox1;
+        private Button branchButton;
     }
 }
