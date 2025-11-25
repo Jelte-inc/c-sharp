@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             pictureBox1 = new PictureBox();
-            branchButton = new Button();
+            branchButton = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -45,13 +45,14 @@
             // 
             // branchButton
             // 
-            branchButton.Location = new Point(133, 125);
+            branchButton.AutoSize = true;
+            branchButton.Location = new Point(180, 179);
             branchButton.Name = "branchButton";
-            branchButton.Size = new Size(199, 34);
-            branchButton.TabIndex = 1;
+            branchButton.Size = new Size(59, 25);
+            branchButton.TabIndex = 2;
             branchButton.Text = "Your Branch";
-            branchButton.Font = new Font(branchButton.Font, FontStyle.Bold);
-            branchButton.UseVisualStyleBackColor = true;
+            branchButton.Click += branchButton_Click;
+            branchButton.BackColor = Color.White;
             // 
             // Home
             // 
@@ -64,11 +65,12 @@
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private PictureBox pictureBox1;
-        private Button branchButton;
+        private Label branchButton;
     }
 }
