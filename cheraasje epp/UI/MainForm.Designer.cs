@@ -1,6 +1,6 @@
-﻿namespace cheraasje_epp.UI.Login
+﻿namespace cheraasje_epp.UI
 {
-    partial class Login
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            pageContainer = new Panel();
+            SuspendLayout();
+            // 
+            // pageContainer
+            // 
+            pageContainer.Location = new Point(0, 0);
+            pageContainer.Name = "pageContainer";
+            pageContainer.Size = new Size(908, 493);
+            pageContainer.TabIndex = 0;
+            // 
+            // MainForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(907, 492);
+            Controls.Add(pageContainer);
+            Name = "MainForm";
+            Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel pageContainer;
     }
 }
