@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("cheraasje epp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+892d2d457c62ee8a2a5cfc641f2249327f39a5ef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8bca48aaa857854153d8bb166a799f83480a721c")]
 [assembly: System.Reflection.AssemblyProductAttribute("cheraasje epp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cheraasje epp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
