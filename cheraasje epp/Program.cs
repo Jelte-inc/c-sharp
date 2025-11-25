@@ -1,4 +1,5 @@
 using cheraasje_epp.Models;
+using cheraasje_epp.UI;
 
 namespace cheraasje_epp
 {
@@ -13,7 +14,7 @@ namespace cheraasje_epp
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Home());
+            Application.Run(new MainForm());
         }
     }
 }
