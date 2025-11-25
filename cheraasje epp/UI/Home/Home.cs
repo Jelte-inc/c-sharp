@@ -7,7 +7,7 @@ namespace cheraasje_epp
             InitializeComponent();
         }
 
-        private void branchButton_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

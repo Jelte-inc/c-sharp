@@ -38,29 +38,34 @@
             pictureBox1.AccessibleName = "HomePageBackground";
             pictureBox1.Image = Properties.Resources.Homepage_Background;
             pictureBox1.Location = new Point(-1, -1);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1898, 1027);
+            pictureBox1.Size = new Size(1897, 1012);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // branchButton
             // 
             branchButton.AutoSize = true;
-            branchButton.Location = new Point(180, 179);
+            branchButton.BackColor = Color.White;
+            branchButton.Font = new Font("Segoe UI", 54.75F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            branchButton.Location = new Point(98, 126);
+            branchButton.Margin = new Padding(2, 0, 2, 0);
             branchButton.Name = "branchButton";
-            branchButton.Size = new Size(59, 25);
+            branchButton.Size = new Size(455, 98);
             branchButton.TabIndex = 2;
             branchButton.Text = "Your Branch";
             branchButton.Click += branchButton_Click;
-            branchButton.BackColor = Color.White;
             // 
             // Home
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1898, 1024);
+            ClientSize = new Size(1896, 981);
             Controls.Add(branchButton);
             Controls.Add(pictureBox1);
+            Margin = new Padding(2);
             Name = "Home";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
