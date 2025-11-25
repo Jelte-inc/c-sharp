@@ -15,3 +15,20 @@ C:\Users\20041\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\refin
 C:\Users\20041\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.pdb
 C:\Users\20041\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.genruntimeconfig.cache
 C:\Users\20041\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\ref\cheraasje epp.dll
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\bin\Debug\net8.0-windows\cheraasje epp.exe
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\bin\Debug\net8.0-windows\cheraasje epp.deps.json
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\bin\Debug\net8.0-windows\cheraasje epp.runtimeconfig.json
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\bin\Debug\net8.0-windows\cheraasje epp.dll
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\bin\Debug\net8.0-windows\cheraasje epp.pdb
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.csproj.GenerateResource.cache
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.AssemblyInfoInputs.cache
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.AssemblyInfo.cs
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.csproj.CoreCompileInputs.cache
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.sourcelink.json
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.dll
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\refint\cheraasje epp.dll
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.pdb
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje epp.genruntimeconfig.cache
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\ref\cheraasje epp.dll
+C:\Users\20029.CALVIJNCOLLEGE.001\Source\Repos\c-sharp\cheraasje epp\obj\Debug\net8.0-windows\cheraasje_epp.UI.Login.Login.resources
