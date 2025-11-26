@@ -16,13 +16,21 @@ namespace cheraasje_epp.UI
         public MainForm()
         {
             InitializeComponent();
-            LoadPage(new Home());
+            var loginPage = new Login();
+            loginPage.PageChangeRequested += LoadPage;
+            LoadPage(loginPage);
         }
         public void LoadPage(UserControl page)
         {
             pageContainer.Controls.Clear();
             page.Dock = DockStyle.Fill;
             pageContainer.Controls.Add(page);
+
+            // Automatisch event koppelen als de pagina IPage implementeert
+            if (page is IPage pageWithEvent)
+            {
+                pageWithEvent.PageChangeRequested += LoadPage;
+            }
         }
 
     }
