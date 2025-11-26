@@ -64,5 +64,27 @@ namespace cheraasje_epp.Data
             }
             return null;
         }
+        public User GetUser(int id)
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT * FROM Users WHERE Id=@id";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    return new User
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Name = reader["Name"].ToString(),
+                        BranchId = Convert.ToInt32(reader["BranchId"]) 
+                    };
+                }
+            }
+            return null;
+        }
     }
 }
