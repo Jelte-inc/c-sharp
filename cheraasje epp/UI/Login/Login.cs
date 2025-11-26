@@ -45,6 +45,7 @@ namespace cheraasje_epp
             if (user != null)
             {
                 PageChangeRequested?.Invoke(new Home());
+                Session.Start(int.Parse(userID));
             }
             else
             {
