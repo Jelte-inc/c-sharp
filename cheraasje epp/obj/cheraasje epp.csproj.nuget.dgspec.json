@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jelte\\source\\repos\\Jelte-inc\\c-sharp\\cheraasje epp\\cheraasje epp.csproj": {}
+    "C:\\Users\\0jrli\\source\\repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jelte\\source\\repos\\Jelte-inc\\c-sharp\\cheraasje epp\\cheraasje epp.csproj": {
+    "C:\\Users\\0jrli\\source\\repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jelte\\source\\repos\\Jelte-inc\\c-sharp\\cheraasje epp\\cheraasje epp.csproj",
+        "projectUniqueName": "C:\\Users\\0jrli\\source\\repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj",
         "projectName": "cheraasje epp",
-        "projectPath": "C:\\Users\\jelte\\source\\repos\\Jelte-inc\\c-sharp\\cheraasje epp\\cheraasje epp.csproj",
-        "packagesPath": "C:\\Users\\jelte\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jelte\\source\\repos\\Jelte-inc\\c-sharp\\cheraasje epp\\obj\\",
+        "projectPath": "C:\\Users\\0jrli\\source\\repos\\c-sharp\\cheraasje epp\\cheraasje epp.csproj",
+        "packagesPath": "C:\\Users\\0jrli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\0jrli\\source\\repos\\c-sharp\\cheraasje epp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jelte\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\0jrli\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,6 +45,12 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "System.Data.SQLite.Core": {
+              "target": "Package",
+              "version": "[1.0.119, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,6 +62,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

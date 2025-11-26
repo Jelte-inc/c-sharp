@@ -8,6 +8,7 @@ namespace cheraasje_epp.Models
 {
     internal class Branch
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
         public string PhoneNumber { get; set; }
