@@ -19,14 +19,14 @@ namespace cheraasje_epp.Data
             connectionString = $"Data Source={dbPath};Version=3;";
         }
 
-        public User AuthenticateUser(string username, string password)
+        public User AuthenticateUser(string userID, string password)
         {
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT * FROM Users WHERE Name=@name AND Password=@password";
+                string query = "SELECT * FROM Users WHERE Id=@id AND Password=@password";
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
-                cmd.Parameters.AddWithValue("@name", username);
+                cmd.Parameters.AddWithValue("@id", userID);
                 cmd.Parameters.AddWithValue("@password", password);
 
                 SQLiteDataReader reader = cmd.ExecuteReader();

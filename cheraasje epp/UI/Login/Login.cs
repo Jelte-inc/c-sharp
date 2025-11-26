@@ -27,11 +27,11 @@ namespace cheraasje_epp
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string username = idBox.Text;      // haalt tekst uit idBox
+            string userID = idBox.Text;      // haalt tekst uit idBox
             string password = passwordBox.Text; // haalt tekst uit passwordBox
 
             // Controleer of de velden niet leeg zijn of standaardtekst bevatten
-            if (username == "Employee ID..." || string.IsNullOrWhiteSpace(username) ||
+            if (userID == "Employee ID..." || string.IsNullOrWhiteSpace(userID) ||
                password == "Password..." || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Vul beide velden in!");
@@ -40,7 +40,7 @@ namespace cheraasje_epp
 
             // Hier roep je je DataManager aan om te checken of de gebruiker bestaat
             DataManager dataManager = new DataManager();
-            var user = dataManager.AuthenticateUser(username, password);
+            var user = dataManager.AuthenticateUser(userID, password);
 
             if (user != null)
             {
