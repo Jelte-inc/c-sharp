@@ -84,7 +84,8 @@ namespace cheraasje_epp.Data
                     };
                 }
             }
-            return null;
+            // Todo: better error handling
+            throw new Exception("User not found for id: " + id);
         }
     }
 }
