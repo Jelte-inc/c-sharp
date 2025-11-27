@@ -58,39 +58,47 @@ namespace cheraasje_epp
             branchButton.BackColor = Color.White;
             branchButton.Cursor = Cursors.Hand;
             branchButton.Font = new Font("Consolas", 27.75F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            branchButton.Location = new Point(39, 53);
+            branchButton.Location = new Point(39, 49);
             branchButton.Margin = new Padding(2, 0, 2, 0);
             branchButton.Name = "branchButton";
             branchButton.Size = new Size(239, 43);
             branchButton.TabIndex = 2;
             branchButton.Text = "Your Branch";
-            branchButton.Click += branchButton_Click;
-            branchButton.MouseEnter += branchButton_Mouse_Enter;
-            branchButton.MouseLeave += branchButton_Mouse_Leave;
+            branchButton.Click += LabelClick;
+            branchButton.MouseEnter += LabelMouseEnter;
+            branchButton.MouseLeave += LabelMouseLeave;
             // 
             // fleetButton
             // 
             fleetButton.AutoSize = true;
             fleetButton.BackColor = Color.White;
+            fleetButton.Cursor = Cursors.Hand;
             fleetButton.Font = new Font("Consolas", 27F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            fleetButton.Location = new Point(39, 123);
+            fleetButton.Location = new Point(39, 102);
             fleetButton.Margin = new Padding(2, 0, 2, 0);
             fleetButton.Name = "fleetButton";
             fleetButton.Size = new Size(218, 42);
             fleetButton.TabIndex = 3;
             fleetButton.Text = "Your Fleet";
+            branchButton.Click += LabelClick;
+            fleetButton.MouseEnter += LabelMouseEnter;
+            fleetButton.MouseLeave += LabelMouseLeave;
             // 
             // accountButton
             // 
             accountButton.AutoSize = true;
             accountButton.BackColor = Color.White;
+            accountButton.Cursor = Cursors.Hand;
             accountButton.Font = new Font("Consolas", 27F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            accountButton.Location = new Point(39, 196);
+            accountButton.Location = new Point(39, 154);
             accountButton.Margin = new Padding(2, 0, 2, 0);
             accountButton.Name = "accountButton";
             accountButton.Size = new Size(258, 42);
             accountButton.TabIndex = 4;
             accountButton.Text = "Your Account";
+            branchButton.Click += LabelClick;
+            accountButton.MouseEnter += LabelMouseEnter;
+            accountButton.MouseLeave += LabelMouseLeave;
             // 
             // shortUserInfoLabel
             // 
@@ -98,12 +106,16 @@ namespace cheraasje_epp
             User user = dataManager.GetUser(userId);
             string branchName = dataManager.GetBranchById(user.BranchId).Name;
             string shortUserInfo = user.Name + " at " + branchName;
+            int x = 636 - shortUserInfoLabel.Width + 50;
+            int y = 18;
             shortUserInfoLabel.AutoSize = true;
-            shortUserInfoLabel.Location = new Point(824, 22);
+            shortUserInfoLabel.Font = new Font("Consolas", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             shortUserInfoLabel.Name = "shortUserInfoLabel";
-            shortUserInfoLabel.Size = new Size(38, 15);
+            shortUserInfoLabel.Location = new Point(x, y);
+            shortUserInfoLabel.Size = new Size(197, 23);
             shortUserInfoLabel.TabIndex = 5;
             shortUserInfoLabel.Text = shortUserInfo;
+            shortUserInfoLabel.BackColor = Color.White;
             // 
             // Home
             // 
