@@ -1,5 +1,3 @@
-using cheraasje_epp.UI;
-
 namespace cheraasje_epp
 {
     public partial class Home : UserControl
@@ -9,21 +7,24 @@ namespace cheraasje_epp
             InitializeComponent();
         }
 
-        private void branchButton_Click(object sender, EventArgs e)
+        private void LabelClick(object sender, EventArgs e)
         {
-            //TODO: implement branch page
-            // MainForm.LoadPage(new Branch());
+            // Todo: implement pageswitching
+            //if (sender is Label button) 
         }
 
         // Change color on hover
-        private void branchButton_Mouse_Enter(object sender, EventArgs e)
+        private void LabelMouseEnter(object sender, EventArgs e)
         {
-            branchButton.ForeColor = Color.Gray;
+            if (sender is Label button)
+                button.ForeColor = Color.Gray;
         }
 
-        private void branchButton_Mouse_Leave(object sender, EventArgs e)
+        private void LabelMouseLeave(object sender, EventArgs e)
         {
-            branchButton.ForeColor = Color.Black;
+            if (sender is Label button)
+                button.ForeColor = Color.Black;
         }
+
     }
 }

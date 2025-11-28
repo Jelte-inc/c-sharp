@@ -1,4 +1,7 @@
-﻿namespace cheraasje_epp
+﻿using cheraasje_epp.Data;
+using cheraasje_epp.Models;
+
+namespace cheraasje_epp
 {
     partial class Home
     {
@@ -28,10 +31,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            var dataManager = new DataManager();
             pictureBox1 = new PictureBox();
             branchButton = new Label();
-            label1 = new Label();
-            label2 = new Label();
+            fleetButton = new Label();
+            accountButton = new Label();
+            shortUserInfoLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -51,48 +56,74 @@
             // 
             branchButton.AutoSize = true;
             branchButton.BackColor = Color.White;
+            branchButton.Cursor = Cursors.Hand;
             branchButton.Font = new Font("Consolas", 27.75F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            branchButton.Location = new Point(39, 53);
+            branchButton.Location = new Point(39, 49);
             branchButton.Margin = new Padding(2, 0, 2, 0);
             branchButton.Name = "branchButton";
             branchButton.Size = new Size(239, 43);
             branchButton.TabIndex = 2;
             branchButton.Text = "Your Branch";
-            branchButton.Click += branchButton_Click;
-            branchButton.MouseEnter += branchButton_Mouse_Enter;
-            branchButton.MouseLeave += branchButton_Mouse_Leave;
-            branchButton.Cursor = Cursors.Hand;
+            branchButton.Click += LabelClick;
+            branchButton.MouseEnter += LabelMouseEnter;
+            branchButton.MouseLeave += LabelMouseLeave;
             // 
-            // label1
+            // fleetButton
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.White;
-            label1.Font = new Font("Consolas", 27F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            label1.Location = new Point(39, 123);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(218, 42);
-            label1.TabIndex = 3;
-            label1.Text = "Your Fleet";
+            fleetButton.AutoSize = true;
+            fleetButton.BackColor = Color.White;
+            fleetButton.Cursor = Cursors.Hand;
+            fleetButton.Font = new Font("Consolas", 27F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            fleetButton.Location = new Point(39, 102);
+            fleetButton.Margin = new Padding(2, 0, 2, 0);
+            fleetButton.Name = "fleetButton";
+            fleetButton.Size = new Size(218, 42);
+            fleetButton.TabIndex = 3;
+            fleetButton.Text = "Your Fleet";
+            branchButton.Click += LabelClick;
+            fleetButton.MouseEnter += LabelMouseEnter;
+            fleetButton.MouseLeave += LabelMouseLeave;
             // 
-            // label2
+            // accountButton
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.White;
-            label2.Font = new Font("Consolas", 27F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            label2.Location = new Point(39, 196);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(218, 42);
-            label2.TabIndex = 4;
-            label2.Text = "Your Fleet";
+            accountButton.AutoSize = true;
+            accountButton.BackColor = Color.White;
+            accountButton.Cursor = Cursors.Hand;
+            accountButton.Font = new Font("Consolas", 27F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            accountButton.Location = new Point(39, 154);
+            accountButton.Margin = new Padding(2, 0, 2, 0);
+            accountButton.Name = "accountButton";
+            accountButton.Size = new Size(258, 42);
+            accountButton.TabIndex = 4;
+            accountButton.Text = "Your Account";
+            branchButton.Click += LabelClick;
+            accountButton.MouseEnter += LabelMouseEnter;
+            accountButton.MouseLeave += LabelMouseLeave;
+            // 
+            // shortUserInfoLabel
+            // 
+            int userId = Session.UserId;
+            User user = dataManager.GetUser(userId);
+            string branchName = dataManager.GetBranchById(user.BranchId).Name;
+            string shortUserInfo = user.Name + " at " + branchName;
+            int x = 636 - shortUserInfoLabel.Width + 50;
+            int y = 18;
+            shortUserInfoLabel.AutoSize = true;
+            shortUserInfoLabel.Font = new Font("Consolas", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            shortUserInfoLabel.Name = "shortUserInfoLabel";
+            shortUserInfoLabel.Location = new Point(x, y);
+            shortUserInfoLabel.Size = new Size(197, 23);
+            shortUserInfoLabel.TabIndex = 5;
+            shortUserInfoLabel.Text = shortUserInfo;
+            shortUserInfoLabel.BackColor = Color.White;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(shortUserInfoLabel);
+            Controls.Add(accountButton);
+            Controls.Add(fleetButton);
             Controls.Add(branchButton);
             Controls.Add(pictureBox1);
             Margin = new Padding(2);
@@ -107,7 +138,8 @@
 
         private PictureBox pictureBox1;
         private Label branchButton;
-        private Label label1;
-        private Label label2;
+        private Label fleetButton;
+        private Label accountButton;
+        private Label shortUserInfoLabel;
     }
 }
