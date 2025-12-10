@@ -47,13 +47,8 @@
             // 
             // idBox
             // 
-            idBox.BackColor = Color.White;
-            idBox.BorderColor = Color.Red;
-            idBox.BorderRadius = 15;
-            idBox.BorderSize = 2;
             idBox.Location = new Point(300, 180);
             idBox.Name = "idBox";
-            idBox.Padding = new Padding(10, 5, 10, 5);
             idBox.Size = new Size(250, 35);
             idBox.TabIndex = 0;
             idBox.UseSystemPasswordChar = false;
@@ -78,13 +73,8 @@
             // 
             // passwordBox
             // 
-            passwordBox.BackColor = Color.White;
-            passwordBox.BorderColor = Color.Red;
-            passwordBox.BorderRadius = 15;
-            passwordBox.BorderSize = 2;
             passwordBox.Location = new Point(300, 230);
             passwordBox.Name = "passwordBox";
-            passwordBox.Padding = new Padding(10, 5, 10, 5);
             passwordBox.Size = new Size(250, 35);
             passwordBox.TabIndex = 1;
             passwordBox.UseSystemPasswordChar = false;
@@ -118,6 +108,8 @@
             loginButton.TabIndex = 3;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = true;
+            loginButton.BaseBackColor = Color.Red;
+            loginButton.ForeColor = Color.White;
             loginButton.Click += loginButton_Click;
             // 
             // Login
