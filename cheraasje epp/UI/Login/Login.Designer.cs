@@ -31,7 +31,7 @@
             pictureBox1 = new PictureBox();
             idBox = new RoundedTextBox();
             passwordBox = new RoundedTextBox();
-            loginButton = new RoundedButton(Color.Red, Color.White);
+            loginButton = new RoundedButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -108,6 +108,8 @@
             loginButton.TabIndex = 3;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = true;
+            loginButton.BaseBackColor = Color.Red;
+            loginButton.ForeColor = Color.White;
             loginButton.Click += loginButton_Click;
             // 
             // Login

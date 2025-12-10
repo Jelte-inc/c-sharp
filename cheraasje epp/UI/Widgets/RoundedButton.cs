@@ -5,12 +5,22 @@ using System.Windows.Forms;
 
 public class RoundedButton : Button
 {
-   
-    public RoundedButton(Color backColor, Color foreColor)
+    private Color _baseBackColor;
+    public Color BaseBackColor
+    {
+        get { return _baseBackColor; }
+        set
+        {
+            _baseBackColor = value;
+            this.BackColor = _baseBackColor; // Stelt de Button.BackColor in
+            this.Invalidate();
+        }
+    }
+
+    public RoundedButton()
     {
         // Standaard kleur
-        this.BackColor = backColor;
-        this.ForeColor = foreColor;
+        this.BackColor = _baseBackColor;
 
         // Geen standaard WinForms border
         this.FlatStyle = FlatStyle.Flat;
@@ -19,12 +29,14 @@ public class RoundedButton : Button
         // Hover events
         this.MouseEnter += (s, e) =>
         {
-            this.BackColor = ControlPaint.Light(backColor); // Lichter rood bij hover
+            // Gebruik de private field _baseBackColor om de lichtere kleur te berekenen
+            this.BackColor = ControlPaint.Light(_baseBackColor);
             this.Invalidate();
         };
         this.MouseLeave += (s, e) =>
         {
-            this.BackColor = backColor;
+            // Ga terug naar de ingestelde basiskleur
+            this.BackColor = _baseBackColor;
             this.Invalidate();
         };
     }
