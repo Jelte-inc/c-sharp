@@ -1,8 +1,8 @@
 namespace cheraasje_epp
 {
-    public partial class Home : UserControl
+    public partial class Branch : UserControl
     {
-        public Home()
+        public Branch()
         {
             InitializeComponent();
         }

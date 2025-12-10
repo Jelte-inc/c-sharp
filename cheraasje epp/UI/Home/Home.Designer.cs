@@ -3,7 +3,7 @@ using cheraasje_epp.Models;
 
 namespace cheraasje_epp
 {
-    partial class Home
+    partial class Branch
     {
         /// <summary>
         ///  Required designer variable.
