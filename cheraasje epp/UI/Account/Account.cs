@@ -1,4 +1,6 @@
-﻿using System;
+﻿using cheraasje_epp.Data;
+using cheraasje_epp.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,11 @@ namespace cheraasje_epp.UI.Account
         public Account()
         {
             InitializeComponent();
+            var dataManager = new DataManager();
+            int userId = Session.UserId;
+            User user = dataManager.GetUser(userId);
+            userNameLabel.Text = user.Name;
+            UserIdLabel.Text = user.Id.ToString();
         }
     }
 }

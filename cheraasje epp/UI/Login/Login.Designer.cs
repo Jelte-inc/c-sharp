@@ -1,4 +1,6 @@
-﻿namespace cheraasje_epp
+﻿using cheraasje_epp.UI.Controls;
+
+namespace cheraasje_epp
 {
     partial class Login
     {

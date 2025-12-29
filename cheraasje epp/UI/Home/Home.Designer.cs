@@ -96,7 +96,7 @@ namespace cheraasje_epp
             accountButton.Size = new Size(258, 42);
             accountButton.TabIndex = 4;
             accountButton.Text = "Your Account";
-            branchButton.Click += LabelClick;
+            accountButton.Click += LabelClick;
             accountButton.MouseEnter += LabelMouseEnter;
             accountButton.MouseLeave += LabelMouseLeave;
             // 
