@@ -37,7 +37,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.LoginPageBackGround;
+            pictureBox1.Image = Properties.Resources.LoginPageBackground;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(924, 532);

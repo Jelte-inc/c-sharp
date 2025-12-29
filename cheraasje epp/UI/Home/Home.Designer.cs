@@ -38,7 +38,7 @@
             // pictureBox1
             // 
             pictureBox1.AccessibleName = "HomePageBackground";
-            pictureBox1.Image = Properties.Resources.Homepage_Background;
+            pictureBox1.Image = Properties.Resources.HomepageBackground;
             pictureBox1.Location = new Point(-1, -1);
             pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
