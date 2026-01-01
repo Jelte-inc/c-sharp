@@ -31,7 +31,6 @@ namespace cheraasje_epp
         /// </summary>
         private void InitializeComponent()
         {
-            var dataManager = new DataManager();
             pictureBox1 = new PictureBox();
             branchButton = new Label();
             fleetButton = new Label();
@@ -80,7 +79,7 @@ namespace cheraasje_epp
             fleetButton.Size = new Size(218, 42);
             fleetButton.TabIndex = 3;
             fleetButton.Text = "Your Fleet";
-            branchButton.Click += LabelClick;
+            fleetButton.Click += fleetButton_Click;
             fleetButton.MouseEnter += LabelMouseEnter;
             fleetButton.MouseLeave += LabelMouseLeave;
             // 
@@ -96,26 +95,18 @@ namespace cheraasje_epp
             accountButton.Size = new Size(258, 42);
             accountButton.TabIndex = 4;
             accountButton.Text = "Your Account";
-            branchButton.Click += LabelClick;
             accountButton.MouseEnter += LabelMouseEnter;
             accountButton.MouseLeave += LabelMouseLeave;
             // 
             // shortUserInfoLabel
             // 
-            int userId = Session.UserId;
-            User user = dataManager.GetUser(userId);
-            string branchName = dataManager.GetBranchById(user.BranchId).Name;
-            string shortUserInfo = user.Name + " at " + branchName;
-            int x = 636 - shortUserInfoLabel.Width + 50;
-            int y = 18;
             shortUserInfoLabel.AutoSize = true;
-            shortUserInfoLabel.Font = new Font("Consolas", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            shortUserInfoLabel.Name = "shortUserInfoLabel";
-            shortUserInfoLabel.Location = new Point(x, y);
-            shortUserInfoLabel.Size = new Size(197, 23);
-            shortUserInfoLabel.TabIndex = 5;
-            shortUserInfoLabel.Text = shortUserInfo;
             shortUserInfoLabel.BackColor = Color.White;
+            shortUserInfoLabel.Font = new Font("Consolas", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            shortUserInfoLabel.Location = new Point(636, 18);
+            shortUserInfoLabel.Name = "shortUserInfoLabel";
+            shortUserInfoLabel.Size = new Size(0, 23);
+            shortUserInfoLabel.TabIndex = 5;
             // 
             // Home
             // 
