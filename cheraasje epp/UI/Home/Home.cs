@@ -1,4 +1,8 @@
 using cheraasje_epp.UI;
+using cheraasje_epp.UI.Fleet;
+using System.Security.Principal;
+
+using cheraasje_epp.UI;
 using cheraasje_epp.UI.Account;
 
 namespace cheraasje_epp
@@ -6,6 +10,7 @@ namespace cheraasje_epp
     public partial class Home : UserControl, IPage
     {
         public event Action<UserControl> PageChangeRequested;
+
         public Home()
         {
             InitializeComponent();
@@ -31,5 +36,9 @@ namespace cheraasje_epp
                 button.ForeColor = Color.Black;
         }
 
+        private void fleetButton_Click(object sender, EventArgs e)
+        {
+            PageChangeRequested?.Invoke(new Fleet());
+        }
     }
 }

@@ -63,6 +63,17 @@ namespace cheraasje_epp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FleetPageBackground {
+            get {
+                object obj = ResourceManager.GetObject("FleetPageBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Homepage_Background {
         internal static System.Drawing.Bitmap HomepageBackground {
             get {
                 object obj = ResourceManager.GetObject("HomepageBackground", resourceCulture);
@@ -83,8 +94,10 @@ namespace cheraasje_epp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LoginPageBackground {
         internal static System.Drawing.Bitmap UserInfoPageBackground {
             get {
+                object obj = ResourceManager.GetObject("LoginPageBackground", resourceCulture);
                 object obj = ResourceManager.GetObject("UserInfoPageBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
