@@ -1,4 +1,6 @@
-﻿namespace cheraasje_epp.UI.Fleet
+﻿using cheraasje_epp.UI.Controls;
+
+namespace cheraasje_epp.UI.Fleet
 {
     partial class Fleet
     {
@@ -37,7 +39,7 @@
             colorFilterButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             doorFilterButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             removeFiltersButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            resultsList = new FlowLayoutPanel();
+            carList = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -85,7 +87,6 @@
             // addNewCarButton
             // 
             addNewCarButton.BackColor = Color.FromArgb(255, 87, 87);
-            addNewCarButton.BaseBackColor = Color.FromArgb(255, 87, 87);
             addNewCarButton.FlatAppearance.BorderSize = 0;
             addNewCarButton.FlatStyle = FlatStyle.Flat;
             addNewCarButton.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -100,7 +101,6 @@
             // brandFilterButton
             // 
             brandFilterButton.BackColor = Color.FromArgb(255, 87, 87);
-            brandFilterButton.BaseBackColor = Color.Empty;
             brandFilterButton.FlatAppearance.BorderSize = 0;
             brandFilterButton.FlatStyle = FlatStyle.Flat;
             brandFilterButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -110,11 +110,12 @@
             brandFilterButton.TabIndex = 4;
             brandFilterButton.Text = "Brand";
             brandFilterButton.UseVisualStyleBackColor = false;
+            brandFilterButton.BackColor = Color.FromArgb(255, 87, 87);
+            brandFilterButton.ForeColor = Color.White;
             // 
             // priceFilterButton
             // 
             priceFilterButton.BackColor = Color.FromArgb(255, 87, 87);
-            priceFilterButton.BaseBackColor = Color.Empty;
             priceFilterButton.FlatAppearance.BorderSize = 0;
             priceFilterButton.FlatStyle = FlatStyle.Flat;
             priceFilterButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -124,11 +125,12 @@
             priceFilterButton.TabIndex = 5;
             priceFilterButton.Text = "Price";
             priceFilterButton.UseVisualStyleBackColor = false;
+            priceFilterButton.BackColor = Color.FromArgb(255, 87, 87);
+            priceFilterButton.ForeColor = Color.White;
             // 
             // colorFilterButton
             // 
             colorFilterButton.BackColor = Color.FromArgb(255, 87, 87);
-            colorFilterButton.BaseBackColor = Color.Empty;
             colorFilterButton.FlatAppearance.BorderSize = 0;
             colorFilterButton.FlatStyle = FlatStyle.Flat;
             colorFilterButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -138,11 +140,12 @@
             colorFilterButton.TabIndex = 6;
             colorFilterButton.Text = "Color";
             colorFilterButton.UseVisualStyleBackColor = false;
+            colorFilterButton.BackColor = Color.FromArgb(255, 87, 87);
+            colorFilterButton.ForeColor = Color.White;
             // 
             // doorFilterButton
             // 
             doorFilterButton.BackColor = Color.FromArgb(255, 87, 87);
-            doorFilterButton.BaseBackColor = Color.Empty;
             doorFilterButton.FlatAppearance.BorderSize = 0;
             doorFilterButton.FlatStyle = FlatStyle.Flat;
             doorFilterButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -152,15 +155,15 @@
             doorFilterButton.TabIndex = 7;
             doorFilterButton.Text = "Doors";
             doorFilterButton.UseVisualStyleBackColor = false;
+            doorFilterButton.BackColor = Color.FromArgb(255, 87, 87);
+            doorFilterButton.ForeColor = Color.White;
             // 
             // removeFiltersButton
             // 
             removeFiltersButton.BackColor = Color.Silver;
-            removeFiltersButton.BaseBackColor = Color.Empty;
             removeFiltersButton.FlatAppearance.BorderSize = 0;
             removeFiltersButton.FlatStyle = FlatStyle.Flat;
             removeFiltersButton.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            removeFiltersButton.ForeColor = Color.White;
             removeFiltersButton.Location = new Point(728, 134);
             removeFiltersButton.Name = "removeFiltersButton";
             removeFiltersButton.Size = new Size(173, 41);
@@ -168,15 +171,15 @@
             removeFiltersButton.Text = "X Remove filters";
             removeFiltersButton.UseVisualStyleBackColor = false;
             // 
-            // resultsList
+            // carList
             // 
-            resultsList.Location = new Point(22, 197);
-            resultsList.Name = "resultsList";
-            resultsList.Size = new Size(888, 331);
-            resultsList.TabIndex = 9;
-            resultsList.FlowDirection = FlowDirection.TopDown;
-            resultsList.WrapContents = false;
-            resultsList.AutoScroll = true;
+            carList.Location = new Point(22, 197);
+            carList.Name = "carList";
+            carList.Size = new Size(888, 331);
+            carList.TabIndex = 9;
+            carList.FlowDirection = FlowDirection.TopDown;
+            carList.WrapContents = false;
+            carList.AutoScroll = true;
 
 
             // 
@@ -184,7 +187,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(resultsList);
+            Controls.Add(carList);
             Controls.Add(removeFiltersButton);
             Controls.Add(doorFilterButton);
             Controls.Add(colorFilterButton);
@@ -212,6 +215,6 @@
         private Cheraasje.Epp.UI.Controls.RoundedButton colorFilterButton;
         private Cheraasje.Epp.UI.Controls.RoundedButton doorFilterButton;
         private Cheraasje.Epp.UI.Controls.RoundedButton removeFiltersButton;
-        private FlowLayoutPanel resultsList;
+        private FlowLayoutPanel carList;
     }
 }

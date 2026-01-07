@@ -82,7 +82,7 @@ namespace cheraasje_epp
             loginButton.TabIndex = 3;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = true;
-            loginButton.BaseBackColor = Color.Red;
+            loginButton.BackColor = Color.Red;
             loginButton.ForeColor = Color.White;
             loginButton.Click += loginButton_Click;
             // 

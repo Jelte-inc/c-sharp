@@ -1,14 +1,5 @@
 ﻿using cheraasje_epp.Data;
 using cheraasje_epp.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace cheraasje_epp.UI.Fleet
 {
@@ -23,12 +14,58 @@ namespace cheraasje_epp.UI.Fleet
             int userId = Session.UserId;
             User user = dataManager.GetUser(userId);
             string branchName = dataManager.GetBranchById(user.BranchId).Name;
-            BranchLabel.Text = branchName;
+            branchLabel.Text = branchName;
+            searchBox.TextChanged += SearchBox_TextChanged;
+            InitialLoadCars();
         }
 
-
-        private void AddNewButton_Click(object sender, EventArgs e)
+        private void InitialLoadCars()
         {
+            carList.Controls.Clear();
+            int userId = Session.UserId;
+            User user = dataManager.GetUser(userId);
+            Dictionary<string, dynamic> filters = new Dictionary<string, dynamic>();
+            filters["BranchId"] = user.BranchId;
+            List<Car> cars = dataManager.GetCars(filters);
+            foreach (Car car in cars)
+            {
+                CarResultItem carResultItem = new CarResultItem(car);
+                carList.Controls.Add(carResultItem);
+            }
+        }
+
+        private void SearchBox_TextChanged(object sender, EventArgs e)
+        {
+            {
+                int userId = Session.UserId;
+                User user = dataManager.GetUser(userId);
+                Dictionary<string, dynamic> filters = new Dictionary<string, dynamic>();
+                filters["BranchId"] = user.BranchId;
+
+                string searchText = searchBox.Text;
+
+                if (searchText == searchBox.PlaceholderText)
+                    searchText = string.Empty;
+                List<Car> cars;
+                if (searchText == string.Empty)
+                {
+                    cars = dataManager.GetCars(filters);
+                }
+                else
+                {
+                    filters["Brand"] = searchText;
+                    cars = dataManager.GetCars(filters);
+                }
+
+
+                carList.Controls.Clear();
+                foreach (Car car in cars)
+                {
+                    CarResultItem carResultItem = new CarResultItem(car);
+                    carList.Controls.Add(carResultItem);
+                }
+            }
+            ;
         }
     }
 }

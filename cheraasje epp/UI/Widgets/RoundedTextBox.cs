@@ -1,4 +1,5 @@
 ﻿namespace cheraasje_epp.UI.Controls;
+
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -11,6 +12,8 @@ public class RoundedTextBox : UserControl
     public Color BorderColor { get; set; } = Color.Red;
     public int BorderRadius { get; set; } = 15;
     public int BorderSize { get; set; } = 2;
+
+    public new event EventHandler TextChanged;
 
     private Color fillColor = Color.White;
 
@@ -133,11 +136,13 @@ public class RoundedTextBox : UserControl
         if (DesignMode)
             return;
 
-        // Masker alleen aan bij echte invoer
         textBox.UseSystemPasswordChar =
             usePasswordMasking &&
             !string.IsNullOrEmpty(textBox.Text) &&
             textBox.Text != placeholderText;
+
+        // Event doorgeven naar buiten
+        TextChanged?.Invoke(this, e);
     }
 
 

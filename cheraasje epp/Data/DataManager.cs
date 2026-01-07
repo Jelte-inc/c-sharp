@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using cheraasje_epp.Models;
 using System.Data.SQLite;
-using System.IO;
-using cheraasje_epp.Models;
+
 
 namespace cheraasje_epp.Data
 {
@@ -79,13 +74,75 @@ namespace cheraasje_epp.Data
                     return new User
                     {
                         Id = Convert.ToInt32(reader["Id"]),
-                        Name = reader["Name"].ToString(),
-                        BranchId = Convert.ToInt32(reader["BranchId"]) 
+                        Name = reader["Name"].ToString()!,
+                        BranchId = Convert.ToInt32(reader["BranchId"])
                     };
                 }
             }
             // Todo: better error handling
             throw new Exception("User not found for id: " + id);
         }
+
+        public List<Car> GetCars(Dictionary<string, object> filters)
+        {
+            var cars = new List<Car>();
+            var whereClauses = new List<string>();
+
+            using var connection = new SQLiteConnection(connectionString);
+            using var command = new SQLiteCommand();
+            command.Connection = connection;
+
+            whereClauses.Add("BranchId = @BranchId");
+            command.Parameters.AddWithValue("@BranchId", filters["BranchId"]);
+
+            if (filters.TryGetValue("Brand", out var brand))
+            {
+                whereClauses.Add("Brand = @Brand");
+                command.Parameters.AddWithValue("@Brand", brand);
+            }
+
+            if (filters.TryGetValue("Model", out var model))
+            {
+                whereClauses.Add("Model = @Model");
+                command.Parameters.AddWithValue("@Model", model);
+            }
+
+            if (filters.TryGetValue("Color", out var color))
+            {
+                whereClauses.Add("Color = @Color");
+                command.Parameters.AddWithValue("@Color", color);
+            }
+
+            if (filters.TryGetValue("Price", out var price))
+            {
+                whereClauses.Add("Price <= @Price");
+                command.Parameters.AddWithValue("@Price", price);
+            }
+
+            command.CommandText =
+                "SELECT * FROM Cars WHERE " +
+                string.Join(" AND ", whereClauses);
+
+            connection.Open();
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                cars.Add(new Car
+                {
+                    Brand = reader["Brand"].ToString()!,
+                    Model = reader["Model"].ToString()!,
+                    Color = reader["Color"].ToString()!,
+                    AmountOfDoors = Convert.ToInt32(reader["Doors"]),
+                    Price = Convert.ToDouble(reader["Price"]),
+                    BuildYear = Convert.ToInt32(reader["BuildYear"]),
+                    Mileage = Convert.ToDouble(reader["Mileage"])
+                });
+            }
+
+            return cars;
+        }
+
     }
 }
+
