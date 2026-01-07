@@ -12,8 +12,9 @@ using System.Windows.Forms;
 
 namespace cheraasje_epp.UI.Account
 {
-    public partial class Account : UserControl
+    public partial class Account : UserControl, IPage
     {
+        public event Action<UserControl> PageChangeRequested;
         public Account()
         {
             InitializeComponent();
@@ -22,6 +23,12 @@ namespace cheraasje_epp.UI.Account
             User user = dataManager.GetUser(userId);
             userNameLabel.Text = user.Name;
             UserIdLabel.Text = user.Id.ToString();
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            Session.End();
+            PageChangeRequested?.Invoke(new Login());
         }
     }
 }

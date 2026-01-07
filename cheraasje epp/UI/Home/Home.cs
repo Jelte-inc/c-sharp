@@ -40,5 +40,10 @@ namespace cheraasje_epp
         {
             PageChangeRequested?.Invoke(new Fleet());
         }
+
+        private void accountButton_Click(object sender, EventArgs e)
+        {
+            PageChangeRequested?.Invoke(new Account());
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using cheraasje_epp.Data;
+﻿using Cheraasje.Epp.UI.Controls;
+using cheraasje_epp.Data;
 using cheraasje_epp.Models;
 
 namespace cheraasje_epp.UI.Account
@@ -36,8 +37,8 @@ namespace cheraasje_epp.UI.Account
             UserNameTitleLabel = new Label();
             UserIdTitleLabel = new Label();
             UserIdLabel = new Label();
-            ChangePasswordButton = new cheraasje_epp.UI.Controls.RoundedButton();
-            LogOutButton = new cheraasje_epp.UI.Controls.RoundedButton();
+            ChangePasswordButton = new RoundedButton();
+            LogOutButton = new RoundedButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -97,31 +98,32 @@ namespace cheraasje_epp.UI.Account
             // 
             // ChangePasswordButton
             // 
-            ChangePasswordButton.BaseBackColor = Color.Empty;
+            ChangePasswordButton.BackColor = Color.FromArgb(255, 87, 87);
             ChangePasswordButton.FlatAppearance.BorderSize = 0;
+            ChangePasswordButton.FlatStyle = FlatStyle.Flat;
             ChangePasswordButton.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ChangePasswordButton.ForeColor = Color.White;
             ChangePasswordButton.Location = new Point(43, 362);
             ChangePasswordButton.Name = "ChangePasswordButton";
             ChangePasswordButton.Size = new Size(401, 35);
             ChangePasswordButton.TabIndex = 5;
             ChangePasswordButton.Text = "change password";
             ChangePasswordButton.UseVisualStyleBackColor = false;
-            ChangePasswordButton.BackColor = Color.FromArgb(255, 87, 87);
-            ChangePasswordButton.ForeColor = Color.White;
             // 
             // LogOutButton
             // 
-            LogOutButton.BaseBackColor = Color.Empty;
+            LogOutButton.BackColor = Color.FromArgb(204, 0, 0);
             LogOutButton.FlatAppearance.BorderSize = 0;
+            LogOutButton.FlatStyle = FlatStyle.Flat;
             LogOutButton.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LogOutButton.ForeColor = Color.White;
             LogOutButton.Location = new Point(43, 407);
             LogOutButton.Name = "LogOutButton";
             LogOutButton.Size = new Size(401, 35);
             LogOutButton.TabIndex = 6;
             LogOutButton.Text = "Log out";
             LogOutButton.UseVisualStyleBackColor = false;
-            LogOutButton.BackColor = Color.FromArgb(204, 0, 0);
-            LogOutButton.ForeColor = Color.White;
+            LogOutButton.Click += LogOutButton_Click;
             // 
             // Account
             // 
@@ -147,7 +149,7 @@ namespace cheraasje_epp.UI.Account
         private Label UserNameTitleLabel;
         private Label UserIdTitleLabel;
         private Label UserIdLabel;
-        private Controls.RoundedButton ChangePasswordButton;
-        private Controls.RoundedButton LogOutButton;
+        private RoundedButton ChangePasswordButton;
+        private RoundedButton LogOutButton;
     }
 }
