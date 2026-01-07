@@ -1,4 +1,7 @@
-﻿namespace cheraasje_epp
+﻿using Cheraasje.Epp.UI.Controls;
+using cheraasje_epp.UI.Controls;
+
+namespace cheraasje_epp
 {
     partial class Login
     {
@@ -37,7 +40,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.LoginPageBackGround;
+            pictureBox1.Image = Properties.Resources.LoginPageBackground;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(924, 532);
@@ -52,24 +55,11 @@
             idBox.Size = new Size(250, 35);
             idBox.TabIndex = 0;
             idBox.UseSystemPasswordChar = false;
-
+            idBox.BackColor = Color.White;
             idBox.Enter += (s, e) =>
-            {
-                if (idBox.Text == "Employee ID...")
-                {
-                    idBox.Text = "";
-                    idBox.ForeColor = Color.Black;
-                }
-            };
-
-            idBox.Leave += (s, e) =>
-            {
-                if (string.IsNullOrWhiteSpace(idBox.Text))
-                {
-                    idBox.Text = "Employee ID...";
-                    idBox.ForeColor = Color.Gray;
-                }
-            };
+            idBox.ForeColor = Color.Black;
+            idBox.PlaceholderText = "User ID...";
+            passwordBox.usePasswordMasking = true;
             // 
             // passwordBox
             // 
@@ -77,27 +67,11 @@
             passwordBox.Name = "passwordBox";
             passwordBox.Size = new Size(250, 35);
             passwordBox.TabIndex = 1;
+            passwordBox.BackColor = Color.White;
             passwordBox.UseSystemPasswordChar = false;
-            passwordBox.Text = "Password...";
+            passwordBox.PlaceholderText = "Password...";
             passwordBox.Enter += (s, e) =>
-            {
-                if (passwordBox.Text == "Password...")
-                {
-                    passwordBox.Text = "";
-                    passwordBox.ForeColor = Color.Black;
-                    passwordBox.UseSystemPasswordChar = true;
-                }
-            };
-
-            passwordBox.Leave += (s, e) =>
-            {
-                if (string.IsNullOrWhiteSpace(passwordBox.Text))
-                {
-                    passwordBox.Text = "Password...";
-                    passwordBox.ForeColor = Color.Gray;
-                    passwordBox.UseSystemPasswordChar = false;
-                }
-            };
+            passwordBox.ForeColor = Color.Black;
             // 
             // loginButton
             // 
@@ -108,7 +82,7 @@
             loginButton.TabIndex = 3;
             loginButton.Text = "Login";
             loginButton.UseVisualStyleBackColor = true;
-            loginButton.BaseBackColor = Color.Red;
+            loginButton.BackColor = Color.Red;
             loginButton.ForeColor = Color.White;
             loginButton.Click += loginButton_Click;
             // 
