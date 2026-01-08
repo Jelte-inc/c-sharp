@@ -38,7 +38,7 @@ namespace cheraasje_epp.Data
             }
             return null; // login mislukt
         }
-        public Branch GetBranchById(int id)
+        public Models.Branch GetBranchById(int id)
         {
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
@@ -50,7 +50,7 @@ namespace cheraasje_epp.Data
                 SQLiteDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    return new Branch
+                    return new Models.Branch
                     {
                         Id = Convert.ToInt32(reader["Id"]),
                         Name = reader["Name"].ToString(),
