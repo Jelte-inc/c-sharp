@@ -3,7 +3,7 @@ using cheraasje_epp.Models;
 
 namespace cheraasje_epp
 {
-    partial class Branch
+    partial class Home
     {
         /// <summary>
         ///  Required designer variable.
@@ -79,7 +79,6 @@ namespace cheraasje_epp
             fleetButton.Size = new Size(218, 42);
             fleetButton.TabIndex = 3;
             fleetButton.Text = "Your Fleet";
-            fleetButton.Click += fleetButton_Click;
             fleetButton.MouseEnter += LabelMouseEnter;
             fleetButton.MouseLeave += LabelMouseLeave;
             // 
