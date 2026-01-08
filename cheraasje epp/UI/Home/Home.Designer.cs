@@ -63,7 +63,7 @@ namespace cheraasje_epp
             branchButton.Size = new Size(239, 43);
             branchButton.TabIndex = 2;
             branchButton.Text = "Your Branch";
-            branchButton.Click += LabelClick;
+            branchButton.Click += branchButton_Click;
             branchButton.MouseEnter += LabelMouseEnter;
             branchButton.MouseLeave += LabelMouseLeave;
             // 

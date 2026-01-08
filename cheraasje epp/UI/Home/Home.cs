@@ -1,4 +1,5 @@
 using cheraasje_epp.UI;
+using cheraasje_epp.UI.Branch;
 using cheraasje_epp.UI.Fleet;
 using System.Security.Principal;
 
@@ -11,12 +12,6 @@ namespace cheraasje_epp
         public Home()
         {
             InitializeComponent();
-        }
-
-        private void LabelClick(object sender, EventArgs e)
-        {
-            // Todo: implement pageswitching
-            //if (sender is Label button) 
         }
 
         // Change color on hover
@@ -35,6 +30,11 @@ namespace cheraasje_epp
         private void fleetButton_Click(object sender, EventArgs e)
         {
             PageChangeRequested?.Invoke(new Fleet());
+        }
+
+        private void branchButton_Click(object sender, EventArgs e)
+        {
+            PageChangeRequested?.Invoke(new Branch());
         }
     }
 }
