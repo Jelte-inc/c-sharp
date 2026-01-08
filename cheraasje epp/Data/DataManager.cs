@@ -87,30 +87,32 @@ namespace cheraasje_epp.Data
         {
             var cars = new List<Car>();
             var whereClauses = new List<string>();
-
+            int userId = Session.UserId;
+            User user = GetUser(userId);
+            int branchId = user.BranchId;
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand();
             command.Connection = connection;
 
             whereClauses.Add("BranchId = @BranchId");
-            command.Parameters.AddWithValue("@BranchId", filters["BranchId"]);
+            command.Parameters.AddWithValue("@BranchId", branchId);
 
             if (filters.TryGetValue("Brand", out var brand))
             {
-                whereClauses.Add("Brand = @Brand");
-                command.Parameters.AddWithValue("@Brand", brand);
+                whereClauses.Add("Brand LIKE @Brand");
+                command.Parameters.AddWithValue("@Brand", $"%{brand}%");
             }
 
             if (filters.TryGetValue("Model", out var model))
             {
-                whereClauses.Add("Model = @Model");
-                command.Parameters.AddWithValue("@Model", model);
+                whereClauses.Add("Model LIKE @Model");
+                command.Parameters.AddWithValue("@Model", $"%{model}%");
             }
 
             if (filters.TryGetValue("Color", out var color))
             {
-                whereClauses.Add("Color = @Color");
-                command.Parameters.AddWithValue("@Color", color);
+                whereClauses.Add("Color LIKE @Color");
+                command.Parameters.AddWithValue("@Color", $"%{color}%");
             }
 
             if (filters.TryGetValue("Price", out var price))
@@ -141,6 +143,31 @@ namespace cheraasje_epp.Data
             }
 
             return cars;
+        }
+
+        public List<string> getCarAttributes(string filter)
+        {
+            List<string> carAttributes = new List<string>();
+
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                int userId = Session.UserId;
+                User user = GetUser(userId);
+                int branchId = user.BranchId;
+                conn.Open();
+                string query = $@"
+                SELECT DISTINCT {filter}
+                FROM Cars
+                WHERE BranchId = @branchId";
+                SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                cmd.Parameters.AddWithValue("@branchId", branchId);
+                SQLiteDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    carAttributes.Add(reader["Brand"].ToString()!);
+                }
+            }
+            return carAttributes;
         }
 
     }
