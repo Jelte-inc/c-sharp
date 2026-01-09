@@ -1,4 +1,4 @@
-﻿using cheraasje_epp.Models;
+﻿using cheraasje_epp.Models.Entities;
 
 namespace cheraasje_epp.UI.Fleet
 {

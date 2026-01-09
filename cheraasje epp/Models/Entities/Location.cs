@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace cheraasje_epp.Models
+﻿namespace cheraasje_epp.Models.Entities
 {
     internal class Branch
     {
@@ -15,8 +9,12 @@ namespace cheraasje_epp.Models
         public string Owner { get; set; }
         public List<Car> Cars { get; set; } = new();
 
-        public double AveragePrice => Cars.Any() ? Cars.Average(a => a.Price) : 0;
-        public double TotalValue => Cars.Sum(a => a.Price);
+        public decimal AveragePrice =>
+            Cars.Any() ? Cars.Average(a => a.Price) : 0m;
+
+        public decimal TotalValue =>
+            Cars.Sum(a => a.Price);
+
 
         public override string ToString() => $"{Name} ({Location})";
     }
