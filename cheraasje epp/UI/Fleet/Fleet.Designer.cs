@@ -126,6 +126,7 @@ namespace cheraasje_epp.UI.Fleet
             priceFilterButton.TabIndex = 5;
             priceFilterButton.Text = "Price";
             priceFilterButton.UseVisualStyleBackColor = false;
+            priceFilterButton.Click += priceFilterButton_Click;
             // 
             // colorFilterButton
             // 
@@ -140,6 +141,7 @@ namespace cheraasje_epp.UI.Fleet
             colorFilterButton.TabIndex = 6;
             colorFilterButton.Text = "Color";
             colorFilterButton.UseVisualStyleBackColor = false;
+            colorFilterButton.Click += colorFilterButton_Click;
             // 
             // doorFilterButton
             // 
@@ -154,6 +156,7 @@ namespace cheraasje_epp.UI.Fleet
             doorFilterButton.TabIndex = 7;
             doorFilterButton.Text = "Doors";
             doorFilterButton.UseVisualStyleBackColor = false;
+            doorFilterButton.Click += doorFilterButton_Click;
             // 
             // removeFiltersButton
             // 
@@ -168,6 +171,7 @@ namespace cheraasje_epp.UI.Fleet
             removeFiltersButton.TabIndex = 8;
             removeFiltersButton.Text = "X Remove filters";
             removeFiltersButton.UseVisualStyleBackColor = false;
+            removeFiltersButton.Click += removeFiltersButton_Click;
             // 
             // carList
             // 

@@ -1,4 +1,5 @@
-﻿using cheraasje_epp.Models;
+﻿using cheraasje_epp.Models.Entities;
+using cheraasje_epp.Models.Filters;
 using System.Data.SQLite;
 
 
@@ -83,47 +84,56 @@ namespace cheraasje_epp.Data
             throw new Exception("User not found for id: " + id);
         }
 
-        public List<Car> GetCars(Dictionary<string, object> filters)
+        public List<Car> GetCars(CarFilter filter)
         {
             var cars = new List<Car>();
             var whereClauses = new List<string>();
+
             int userId = Session.UserId;
             User user = GetUser(userId);
-            int branchId = user.BranchId;
+
             using var connection = new SQLiteConnection(connectionString);
             using var command = new SQLiteCommand();
             command.Connection = connection;
 
             whereClauses.Add("BranchId = @BranchId");
-            command.Parameters.AddWithValue("@BranchId", branchId);
+            command.Parameters.AddWithValue("@BranchId", user.BranchId);
 
-            if (filters.TryGetValue("Brand", out var brand))
+            if (!string.IsNullOrWhiteSpace(filter.Brand))
             {
                 whereClauses.Add("Brand LIKE @Brand");
-                command.Parameters.AddWithValue("@Brand", $"%{brand}%");
+                command.Parameters.AddWithValue("@Brand", $"%{filter.Brand}%");
             }
 
-            if (filters.TryGetValue("Model", out var model))
+            if (!string.IsNullOrWhiteSpace(filter.Model))
             {
                 whereClauses.Add("Model LIKE @Model");
-                command.Parameters.AddWithValue("@Model", $"%{model}%");
+                command.Parameters.AddWithValue("@Model", $"%{filter.Model}%");
             }
 
-            if (filters.TryGetValue("Color", out var color))
+            if (!string.IsNullOrWhiteSpace(filter.Color))
             {
                 whereClauses.Add("Color LIKE @Color");
-                command.Parameters.AddWithValue("@Color", $"%{color}%");
+                command.Parameters.AddWithValue("@Color", $"%{filter.Color}%");
             }
-
-            if (filters.TryGetValue("Price", out var price))
+            if (!string.IsNullOrEmpty(filter.AmountOfDoors.ToString()))
             {
-                whereClauses.Add("Price <= @Price");
-                command.Parameters.AddWithValue("@Price", price);
+                whereClauses.Add("Doors = @AmountOfDoors");
+                command.Parameters.AddWithValue("@AmountOfDoors", filter.AmountOfDoors);
             }
 
-            command.CommandText =
-                "SELECT * FROM Cars WHERE " +
-                string.Join(" AND ", whereClauses);
+            if (filter.PriceRange != null)
+            {
+                whereClauses.Add("Price BETWEEN @MinPrice AND @MaxPrice");
+                command.Parameters.AddWithValue("@MinPrice", filter.PriceRange.Min.Amount);
+                command.Parameters.AddWithValue("@MaxPrice", filter.PriceRange.Max.Amount);
+            }
+
+            command.CommandText = $@"
+        SELECT *
+        FROM Cars
+        WHERE {string.Join(" AND ", whereClauses)};
+    ";
 
             connection.Open();
             using var reader = command.ExecuteReader();
@@ -136,14 +146,16 @@ namespace cheraasje_epp.Data
                     Model = reader["Model"].ToString()!,
                     Color = reader["Color"].ToString()!,
                     AmountOfDoors = Convert.ToInt32(reader["Doors"]),
-                    Price = Convert.ToDouble(reader["Price"]),
+                    Price = Convert.ToDecimal(reader["Price"]),
                     BuildYear = Convert.ToInt32(reader["BuildYear"]),
-                    Mileage = Convert.ToDouble(reader["Mileage"])
+                    Mileage = Convert.ToDecimal(reader["Mileage"])
                 });
             }
 
             return cars;
         }
+
+
 
         public List<string> getCarAttributes(string filter)
         {
@@ -162,9 +174,30 @@ namespace cheraasje_epp.Data
                 SQLiteCommand cmd = new SQLiteCommand(query, conn);
                 cmd.Parameters.AddWithValue("@branchId", branchId);
                 SQLiteDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                if (filter.ToLower() == "price")
                 {
-                    carAttributes.Add(reader["Brand"].ToString()!);
+                    var prices = new List<decimal>();
+                    while (reader.Read())
+                    {
+                        prices.Add(Convert.ToDecimal(reader["Price"]));
+                    }
+                    int step = 10000;
+
+                    var ranges = prices
+                        .Select(p => Math.Floor(p / step) * step)
+                        .Distinct()
+                        .OrderBy(p => p)
+                        .Select(min => $"{min}-{min + step - 1}")
+                        .ToList();
+                    carAttributes = ranges;
+
+                }
+                else
+                {
+                    while (reader.Read())
+                    {
+                        carAttributes.Add(reader[filter].ToString()!);
+                    }
                 }
             }
             return carAttributes;
