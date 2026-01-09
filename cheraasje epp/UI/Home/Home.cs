@@ -3,6 +3,7 @@ using cheraasje_epp.UI.Branch;
 
 using cheraasje_epp.UI;
 using cheraasje_epp.UI.Account;
+using cheraasje_epp.UI.Fleet;
 
 namespace cheraasje_epp
 {
@@ -42,6 +43,10 @@ namespace cheraasje_epp
         private void accountButton_Click(object sender, EventArgs e)
         {
             PageChangeRequested?.Invoke(new Account());
+        }
+        private void fleetButton_Click(Object sender, EventArgs e)
+        {
+            PageChangeRequested?.Invoke(new Fleet());
         }
     }
 }

@@ -81,6 +81,7 @@ namespace cheraasje_epp
             fleetButton.Text = "Your Fleet";
             fleetButton.MouseEnter += LabelMouseEnter;
             fleetButton.MouseLeave += LabelMouseLeave;
+            fleetButton.Click += fleetButton_Click;
             // 
             // accountButton
             // 
