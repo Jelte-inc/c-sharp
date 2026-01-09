@@ -17,7 +17,6 @@ namespace cheraasje_epp.UI
         {
             InitializeComponent();
             var loginPage = new Login();
-            loginPage.PageChangeRequested += LoadPage;
             LoadPage(loginPage);
         }
         public void LoadPage(UserControl page)

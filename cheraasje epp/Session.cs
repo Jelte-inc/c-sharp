@@ -1,6 +1,10 @@
-﻿public static class Session
+﻿using cheraasje_epp.Models.Filters;
+
+public static class Session
 {
     public static int UserId { get; private set; }
+
+    public static CarFilter? CarFilter { get; set; }
 
     public static void Start(int userId)
     {
