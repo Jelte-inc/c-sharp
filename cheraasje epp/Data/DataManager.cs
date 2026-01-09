@@ -54,7 +54,12 @@ namespace cheraasje_epp.Data
                     return new Branch
                     {
                         Id = Convert.ToInt32(reader["Id"]),
-                        Name = reader["Name"].ToString()
+                        Name = reader["Name"].ToString(),
+                        Location = reader["Location"].ToString(),
+                        Adress = reader["Adress"].ToString(),
+                        PhoneNumber = reader["PhoneNumber"].ToString(),
+                        PostalCode = reader["PostalCode"].ToString(),
+                        Owner = reader["OwnerId"].ToString()
                     };
                 }
             }
@@ -153,6 +158,37 @@ namespace cheraasje_epp.Data
             }
 
             return cars;
+        }
+        public List<Time> GetTimes(int id)
+        {
+            var branch = GetBranchById(id);
+            var branchId = branch.Id;
+            var times = new List<Time>();
+
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT * FROM OpeningTimes WHERE LocationId = @branchId";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@branchId", branchId);
+
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            times.Add(new Time
+                            {
+                                Day = Convert.ToInt32(reader["DayOfWeek"]),
+                                OpenTime = reader["OpensAt"].ToString()!,
+                                CloseTime = reader["ClosesAt"].ToString()!
+                            });
+                        }
+                    }
+                }
+            }
+            return times;
         }
 
 

@@ -63,7 +63,7 @@ namespace cheraasje_epp
             branchButton.Size = new Size(239, 43);
             branchButton.TabIndex = 2;
             branchButton.Text = "Your Branch";
-            branchButton.Click += LabelClick;
+            branchButton.Click += branchButton_Click;
             branchButton.MouseEnter += LabelMouseEnter;
             branchButton.MouseLeave += LabelMouseLeave;
             // 
@@ -79,7 +79,6 @@ namespace cheraasje_epp
             fleetButton.Size = new Size(218, 42);
             fleetButton.TabIndex = 3;
             fleetButton.Text = "Your Fleet";
-            fleetButton.Click += fleetButton_Click;
             fleetButton.MouseEnter += LabelMouseEnter;
             fleetButton.MouseLeave += LabelMouseLeave;
             // 
