@@ -1,5 +1,5 @@
 ﻿using cheraasje_epp.Data;
-using cheraasje_epp.Models;
+using cheraasje_epp.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

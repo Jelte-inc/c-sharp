@@ -1,4 +1,6 @@
 ﻿using cheraasje_epp.Data;
+using cheraasje_epp.Models.Filters;
+using cheraasje_epp.Models.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,7 @@ namespace cheraasje_epp.UI.Branch
             InitializeComponent();
             BuildTimes();
             BuildInfo();
+            BuildPrices();
         }
         private void BuildTimes()
         {
@@ -49,6 +52,22 @@ namespace cheraasje_epp.UI.Branch
             ownerLabel.Text = branch.Owner;
             phoneLabel.Text = branch.PhoneNumber;
             branchLabel.Text = branch.Id.ToString();
+        }
+        private void BuildPrices()
+        {
+            DataManager dataManager = new DataManager();
+            var cars = dataManager.GetCars(new CarFilter());
+            decimal branchWorth = 0;
+            foreach (var car in cars)
+            {
+                branchWorth += car.Price;
+            }
+            branchWorthLabel.Text = new Money(branchWorth).ToString();
+            if (branchWorth != 0)
+            {
+                branchAveragePriceLabel.Text = new Money(Math.Floor((branchWorth / cars.Count))).ToString();
+            }
+            branchNameLabel.Text = dataManager.GetBranchById(Session.UserId).ToString();
         }
     }
 }

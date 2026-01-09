@@ -42,6 +42,13 @@
             ownerLabel = new Label();
             phoneLabel = new Label();
             branchLabel = new Label();
+            branchAveragePriceLabel = new Label();
+            branchWorthLabel = new Label();
+            globalAveragePriceLabel = new Label();
+            globalWorthLabel = new Label();
+            branchNameLabel = new Label();
+            fleetButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
+            branchButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -187,10 +194,99 @@
             branchLabel.TabIndex = 13;
             branchLabel.Text = "branchLabel";
             // 
+            // branchAveragePriceLabel
+            // 
+            branchAveragePriceLabel.AutoSize = true;
+            branchAveragePriceLabel.BackColor = Color.White;
+            branchAveragePriceLabel.Font = new Font("Segoe UI", 10F);
+            branchAveragePriceLabel.Location = new Point(179, 356);
+            branchAveragePriceLabel.Name = "branchAveragePriceLabel";
+            branchAveragePriceLabel.Size = new Size(17, 19);
+            branchAveragePriceLabel.TabIndex = 14;
+            branchAveragePriceLabel.Text = "0";
+            // 
+            // branchWorthLabel
+            // 
+            branchWorthLabel.AutoSize = true;
+            branchWorthLabel.BackColor = Color.White;
+            branchWorthLabel.Font = new Font("Segoe UI", 10F);
+            branchWorthLabel.Location = new Point(179, 375);
+            branchWorthLabel.Name = "branchWorthLabel";
+            branchWorthLabel.Size = new Size(17, 19);
+            branchWorthLabel.TabIndex = 15;
+            branchWorthLabel.Text = "0";
+            // 
+            // globalAveragePriceLabel
+            // 
+            globalAveragePriceLabel.AutoSize = true;
+            globalAveragePriceLabel.BackColor = Color.White;
+            globalAveragePriceLabel.Font = new Font("Segoe UI", 10F);
+            globalAveragePriceLabel.Location = new Point(179, 426);
+            globalAveragePriceLabel.Name = "globalAveragePriceLabel";
+            globalAveragePriceLabel.Size = new Size(157, 19);
+            globalAveragePriceLabel.TabIndex = 16;
+            globalAveragePriceLabel.Text = "globalAveragePriceLabel";
+            // 
+            // globalWorthLabel
+            // 
+            globalWorthLabel.AutoSize = true;
+            globalWorthLabel.BackColor = Color.White;
+            globalWorthLabel.Font = new Font("Segoe UI", 10F);
+            globalWorthLabel.Location = new Point(179, 445);
+            globalWorthLabel.Name = "globalWorthLabel";
+            globalWorthLabel.Size = new Size(116, 19);
+            globalWorthLabel.TabIndex = 17;
+            globalWorthLabel.Text = "globalWorthLabel";
+            // 
+            // branchNameLabel
+            // 
+            branchNameLabel.AutoSize = true;
+            branchNameLabel.BackColor = Color.White;
+            branchNameLabel.Font = new Font("Segoe UI", 12F);
+            branchNameLabel.Location = new Point(68, 340);
+            branchNameLabel.Name = "branchNameLabel";
+            branchNameLabel.Size = new Size(137, 21);
+            branchNameLabel.TabIndex = 18;
+            branchNameLabel.Text = "branchNameLabel";
+            // 
+            // fleetButton
+            // 
+            fleetButton.BackColor = Color.Red;
+            fleetButton.FlatAppearance.BorderSize = 0;
+            fleetButton.FlatStyle = FlatStyle.Flat;
+            fleetButton.ForeColor = Color.White;
+            fleetButton.Location = new Point(601, 29);
+            fleetButton.Name = "fleetButton";
+            fleetButton.Size = new Size(140, 48);
+            fleetButton.TabIndex = 19;
+            fleetButton.Text = "To Fleet";
+            fleetButton.UseVisualStyleBackColor = false;
+            fleetButton.Click += fleetButton_Click;
+            // 
+            // branchButton
+            // 
+            branchButton.BackColor = Color.Red;
+            branchButton.FlatAppearance.BorderSize = 0;
+            branchButton.FlatStyle = FlatStyle.Flat;
+            branchButton.ForeColor = Color.White;
+            branchButton.Location = new Point(751, 29);
+            branchButton.Name = "branchButton";
+            branchButton.Size = new Size(141, 48);
+            branchButton.TabIndex = 20;
+            branchButton.Text = "Switch Branch";
+            branchButton.UseVisualStyleBackColor = false;
+            // 
             // Branch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(branchButton);
+            Controls.Add(fleetButton);
+            Controls.Add(branchNameLabel);
+            Controls.Add(globalWorthLabel);
+            Controls.Add(globalAveragePriceLabel);
+            Controls.Add(branchWorthLabel);
+            Controls.Add(branchAveragePriceLabel);
             Controls.Add(branchLabel);
             Controls.Add(phoneLabel);
             Controls.Add(ownerLabel);
@@ -226,5 +322,12 @@
         private Label ownerLabel;
         private Label phoneLabel;
         private Label branchLabel;
+        private Label branchAveragePriceLabel;
+        private Label branchWorthLabel;
+        private Label globalAveragePriceLabel;
+        private Label globalWorthLabel;
+        private Label branchNameLabel;
+        private Cheraasje.Epp.UI.Controls.RoundedButton fleetButton;
+        private Cheraasje.Epp.UI.Controls.RoundedButton branchButton;
     }
 }

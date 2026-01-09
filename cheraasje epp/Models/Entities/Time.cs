@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cheraasje_epp.Models
+namespace cheraasje_epp.Models.Entities
 {
     internal class Time
     {
