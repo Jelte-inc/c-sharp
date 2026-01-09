@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace cheraasje_epp
 {
-    public partial class Login : UserControl
+    public partial class Login : UserControl, IPage
     {
         public event Action<UserControl> PageChangeRequested;
         public Login()

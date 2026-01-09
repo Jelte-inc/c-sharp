@@ -1,4 +1,4 @@
-﻿namespace Cheraasje.Epp.UI.Controls;
+namespace Cheraasje.Epp.UI.Controls;
 
 using System.Drawing;
 using System.Drawing.Drawing2D;
