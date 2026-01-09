@@ -6,8 +6,9 @@ using System.Windows.Forms;
 
 public class RoundedButton : Button
 {
+    private Color _baseBackColor;
     private bool _hover;
-    private Color _normalBackColor;
+    private bool _internalColorChange;
 
     public RoundedButton()
     {
@@ -24,10 +25,16 @@ public class RoundedButton : Button
         Cursor = Cursors.Hand;
     }
 
+    protected override void OnCreateControl()
+    {
+        base.OnCreateControl();
+        _baseBackColor = BackColor;
+    }
+
     protected override void OnBackColorChanged(EventArgs e)
     {
-        if (!_hover)
-            _normalBackColor = BackColor;
+        if (!_internalColorChange)
+            _baseBackColor = BackColor;
 
         base.OnBackColorChanged(e);
         Invalidate();
@@ -36,14 +43,18 @@ public class RoundedButton : Button
     protected override void OnMouseEnter(EventArgs e)
     {
         _hover = true;
-        BackColor = ControlPaint.Light(_normalBackColor, 0.2f);
+        _internalColorChange = true;
+        BackColor = ControlPaint.Light(_baseBackColor, 0.2f);
+        _internalColorChange = false;
         base.OnMouseEnter(e);
     }
 
     protected override void OnMouseLeave(EventArgs e)
     {
         _hover = false;
-        BackColor = _normalBackColor;
+        _internalColorChange = true;
+        BackColor = _baseBackColor;
+        _internalColorChange = false;
         base.OnMouseLeave(e);
     }
 

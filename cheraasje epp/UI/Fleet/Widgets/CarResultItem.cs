@@ -1,6 +1,6 @@
 ﻿using cheraasje_epp.Models.Entities;
 
-namespace cheraasje_epp.UI.Fleet
+namespace cheraasje_epp.UI.Pages.FleetWidgets
 {
     public partial class CarResultItem : UserControl
     {

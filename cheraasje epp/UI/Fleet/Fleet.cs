@@ -1,8 +1,9 @@
 ﻿using cheraasje_epp.Data;
 using cheraasje_epp.Models.Entities;
 using cheraasje_epp.Models.Filters;
+using cheraasje_epp.UI.Pages.FleetWidgets;
 
-namespace cheraasje_epp.UI.Fleet
+namespace cheraasje_epp.UI.Pages
 {
     public partial class Fleet : UserControl, IPage
     {
@@ -21,53 +22,9 @@ namespace cheraasje_epp.UI.Fleet
             InitialLoadCars();
         }
 
-        private void InitialLoadCars()
-        {
-            // Load all cars without filters
-            carList.Controls.Clear();
-            CarFilter filters = new CarFilter();
-            Session.CarFilter = filters;
-            List<Car> cars = dataManager.GetCars(filters);
-            RenderCars(cars);
-        }
-
-        private void SearchBox_TextChanged(object sender, EventArgs e)
-        {
-            // Perform search based on the text input
-            // This overrides other filters for simplicity
-            // It also only filters on brand and model for now
-
-            // TODO: Improve search logic to combine with existing filters
-            CarFilter filters = new CarFilter();
-            string searchText = searchBox.Text;
-
-            if (searchText == searchBox.PlaceholderText)
-                searchText = string.Empty;
-            List<Car> cars;
-            if (searchText == string.Empty)
-            {
-                cars = dataManager.GetCars(filters);
-            }
-            else
-            {
-                string[] words = searchText.Split(' ');
-                if (words.Length > 1)
-                {
-                    filters.Brand = words[0];
-                    filters.Model = words[1];
-                }
-                else
-                    filters.Brand = searchText;
-                cars = dataManager.GetCars(filters);
-            }
-
-            RenderCars(cars);
-
-        }
-
+        // Clear existing items and render new car items
         private void RenderCars(List<Car> cars)
         {
-            // Clear existing items and render new car items
             carList.Controls.Clear();
             foreach (Car car in cars)
             {
@@ -75,21 +32,17 @@ namespace cheraasje_epp.UI.Fleet
             }
         }
 
-        // TODO: Remove these methods if not needed
-        //public void AddCar(Car car)
-        //{
-        //    CarResultItem carResultItem = new CarResultItem(car);
-        //    carList.Controls.Add(carResultItem);
-        //}
+        // Load all cars without filters
+        // This is called on initial load of the page
+        private void InitialLoadCars()
+        {
+            carList.Controls.Clear();
+            CarFilter filters = new CarFilter();
+            Session.CarFilter = filters;
+            List<Car> cars = dataManager.GetCars(filters);
+            RenderCars(cars);
+        }
 
-        //public void AddCars(List<Car> cars)
-        //{
-        //    foreach (Car car in cars)
-        //    {
-        //        CarResultItem carResultItem = new CarResultItem(car);
-        //        carList.Controls.Add(carResultItem);
-        //    }
-        //}
 
         // Refresh car list based on applied filters
         // Also updates filter button labels to reflect current filters
@@ -143,6 +96,61 @@ namespace cheraasje_epp.UI.Fleet
                 );
             }
         }
+
+        private void SearchBox_TextChanged(object sender, EventArgs e)
+        {
+            // Perform search based on the text input
+            // This overrides other filters for simplicity
+            // It also only filters on brand and model for now
+
+            // TODO: Improve search logic to combine with existing filters
+            CarFilter filters = new CarFilter();
+            string searchText = searchBox.Text;
+
+            if (searchText == searchBox.PlaceholderText)
+                searchText = string.Empty;
+            List<Car> cars;
+            if (searchText == string.Empty)
+            {
+                cars = dataManager.GetCars(filters);
+            }
+            else
+            {
+                string[] words = searchText.Split(' ');
+                if (words.Length > 1)
+                {
+                    filters.Brand = words[0];
+                    filters.Model = words[1];
+                }
+                else
+                    filters.Brand = searchText;
+                cars = dataManager.GetCars(filters);
+            }
+
+            RenderCars(cars);
+
+        }
+
+        private void addNewCarButton_Click(object sender, EventArgs e)
+        {
+            PageChangeRequested?.Invoke(new AddCar());
+        }
+
+        // TODO: Remove these methods if not needed
+        //public void AddCar(Car car)
+        //{
+        //    CarResultItem carResultItem = new CarResultItem(car);
+        //    carList.Controls.Add(carResultItem);
+        //}
+
+        //public void AddCars(List<Car> cars)
+        //{
+        //    foreach (Car car in cars)
+        //    {
+        //        CarResultItem carResultItem = new CarResultItem(car);
+        //        carList.Controls.Add(carResultItem);
+        //    }
+        //}
 
         // Filter button click handlers
         // These open pop-up windows for filter selection and refresh the car list upon confirmation
@@ -216,6 +224,5 @@ namespace cheraasje_epp.UI.Fleet
             );
 
         }
-
     }
 }

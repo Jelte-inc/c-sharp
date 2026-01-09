@@ -10,6 +10,7 @@
         public string? Image { get; set; }
         required public int BuildYear { get; set; }
         required public decimal Mileage { get; set; }
+        required public string TransmissionType { get; set; }
         public string Name() => $"{Brand} {Model}";
         public bool HasImage() => !string.IsNullOrEmpty(Image);
         public void UpdatePice(decimal nieuwePrijs) => Price = nieuwePrijs;
