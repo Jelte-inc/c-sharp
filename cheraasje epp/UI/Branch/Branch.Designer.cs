@@ -261,7 +261,6 @@
             fleetButton.TabIndex = 19;
             fleetButton.Text = "To Fleet";
             fleetButton.UseVisualStyleBackColor = false;
-            fleetButton.Click += fleetButton_Click;
             // 
             // branchButton
             // 
