@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.UI.Fleet
+﻿namespace cheraasje_epp.UI.Pages.FleetWidgets
 {
     partial class PopUp
     {

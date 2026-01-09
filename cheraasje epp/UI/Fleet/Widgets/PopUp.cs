@@ -3,7 +3,7 @@ using cheraasje_epp.Models.Entities;
 using cheraasje_epp.Models.Filters;
 using System.Globalization;
 
-namespace cheraasje_epp.UI.Fleet
+namespace cheraasje_epp.UI.Pages.FleetWidgets
 {
     public partial class PopUp : Form
     {
@@ -17,7 +17,7 @@ namespace cheraasje_epp.UI.Fleet
         {
             InitializeComponent();
             chooseLabel.Text = $"Choose a {filter}";
-            var items = dataManager.getCarAttributes(filter);
+            var items = dataManager.GetCarAttributes(filter);
             this.filter = filter;
             foreach (string item in items)
             {
