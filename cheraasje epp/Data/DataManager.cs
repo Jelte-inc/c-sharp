@@ -17,7 +17,7 @@ namespace cheraasje_epp.Data
                 $"Data Source={dbPath};Version=3;BusyTimeout=5000;";
         }
 
-        public User AuthenticateUser(string userID, string password)
+        public bool AuthenticateUser(string userID, string password)
         {
             using var conn = new SQLiteConnection(connectionString);
             conn.Open();
@@ -28,15 +28,9 @@ namespace cheraasje_epp.Data
             cmd.Parameters.AddWithValue("@password", password);
 
             using var reader = cmd.ExecuteReader();
-            if (!reader.Read()) return null;
+            if (!reader.Read()) return false;
+            return true;
 
-            return new User
-            {
-                Id = Convert.ToInt32(reader["Id"]),
-                Name = reader["Name"].ToString()!,
-                Password = reader["Password"].ToString()!,
-                BranchId = Convert.ToInt32(reader["BranchId"])
-            };
         }
 
         public User GetUser(int id)
@@ -56,7 +50,8 @@ namespace cheraasje_epp.Data
             {
                 Id = Convert.ToInt32(reader["Id"]),
                 Name = reader["Name"].ToString()!,
-                BranchId = Convert.ToInt32(reader["BranchId"])
+                BranchId = Convert.ToInt32(reader["BranchId"]),
+                IsAdmin = Convert.ToBoolean(reader["IsAdmin"])
             };
         }
 
@@ -236,6 +231,79 @@ namespace cheraasje_epp.Data
                 MessageBox.Show(ex.ToString());
                 return false;
             }
+        }
+        public List<Branch> GetBranches()
+        {
+            var branches = new List<Branch>();
+
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            // We halen alle kolommen op uit de tabel Branches
+            using var cmd = new SQLiteCommand("SELECT * FROM Branches", conn);
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                branches.Add(new Branch
+                {
+                    Id = Convert.ToInt32(reader["Id"]),
+                    Name = reader["Name"].ToString()!,
+                    Location = reader["Location"].ToString()!,
+                    Adress = reader["Adress"].ToString()!,
+                    PhoneNumber = reader["PhoneNumber"].ToString()!,
+                    PostalCode = reader["PostalCode"].ToString()!,
+                    // Let op: in je GetBranchById noem je de databasekolom 'OwnerId' 
+                    // maar sla je het op in de property 'Owner'.
+                    Owner = reader["OwnerId"].ToString()!
+                });
+            }
+
+            return branches;
+        }
+        public List<User> GetUsers()
+        {
+            var users = new List<User>();
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            // We halen alle gebruikers op uit de database
+            using var cmd = new SQLiteCommand("SELECT * FROM Users", conn);
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                users.Add(new User
+                {
+                    Id = Convert.ToInt32(reader["Id"]),
+                    Name = reader["Name"].ToString()!,
+                    // We halen het wachtwoord ook op, zoals je in AuthenticateUser deed
+                    Password = reader["Password"].ToString()!,
+                    BranchId = Convert.ToInt32(reader["BranchId"])
+                });
+            }
+
+            return users;
+        }
+        public void DeleteUser(int id)
+        {
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            using var cmd = new SQLiteCommand("DELETE FROM Users WHERE Id = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
+        }
+        public void DeleteBranch(int id)
+        {
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            using var cmd = new SQLiteCommand("DELETE FROM Branches WHERE Id = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
         }
     }
 }

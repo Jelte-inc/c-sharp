@@ -1,5 +1,7 @@
 ﻿using Cheraasje.Epp.UI.Controls;
+using cheraasje_epp.Data;
 using cheraasje_epp.UI.Pages;
+using AdminPage = cheraasje_epp.UI.Pages.Admin;
 
 namespace cheraasje_epp.UI.Widgets
 {
@@ -11,6 +13,7 @@ namespace cheraasje_epp.UI.Widgets
         private RoundedButton branchPageButton;
         private RoundedButton fleetPageButton;
         private RoundedButton accountPageButton;
+        private RoundedButton adminPageButton;
         public event Action<UserControl> PageChangeRequested;
 
 
@@ -77,6 +80,17 @@ namespace cheraasje_epp.UI.Widgets
             accountPageButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             accountPageButton.Click += (s, e) => PageChangeRequested?.Invoke(new Account());
 
+            adminPageButton = new RoundedButton();
+            adminPageButton.Text = "Admin";
+            adminPageButton.AutoSize = false;
+            adminPageButton.TextAlign = ContentAlignment.MiddleCenter;
+            adminPageButton.Width = this.Width;
+            adminPageButton.BackColor = Color.FromArgb(255, 87, 87);
+            adminPageButton.Size = new Size(Width - 30, 40);
+            adminPageButton.Height = 40;
+            adminPageButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            adminPageButton.Click += (s, e) => PageChangeRequested?.Invoke(new AdminPage());
+
             // Container for menu-items
             menuContainer = new FlowLayoutPanel();
             menuContainer.Dock = DockStyle.Fill;
@@ -90,6 +104,12 @@ namespace cheraasje_epp.UI.Widgets
             AddMenuItem(branchPageButton);
             AddMenuItem(fleetPageButton);
             AddMenuItem(accountPageButton);
+            DataManager dataManager = new DataManager();
+            var user = dataManager.GetUser(Session.UserId);
+            if (user.IsAdmin)
+            {
+                AddMenuItem(adminPageButton);
+            }
         }
 
         public void AddMenuItem(Control item)

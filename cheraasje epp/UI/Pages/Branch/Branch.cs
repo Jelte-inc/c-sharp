@@ -110,6 +110,11 @@ namespace cheraasje_epp.UI.Pages
             sideBarMenu.openSideBar();
             menuOpen = true;
         }
+
+        private void fleetButton_Click(object sender, EventArgs e)
+        {
+            PageChangeRequested?.Invoke(new Fleet());
+        }
     }
 }
 

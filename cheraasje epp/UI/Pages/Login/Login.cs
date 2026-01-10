@@ -1,4 +1,6 @@
 ﻿using cheraasje_epp.Data;
+using cheraasje_epp.UI;
+using cheraasje_epp.UI.Admin;
 
 
 namespace cheraasje_epp.UI.Pages
@@ -31,11 +33,23 @@ namespace cheraasje_epp.UI.Pages
 
             // Hier roep je je DataManager aan om te checken of de gebruiker bestaat
             DataManager dataManager = new DataManager();
-            var user = dataManager.AuthenticateUser(userID, password);
+            var boolean = dataManager.AuthenticateUser(userID, password);
 
-            if (user != null)
+            if (boolean)
             {
                 Session.Start(int.Parse(userID));
+                var user = dataManager.GetUser(Convert.ToInt32(idBox.Text));
+                if (dataManager.GetBranchById(user.BranchId) == null)
+                {
+                    if (user.IsAdmin)
+                    {
+                        PageChangeRequested?.Invoke(new Admin(true));
+                        return;
+                    }
+                    MessageBox.Show("You aren't added to a branch, please contact your admin for help");
+                    return;
+
+                }
                 PageChangeRequested?.Invoke(new Home());
             }
             else

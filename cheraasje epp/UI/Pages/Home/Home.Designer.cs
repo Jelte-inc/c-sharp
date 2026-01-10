@@ -36,6 +36,7 @@ namespace cheraasje_epp.UI.Pages
             fleetButton = new Label();
             accountButton = new Label();
             shortUserInfoLabel = new Label();
+            adminButton = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -79,9 +80,9 @@ namespace cheraasje_epp.UI.Pages
             fleetButton.Size = new Size(218, 42);
             fleetButton.TabIndex = 3;
             fleetButton.Text = "Your Fleet";
+            fleetButton.Click += fleetButton_Click;
             fleetButton.MouseEnter += LabelMouseEnter;
             fleetButton.MouseLeave += LabelMouseLeave;
-            fleetButton.Click += fleetButton_Click;
             // 
             // accountButton
             // 
@@ -110,10 +111,27 @@ namespace cheraasje_epp.UI.Pages
             shortUserInfoLabel.TabIndex = 5;
             shortUserInfoLabel.Text = "{USERINFO}";
             // 
+            // adminButton
+            // 
+            adminButton.AutoSize = true;
+            adminButton.BackColor = Color.White;
+            adminButton.Cursor = Cursors.Hand;
+            adminButton.Font = new Font("Consolas", 27F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            adminButton.Location = new Point(39, 206);
+            adminButton.Margin = new Padding(2, 0, 2, 0);
+            adminButton.Name = "adminButton";
+            adminButton.Size = new Size(258, 42);
+            adminButton.TabIndex = 6;
+            adminButton.Text = "Admin Center";
+            adminButton.Click += adminButton_Click;
+            adminButton.MouseEnter += LabelMouseEnter;
+            adminButton.MouseLeave += LabelMouseLeave;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(adminButton);
             Controls.Add(shortUserInfoLabel);
             Controls.Add(accountButton);
             Controls.Add(fleetButton);
@@ -134,5 +152,6 @@ namespace cheraasje_epp.UI.Pages
         private Label fleetButton;
         private Label accountButton;
         private Label shortUserInfoLabel;
+        private Label adminButton;
     }
 }

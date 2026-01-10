@@ -48,7 +48,6 @@
             globalWorthLabel = new Label();
             branchNameLabel = new Label();
             fleetButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            branchButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             menuButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -256,25 +255,13 @@
             fleetButton.FlatAppearance.BorderSize = 0;
             fleetButton.FlatStyle = FlatStyle.Flat;
             fleetButton.ForeColor = Color.White;
-            fleetButton.Location = new Point(601, 29);
+            fleetButton.Location = new Point(752, 29);
             fleetButton.Name = "fleetButton";
             fleetButton.Size = new Size(140, 48);
             fleetButton.TabIndex = 19;
             fleetButton.Text = "To Fleet";
             fleetButton.UseVisualStyleBackColor = false;
-            // 
-            // branchButton
-            // 
-            branchButton.BackColor = Color.Red;
-            branchButton.FlatAppearance.BorderSize = 0;
-            branchButton.FlatStyle = FlatStyle.Flat;
-            branchButton.ForeColor = Color.White;
-            branchButton.Location = new Point(751, 29);
-            branchButton.Name = "branchButton";
-            branchButton.Size = new Size(141, 48);
-            branchButton.TabIndex = 20;
-            branchButton.Text = "Switch Branch";
-            branchButton.UseVisualStyleBackColor = false;
+            fleetButton.Click += fleetButton_Click;
             // 
             // menuButton
             // 
@@ -296,7 +283,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(menuButton);
-            Controls.Add(branchButton);
             Controls.Add(fleetButton);
             Controls.Add(branchNameLabel);
             Controls.Add(globalWorthLabel);
@@ -344,7 +330,6 @@
         private Label globalWorthLabel;
         private Label branchNameLabel;
         private Cheraasje.Epp.UI.Controls.RoundedButton fleetButton;
-        private Cheraasje.Epp.UI.Controls.RoundedButton branchButton;
         private Button menuButton;
     }
 }
