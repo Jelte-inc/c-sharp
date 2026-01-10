@@ -31,13 +31,13 @@ namespace cheraasje_epp.UI.Admin.Widgets
             {
                 DataManager dataManager = new DataManager();
                 dataManager.DeleteBranch(Branch.Id);
-                ////this.Parent.Controls.Remove(this);
-                ////var user = dataManager.GetUser(Session.UserId);
-                ////if (user.BranchId == Branch.Id)
-                //{
-                //    this.Parent.Controls.Find("menuButton", true).FirstOrDefault().Visible = false;
-                //}
-                PageChangeRequested?.Invoke(new AdminPage(true));
+                var user = dataManager.GetUser(Session.UserId);
+                var noMenu = false;
+                if (user.BranchId == Branch.Id)
+                {
+                    noMenu = true;
+                }
+                PageChangeRequested?.Invoke(new AdminPage(noMenu));
             }
 
         }
