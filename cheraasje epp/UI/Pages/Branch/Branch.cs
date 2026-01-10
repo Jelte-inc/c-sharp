@@ -1,28 +1,63 @@
 ﻿using cheraasje_epp.Data;
 using cheraasje_epp.Models.Filters;
 using cheraasje_epp.Models.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using cheraasje_epp.UI.Widgets;
 
-namespace cheraasje_epp.UI.Branch
+namespace cheraasje_epp.UI.Pages
 {
     public partial class Branch : UserControl, IPage
     {
         public event Action<UserControl> PageChangeRequested;
+
+        private readonly SideBarMenu sideBarMenu = new();
+
+        private bool menuOpen = false;
+
         public Branch()
         {
             InitializeComponent();
             BuildTimes();
             BuildInfo();
             BuildPrices();
+
+            this.Controls.Add(sideBarMenu);
+            sideBarMenu.Visible = false;
+            sideBarMenu.BringToFront();
+            sideBarMenu.PageChangeRequested += page =>
+            {
+                PageChangeRequested?.Invoke(page);
+            };
+
+            this.MouseDown += Branch_MouseDown;
+            RegisterMouseDownRecursive(this);
         }
+
+        private void RegisterMouseDownRecursive(Control parent)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                c.MouseDown += Branch_MouseDown;
+
+                if (c.HasChildren)
+                    RegisterMouseDownRecursive(c);
+            }
+        }
+
+        private void Branch_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!menuOpen)
+                return;
+
+            Point clickLocation = PointToClient(Cursor.Position);
+
+            if (!sideBarMenu.Bounds.Contains(clickLocation))
+            {
+                menuOpen = false;
+                sideBarMenu.closeSideBar();
+            }
+        }
+
+
         private void BuildTimes()
         {
             DataManager dataManager = new DataManager();
@@ -68,6 +103,12 @@ namespace cheraasje_epp.UI.Branch
                 branchAveragePriceLabel.Text = new Money(Math.Floor((branchWorth / cars.Count))).ToString();
             }
             branchNameLabel.Text = dataManager.GetBranchById(Session.UserId).ToString();
+        }
+
+        private void menuButton_Click(object sender, EventArgs e)
+        {
+            sideBarMenu.openSideBar();
+            menuOpen = true;
         }
     }
 }

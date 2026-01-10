@@ -2,6 +2,7 @@
 using cheraasje_epp.Models.Entities;
 using cheraasje_epp.Models.Filters;
 using cheraasje_epp.UI.Pages.FleetWidgets;
+using cheraasje_epp.UI.Widgets;
 
 namespace cheraasje_epp.UI.Pages
 {
@@ -9,17 +10,62 @@ namespace cheraasje_epp.UI.Pages
     {
         public event Action<UserControl> PageChangeRequested;
 
-        private DataManager dataManager = new DataManager();
+        private readonly DataManager dataManager = new();
+
+        private readonly SideBarMenu sideBarMenu = new();
+
+        private bool menuOpen = false;
+
         public Fleet()
         {
             // Initialize components and load initial data
             InitializeComponent();
+            InitialLoadCars();
+
+            // Setup sidebar menu
+            this.Controls.Add(sideBarMenu);
+            sideBarMenu.Visible = false;
+            sideBarMenu.BringToFront();
+            sideBarMenu.PageChangeRequested += page =>
+            {
+                PageChangeRequested?.Invoke(page);
+            };
+
+            // Load user and branch information
             int userId = Session.UserId;
             User user = dataManager.GetUser(userId);
             string branchName = dataManager.GetBranchById(user.BranchId).Name;
             branchLabel.Text = branchName;
+
+            // Attach event handler for search box text 
             searchBox.TextChanged += SearchBox_TextChanged;
-            InitialLoadCars();
+            this.MouseDown += Fleet_MouseDown;
+            RegisterMouseDownRecursive(this);
+        }
+
+        private void RegisterMouseDownRecursive(Control parent)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                c.MouseDown += Fleet_MouseDown;
+
+                if (c.HasChildren)
+                    RegisterMouseDownRecursive(c);
+            }
+        }
+
+        private void Fleet_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!menuOpen)
+                return;
+
+            Point clickLocation = PointToClient(Cursor.Position);
+
+            if (!sideBarMenu.Bounds.Contains(clickLocation))
+            {
+                menuOpen = false;
+                sideBarMenu.closeSideBar();
+            }
         }
 
         // Clear existing items and render new car items
@@ -129,6 +175,11 @@ namespace cheraasje_epp.UI.Pages
 
             RenderCars(cars);
 
+        }
+        private void menuButton_Click(object sender, EventArgs e)
+        {
+            sideBarMenu.openSideBar();
+            menuOpen = true;
         }
 
         private void addNewCarButton_Click(object sender, EventArgs e)

@@ -1,7 +1,7 @@
 ﻿using cheraasje_epp.Data;
 using cheraasje_epp.Models;
 
-namespace cheraasje_epp
+namespace cheraasje_epp.UI.Pages
 {
     partial class Home
     {

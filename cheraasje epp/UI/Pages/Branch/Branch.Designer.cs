@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.UI.Branch
+﻿namespace cheraasje_epp.UI.Pages
 {
     partial class Branch
     {
@@ -49,6 +49,7 @@
             branchNameLabel = new Label();
             fleetButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             branchButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
+            menuButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -275,10 +276,26 @@
             branchButton.Text = "Switch Branch";
             branchButton.UseVisualStyleBackColor = false;
             // 
+            // menuButton
+            // 
+            menuButton.BackColor = Color.White;
+            menuButton.Cursor = Cursors.Hand;
+            menuButton.FlatAppearance.BorderSize = 0;
+            menuButton.FlatStyle = FlatStyle.Flat;
+            menuButton.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            menuButton.Location = new Point(12, 21);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(36, 46);
+            menuButton.TabIndex = 21;
+            menuButton.Text = "☰";
+            menuButton.UseVisualStyleBackColor = false;
+            menuButton.Click += menuButton_Click;
+            // 
             // Branch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(menuButton);
             Controls.Add(branchButton);
             Controls.Add(fleetButton);
             Controls.Add(branchNameLabel);
@@ -328,5 +345,6 @@
         private Label branchNameLabel;
         private Cheraasje.Epp.UI.Controls.RoundedButton fleetButton;
         private Cheraasje.Epp.UI.Controls.RoundedButton branchButton;
+        private Button menuButton;
     }
 }
