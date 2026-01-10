@@ -1,19 +1,28 @@
-using cheraasje_epp.UI;
-using cheraasje_epp.UI.Pages;
-using cheraasje_epp.UI.Branch;
-
+using cheraasje_epp.Data;
 using cheraasje_epp.UI;
 using cheraasje_epp.UI.Account;
-using cheraasje_epp.UI.Fleet;
+using cheraasje_epp.UI.Branch;
+using cheraasje_epp.UI.Pages;
+using User = cheraasje_epp.Models.Entities.User;
 
 namespace cheraasje_epp
 {
     public partial class Home : UserControl, IPage
     {
+        DataManager dataManager = new DataManager();
+
         public event Action<UserControl> PageChangeRequested;
         public Home()
         {
             InitializeComponent();
+            int userId = Session.UserId;
+            User user = dataManager.GetUser(userId);
+            string branchName = dataManager.GetBranchById(user.BranchId).Name;
+            string shortUserInfo = user.Name + " at " + branchName;
+            int x = 636 - shortUserInfoLabel.Width + 50;
+            int y = 18;
+            shortUserInfoLabel.Location = new Point(x, y);
+            shortUserInfoLabel.Text = shortUserInfo;
         }
 
         private void LabelClick(object sender, EventArgs e)

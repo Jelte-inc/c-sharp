@@ -1,4 +1,6 @@
-﻿namespace cheraasje_epp.UI.Pages
+﻿using cheraasje_epp.UI.Controls;
+
+namespace cheraasje_epp.UI.Pages
 {
     partial class AddCar
     {
@@ -76,12 +78,11 @@
             brandInputField.Location = new Point(36, 138);
             brandInputField.Name = "brandInputField";
             brandInputField.Padding = new Padding(10, 5, 10, 5);
-            brandInputField.placeholderColor = Color.Gray;
             brandInputField.PlaceholderText = "Brand...";
             brandInputField.Size = new Size(361, 37);
             brandInputField.TabIndex = 2;
             brandInputField.TextAlign = HorizontalAlignment.Left;
-            brandInputField.usePasswordMasking = false;
+            //brandInputField.UseSystemPasswordChar = false;
             brandInputField.UseSystemPasswordChar = false;
             // 
             // modelInputField
@@ -94,12 +95,11 @@
             modelInputField.Location = new Point(36, 193);
             modelInputField.Name = "modelInputField";
             modelInputField.Padding = new Padding(10, 5, 10, 5);
-            modelInputField.placeholderColor = Color.Gray;
             modelInputField.PlaceholderText = "Model...";
             modelInputField.Size = new Size(361, 37);
             modelInputField.TabIndex = 3;
             modelInputField.TextAlign = HorizontalAlignment.Left;
-            modelInputField.usePasswordMasking = false;
+            //modelInputField.usePasswordMasking = false;
             modelInputField.UseSystemPasswordChar = false;
             // 
             // buildYearInputField
@@ -112,12 +112,11 @@
             buildYearInputField.Location = new Point(36, 248);
             buildYearInputField.Name = "buildYearInputField";
             buildYearInputField.Padding = new Padding(10, 5, 10, 5);
-            buildYearInputField.placeholderColor = Color.Gray;
             buildYearInputField.PlaceholderText = "Build year...";
             buildYearInputField.Size = new Size(361, 37);
             buildYearInputField.TabIndex = 4;
             buildYearInputField.TextAlign = HorizontalAlignment.Left;
-            buildYearInputField.usePasswordMasking = false;
+            //buildYearInputField.usePasswordMasking = false;
             buildYearInputField.UseSystemPasswordChar = false;
             // 
             // uploadedImagesView
@@ -153,12 +152,11 @@
             mileageInputField.Location = new Point(511, 248);
             mileageInputField.Name = "mileageInputField";
             mileageInputField.Padding = new Padding(10, 5, 10, 5);
-            mileageInputField.placeholderColor = Color.Gray;
             mileageInputField.PlaceholderText = "Mileage...";
             mileageInputField.Size = new Size(361, 37);
             mileageInputField.TabIndex = 10;
             mileageInputField.TextAlign = HorizontalAlignment.Left;
-            mileageInputField.usePasswordMasking = false;
+            //mileageInputField.usePasswordMasking = false;
             mileageInputField.UseSystemPasswordChar = false;
             // 
             // priceInputField
@@ -171,12 +169,11 @@
             priceInputField.Location = new Point(511, 193);
             priceInputField.Name = "priceInputField";
             priceInputField.Padding = new Padding(10, 5, 10, 5);
-            priceInputField.placeholderColor = Color.Gray;
             priceInputField.PlaceholderText = "Price...";
             priceInputField.Size = new Size(361, 37);
             priceInputField.TabIndex = 11;
             priceInputField.TextAlign = HorizontalAlignment.Left;
-            priceInputField.usePasswordMasking = false;
+            //priceInputField.usePasswordMasking = false;
             priceInputField.UseSystemPasswordChar = false;
             // 
             // licencePlateInputField
@@ -189,12 +186,11 @@
             licencePlateInputField.Location = new Point(511, 138);
             licencePlateInputField.Name = "licencePlateInputField";
             licencePlateInputField.Padding = new Padding(10, 5, 10, 5);
-            licencePlateInputField.placeholderColor = Color.Gray;
             licencePlateInputField.PlaceholderText = "Licence plate...";
             licencePlateInputField.Size = new Size(361, 37);
             licencePlateInputField.TabIndex = 12;
             licencePlateInputField.TextAlign = HorizontalAlignment.Left;
-            licencePlateInputField.usePasswordMasking = false;
+            //licencePlateInputField.usePasswordMasking = false;
             licencePlateInputField.UseSystemPasswordChar = false;
             // 
             // selectManualButton
@@ -237,12 +233,11 @@
             amountOfDoorInputField.Location = new Point(36, 303);
             amountOfDoorInputField.Name = "amountOfDoorInputField";
             amountOfDoorInputField.Padding = new Padding(10, 5, 10, 5);
-            amountOfDoorInputField.placeholderColor = Color.Gray;
             amountOfDoorInputField.PlaceholderText = "Amount of doors...";
             amountOfDoorInputField.Size = new Size(361, 37);
             amountOfDoorInputField.TabIndex = 15;
             amountOfDoorInputField.TextAlign = HorizontalAlignment.Left;
-            amountOfDoorInputField.usePasswordMasking = false;
+            //amountOfDoorInputField.usePasswordMasking = false;
             amountOfDoorInputField.UseSystemPasswordChar = false;
             // 
             // colorInputField
@@ -255,12 +250,11 @@
             colorInputField.Location = new Point(511, 303);
             colorInputField.Name = "colorInputField";
             colorInputField.Padding = new Padding(10, 5, 10, 5);
-            colorInputField.placeholderColor = Color.Gray;
             colorInputField.PlaceholderText = "Color...";
             colorInputField.Size = new Size(361, 37);
             colorInputField.TabIndex = 16;
             colorInputField.TextAlign = HorizontalAlignment.Left;
-            colorInputField.usePasswordMasking = false;
+            //colorInputField.usePasswordMasking = false;
             colorInputField.UseSystemPasswordChar = false;
             // 
             // AddCar

@@ -33,8 +33,8 @@ namespace cheraasje_epp.Data
             return new User
             {
                 Id = Convert.ToInt32(reader["Id"]),
-                Name = reader["Name"].ToString(),
-                Password = reader["Password"].ToString(),
+                Name = reader["Name"].ToString()!,
+                Password = reader["Password"].ToString()!,
                 BranchId = Convert.ToInt32(reader["BranchId"])
             };
         }
@@ -61,24 +61,6 @@ namespace cheraasje_epp.Data
         }
 
         public Branch GetBranchById(int id)
-                SQLiteDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    return new Branch
-                    {
-                        Id = Convert.ToInt32(reader["Id"]),
-                        Name = reader["Name"].ToString(),
-                        Location = reader["Location"].ToString(),
-                        Adress = reader["Adress"].ToString(),
-                        PhoneNumber = reader["PhoneNumber"].ToString(),
-                        PostalCode = reader["PostalCode"].ToString(),
-                        Owner = reader["OwnerId"].ToString()
-                    };
-                }
-            }
-            return null;
-        }
-        public User GetUser(int id)
         {
             using var conn = new SQLiteConnection(connectionString);
             conn.Open();
@@ -93,7 +75,12 @@ namespace cheraasje_epp.Data
             return new Branch
             {
                 Id = Convert.ToInt32(reader["Id"]),
-                Name = reader["Name"].ToString()
+                Name = reader["Name"].ToString()!,
+                Location = reader["Location"].ToString()!,
+                Adress = reader["Adress"].ToString()!,
+                PhoneNumber = reader["PhoneNumber"].ToString()!,
+                PostalCode = reader["PostalCode"].ToString()!,
+                Owner = reader["OwnerId"].ToString()!
             };
         }
 
@@ -144,10 +131,10 @@ namespace cheraasje_epp.Data
                 cmd.Parameters.AddWithValue("@Max", filter.PriceRange.Max.Amount);
             }
 
-            cmd.CommandText = $"""
+            cmd.CommandText = $@"
                 SELECT * FROM Cars
                 WHERE {string.Join(" AND ", where)}
-            """;
+            ";
 
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
@@ -167,35 +154,29 @@ namespace cheraasje_epp.Data
 
             return cars;
         }
-        public List<Time> GetTimes(int id)
+
+        public List<Time> GetTimes(int branchId)
         {
-            var branch = GetBranchById(id);
-            var branchId = branch.Id;
             var times = new List<Time>();
 
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            using var cmd = new SQLiteCommand(
+                "SELECT * FROM OpeningTimes WHERE LocationId=@branchId", conn);
+            cmd.Parameters.AddWithValue("@branchId", branchId);
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
-                conn.Open();
-                string query = "SELECT * FROM OpeningTimes WHERE LocationId = @branchId";
-
-                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                times.Add(new Time
                 {
-                    cmd.Parameters.AddWithValue("@branchId", branchId);
-
-                    using (SQLiteDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            times.Add(new Time
-                            {
-                                Day = Convert.ToInt32(reader["DayOfWeek"]),
-                                OpenTime = reader["OpensAt"].ToString()!,
-                                CloseTime = reader["ClosesAt"].ToString()!
-                            });
-                        }
-                    }
-                }
+                    Day = Convert.ToInt32(reader["DayOfWeek"]),
+                    OpenTime = reader["OpensAt"].ToString()!,
+                    CloseTime = reader["ClosesAt"].ToString()!
+                });
             }
+
             return times;
         }
 
@@ -230,12 +211,12 @@ namespace cheraasje_epp.Data
                 using var conn = new SQLiteConnection(connectionString);
                 conn.Open();
 
-                using var cmd = new SQLiteCommand("""
+                using var cmd = new SQLiteCommand(@"
                     INSERT INTO Cars
                     (Brand, Model, Color, Doors, Price, BuildYear, Mileage, BranchId, TransmissionType)
                     VALUES
                     (@Brand, @Model, @Color, @Doors, @Price, @BuildYear, @Mileage, @BranchId, @TransmissionType)
-                """, conn);
+                ", conn);
 
                 cmd.Parameters.AddWithValue("@Brand", car.Brand);
                 cmd.Parameters.AddWithValue("@Model", car.Model);

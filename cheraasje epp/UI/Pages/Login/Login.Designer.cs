@@ -56,10 +56,9 @@ namespace cheraasje_epp
             idBox.TabIndex = 0;
             idBox.UseSystemPasswordChar = false;
             idBox.BackColor = Color.White;
-            idBox.Enter += (s, e) =>
             idBox.ForeColor = Color.Black;
             idBox.PlaceholderText = "User ID...";
-            passwordBox.usePasswordMasking = true;
+            passwordBox.UseSystemPasswordChar = true;
             // 
             // passwordBox
             // 
@@ -68,9 +67,8 @@ namespace cheraasje_epp
             passwordBox.Size = new Size(250, 35);
             passwordBox.TabIndex = 1;
             passwordBox.BackColor = Color.White;
-            passwordBox.UseSystemPasswordChar = false;
+            passwordBox.UseSystemPasswordChar = true;
             passwordBox.PlaceholderText = "Password...";
-            passwordBox.Enter += (s, e) =>
             passwordBox.ForeColor = Color.Black;
             // 
             // loginButton

@@ -12,8 +12,11 @@
 
   <ItemGroup>
     <Compile Remove="Assets\**" />
+    <Compile Remove="cheraasje_epp\**" />
     <EmbeddedResource Remove="Assets\**" />
+    <EmbeddedResource Remove="cheraasje_epp\**" />
     <None Remove="Assets\**" />
+    <None Remove="cheraasje_epp\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,10 +42,6 @@
     <None Update="Data\database.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="cheraasje_epp\" />
   </ItemGroup>
 
 </Project>

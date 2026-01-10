@@ -76,12 +76,11 @@ namespace cheraasje_epp.UI.Pages
             searchBox.Location = new Point(420, 39);
             searchBox.Name = "searchBox";
             searchBox.Padding = new Padding(10, 5, 10, 5);
-            searchBox.placeholderColor = Color.White;
             searchBox.PlaceholderText = "🔎 Type to search...";
+            //searchBox.PlaceholderTextColor = Color.White;
             searchBox.Size = new Size(307, 68);
             searchBox.TabIndex = 2;
             searchBox.TextAlign = HorizontalAlignment.Left;
-            searchBox.usePasswordMasking = false;
             searchBox.UseSystemPasswordChar = false;
             // 
             // addNewCarButton
