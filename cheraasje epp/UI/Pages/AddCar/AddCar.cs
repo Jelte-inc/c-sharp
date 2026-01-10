@@ -148,6 +148,33 @@ namespace cheraasje_epp.UI.Pages
                 return;
             }
         }
+        private void OnlyAllowNumbers(object sender, KeyPressEventArgs e)
+        {
+            // Sta alleen cijfers en backspace toe
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void OnlyAllowDecimal(object sender, KeyPressEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            if (textBox == null)
+                return;
+
+            if (char.IsControl(e.KeyChar))
+                return;
+
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            if (e.KeyChar == ',' && !textBox.Text.Contains(','))
+                return;
+
+            e.Handled = true;
+        }
+
 
     }
 
