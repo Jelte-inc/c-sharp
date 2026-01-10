@@ -1,7 +1,7 @@
 ﻿using cheraasje_epp.Data;
-using cheraasje_epp.UI;
 
-namespace cheraasje_epp
+
+namespace cheraasje_epp.UI.Pages
 {
     public partial class Login : UserControl, IPage
     {

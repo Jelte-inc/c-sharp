@@ -2,7 +2,7 @@
 using cheraasje_epp.Data;
 using cheraasje_epp.Models;
 
-namespace cheraasje_epp.UI.Account
+namespace cheraasje_epp.UI.Pages
 {
     partial class Account
     {
@@ -39,6 +39,7 @@ namespace cheraasje_epp.UI.Account
             UserIdLabel = new Label();
             ChangePasswordButton = new RoundedButton();
             LogOutButton = new RoundedButton();
+            menuButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -125,10 +126,26 @@ namespace cheraasje_epp.UI.Account
             LogOutButton.UseVisualStyleBackColor = false;
             LogOutButton.Click += LogOutButton_Click;
             // 
+            // menuButton
+            // 
+            menuButton.BackColor = Color.White;
+            menuButton.Cursor = Cursors.Hand;
+            menuButton.FlatAppearance.BorderSize = 0;
+            menuButton.FlatStyle = FlatStyle.Flat;
+            menuButton.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            menuButton.Location = new Point(12, 21);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(36, 46);
+            menuButton.TabIndex = 22;
+            menuButton.Text = "☰";
+            menuButton.UseVisualStyleBackColor = false;
+            menuButton.Click += menuButton_Click;
+            // 
             // Account
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(menuButton);
             Controls.Add(LogOutButton);
             Controls.Add(ChangePasswordButton);
             Controls.Add(UserNameTitleLabel);
@@ -151,5 +168,6 @@ namespace cheraasje_epp.UI.Account
         private Label UserIdLabel;
         private RoundedButton ChangePasswordButton;
         private RoundedButton LogOutButton;
+        private Button menuButton;
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Cheraasje.Epp.UI.Controls;
 using cheraasje_epp.UI.Controls;
 
-namespace cheraasje_epp
+namespace cheraasje_epp.UI.Pages
 {
     partial class Login
     {

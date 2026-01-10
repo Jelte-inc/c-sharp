@@ -58,6 +58,11 @@ public class RoundedButton : Button
         base.OnMouseLeave(e);
     }
 
+    protected override void OnClick(EventArgs e)
+    {
+        base.OnClick(e);
+    }
+
     protected override void OnPaint(PaintEventArgs e)
     {
         e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;

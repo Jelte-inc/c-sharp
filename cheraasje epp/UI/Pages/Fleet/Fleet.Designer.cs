@@ -1,4 +1,5 @@
-using cheraasje_epp.UI.Controls;
+﻿using cheraasje_epp.UI.Controls;
+using cheraasje_epp.UI.Widgets;
 
 namespace cheraasje_epp.UI.Pages
 {
@@ -40,11 +41,13 @@ namespace cheraasje_epp.UI.Pages
             doorFilterButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             removeFiltersButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             carList = new FlowLayoutPanel();
+            menuButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.White;
             pictureBox1.Image = Properties.Resources.FleetPageBackground;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
@@ -176,16 +179,32 @@ namespace cheraasje_epp.UI.Pages
             // 
             carList.AutoScroll = true;
             carList.FlowDirection = FlowDirection.TopDown;
-            carList.Location = new Point(22, 197);
+            carList.Location = new Point(78, 197);
             carList.Name = "carList";
-            carList.Size = new Size(888, 331);
+            carList.Size = new Size(751, 331);
             carList.TabIndex = 9;
             carList.WrapContents = false;
+            // 
+            // menuButton
+            // 
+            menuButton.BackColor = Color.White;
+            menuButton.Cursor = Cursors.Hand;
+            menuButton.FlatAppearance.BorderSize = 0;
+            menuButton.FlatStyle = FlatStyle.Flat;
+            menuButton.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            menuButton.Location = new Point(12, 16);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(36, 46);
+            menuButton.TabIndex = 10;
+            menuButton.Text = "☰";
+            menuButton.UseVisualStyleBackColor = false;
+            menuButton.Click += menuButton_Click;
             // 
             // Fleet
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(menuButton);
             Controls.Add(carList);
             Controls.Add(removeFiltersButton);
             Controls.Add(doorFilterButton);
@@ -215,5 +234,6 @@ namespace cheraasje_epp.UI.Pages
         private Cheraasje.Epp.UI.Controls.RoundedButton doorFilterButton;
         private Cheraasje.Epp.UI.Controls.RoundedButton removeFiltersButton;
         private FlowLayoutPanel carList;
+        private Button menuButton;
     }
 }
