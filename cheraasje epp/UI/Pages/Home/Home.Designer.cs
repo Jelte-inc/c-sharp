@@ -81,6 +81,7 @@ namespace cheraasje_epp
             fleetButton.Text = "Your Fleet";
             fleetButton.MouseEnter += LabelMouseEnter;
             fleetButton.MouseLeave += LabelMouseLeave;
+            fleetButton.Click += fleetButton_Click;
             // 
             // accountButton
             // 
@@ -105,8 +106,9 @@ namespace cheraasje_epp
             shortUserInfoLabel.Font = new Font("Consolas", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
             shortUserInfoLabel.Location = new Point(636, 18);
             shortUserInfoLabel.Name = "shortUserInfoLabel";
-            shortUserInfoLabel.Size = new Size(0, 23);
+            shortUserInfoLabel.Size = new Size(120, 23);
             shortUserInfoLabel.TabIndex = 5;
+            shortUserInfoLabel.Text = "{USERINFO}";
             // 
             // Home
             // 

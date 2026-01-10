@@ -2,147 +2,141 @@
 using cheraasje_epp.Models.Filters;
 using System.Data.SQLite;
 
-
 namespace cheraasje_epp.Data
 {
     internal class DataManager
     {
-        private string dbPath = Path.Combine(Application.StartupPath, "Data", "database.db");
-        private string connectionString;
+        private readonly string dbPath =
+            Path.Combine(Application.StartupPath, "Data", "database.db");
+
+        private readonly string connectionString;
 
         public DataManager()
         {
-            connectionString = $"Data Source={dbPath};Version=3;";
+            connectionString =
+                $"Data Source={dbPath};Version=3;BusyTimeout=5000;";
         }
 
         public User AuthenticateUser(string userID, string password)
         {
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT * FROM Users WHERE Id=@id AND Password=@password";
-                SQLiteCommand cmd = new SQLiteCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", userID);
-                cmd.Parameters.AddWithValue("@password", password);
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
 
-                SQLiteDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    return new User
-                    {
-                        Id = Convert.ToInt32(reader["Id"]),
-                        Name = reader["Name"].ToString(),
-                        Password = reader["Password"].ToString(),
-                        BranchId = Convert.ToInt32(reader["BranchId"])
-                    };
-                }
-            }
-            return null; // login mislukt
-        }
-        public Branch GetBranchById(int id)
-        {
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT * FROM Branches WHERE Id=@id";
-                SQLiteCommand cmd = new SQLiteCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", id);
+            using var cmd = new SQLiteCommand(
+                "SELECT * FROM Users WHERE Id=@id AND Password=@password", conn);
+            cmd.Parameters.AddWithValue("@id", userID);
+            cmd.Parameters.AddWithValue("@password", password);
 
-                SQLiteDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    return new Branch
-                    {
-                        Id = Convert.ToInt32(reader["Id"]),
-                        Name = reader["Name"].ToString(),
-                        Location = reader["Location"].ToString(),
-                        Adress = reader["Adress"].ToString(),
-                        PhoneNumber = reader["PhoneNumber"].ToString(),
-                        PostalCode = reader["PostalCode"].ToString(),
-                        Owner = reader["OwnerId"].ToString()
-                    };
-                }
-            }
-            return null;
+            using var reader = cmd.ExecuteReader();
+            if (!reader.Read()) return null;
+
+            return new User
+            {
+                Id = Convert.ToInt32(reader["Id"]),
+                Name = reader["Name"].ToString()!,
+                Password = reader["Password"].ToString()!,
+                BranchId = Convert.ToInt32(reader["BranchId"])
+            };
         }
+
         public User GetUser(int id)
         {
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT * FROM Users WHERE Id=@id";
-                SQLiteCommand cmd = new SQLiteCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", id);
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
 
-                SQLiteDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    return new User
-                    {
-                        Id = Convert.ToInt32(reader["Id"]),
-                        Name = reader["Name"].ToString()!,
-                        BranchId = Convert.ToInt32(reader["BranchId"])
-                    };
-                }
-            }
-            // Todo: better error handling
-            throw new Exception("User not found for id: " + id);
+            using var cmd = new SQLiteCommand(
+                "SELECT * FROM Users WHERE Id=@id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            using var reader = cmd.ExecuteReader();
+            if (!reader.Read())
+                throw new Exception($"User not found for id {id}");
+
+            return new User
+            {
+                Id = Convert.ToInt32(reader["Id"]),
+                Name = reader["Name"].ToString()!,
+                BranchId = Convert.ToInt32(reader["BranchId"])
+            };
+        }
+
+        public Branch GetBranchById(int id)
+        {
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            using var cmd = new SQLiteCommand(
+                "SELECT * FROM Branches WHERE Id=@id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+
+            using var reader = cmd.ExecuteReader();
+            if (!reader.Read()) return null;
+
+            return new Branch
+            {
+                Id = Convert.ToInt32(reader["Id"]),
+                Name = reader["Name"].ToString()!,
+                Location = reader["Location"].ToString()!,
+                Adress = reader["Adress"].ToString()!,
+                PhoneNumber = reader["PhoneNumber"].ToString()!,
+                PostalCode = reader["PostalCode"].ToString()!,
+                Owner = reader["OwnerId"].ToString()!
+            };
         }
 
         public List<Car> GetCars(CarFilter filter)
         {
             var cars = new List<Car>();
-            var whereClauses = new List<string>();
+            var where = new List<string>();
 
-            int userId = Session.UserId;
-            User user = GetUser(userId);
+            var user = GetUser(Session.UserId);
 
-            using var connection = new SQLiteConnection(connectionString);
-            using var command = new SQLiteCommand();
-            command.Connection = connection;
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
 
-            whereClauses.Add("BranchId = @BranchId");
-            command.Parameters.AddWithValue("@BranchId", user.BranchId);
+            using var cmd = new SQLiteCommand();
+            cmd.Connection = conn;
+
+            where.Add("BranchId=@BranchId");
+            cmd.Parameters.AddWithValue("@BranchId", user.BranchId);
 
             if (!string.IsNullOrWhiteSpace(filter.Brand))
             {
-                whereClauses.Add("Brand LIKE @Brand");
-                command.Parameters.AddWithValue("@Brand", $"%{filter.Brand}%");
+                where.Add("Brand LIKE @Brand");
+                cmd.Parameters.AddWithValue("@Brand", $"%{filter.Brand}%");
             }
 
             if (!string.IsNullOrWhiteSpace(filter.Model))
             {
-                whereClauses.Add("Model LIKE @Model");
-                command.Parameters.AddWithValue("@Model", $"%{filter.Model}%");
+                where.Add("Model LIKE @Model");
+                cmd.Parameters.AddWithValue("@Model", $"%{filter.Model}%");
             }
 
             if (!string.IsNullOrWhiteSpace(filter.Color))
             {
-                whereClauses.Add("Color LIKE @Color");
-                command.Parameters.AddWithValue("@Color", $"%{filter.Color}%");
+                where.Add("Color LIKE @Color");
+                cmd.Parameters.AddWithValue("@Color", $"%{filter.Color}%");
             }
-            if (!string.IsNullOrEmpty(filter.AmountOfDoors.ToString()))
+
+            if (filter.AmountOfDoors > 0)
             {
-                whereClauses.Add("Doors = @AmountOfDoors");
-                command.Parameters.AddWithValue("@AmountOfDoors", filter.AmountOfDoors);
+                where.Add("Doors=@Doors");
+                cmd.Parameters.AddWithValue("@Doors", filter.AmountOfDoors);
             }
 
             if (filter.PriceRange != null)
             {
-                whereClauses.Add("Price BETWEEN @MinPrice AND @MaxPrice");
-                command.Parameters.AddWithValue("@MinPrice", filter.PriceRange.Min.Amount);
-                command.Parameters.AddWithValue("@MaxPrice", filter.PriceRange.Max.Amount);
+                where.Add("Price BETWEEN @Min AND @Max");
+                cmd.Parameters.AddWithValue("@Min", filter.PriceRange.Min.Amount);
+                cmd.Parameters.AddWithValue("@Max", filter.PriceRange.Max.Amount);
             }
 
-            command.CommandText = $@"
-        SELECT *
-        FROM Cars
-        WHERE {string.Join(" AND ", whereClauses)};
-    ";
+            cmd.CommandText = $@"
+                SELECT * FROM Cars
+                WHERE {string.Join(" AND ", where)}
+            ";
 
-            connection.Open();
-            using var reader = command.ExecuteReader();
-
+            using var reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 cars.Add(new Car
@@ -153,92 +147,95 @@ namespace cheraasje_epp.Data
                     AmountOfDoors = Convert.ToInt32(reader["Doors"]),
                     Price = Convert.ToDecimal(reader["Price"]),
                     BuildYear = Convert.ToInt32(reader["BuildYear"]),
-                    Mileage = Convert.ToDecimal(reader["Mileage"])
+                    Mileage = Convert.ToDecimal(reader["Mileage"]),
+                    TransmissionType = reader["TransmissionType"].ToString()!
                 });
             }
 
             return cars;
         }
-        public List<Time> GetTimes(int id)
+
+        public List<Time> GetTimes(int branchId)
         {
-            var branch = GetBranchById(id);
-            var branchId = branch.Id;
             var times = new List<Time>();
 
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            using var cmd = new SQLiteCommand(
+                "SELECT * FROM OpeningTimes WHERE LocationId=@branchId", conn);
+            cmd.Parameters.AddWithValue("@branchId", branchId);
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
-                conn.Open();
-                string query = "SELECT * FROM OpeningTimes WHERE LocationId = @branchId";
-
-                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                times.Add(new Time
                 {
-                    cmd.Parameters.AddWithValue("@branchId", branchId);
-
-                    using (SQLiteDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            times.Add(new Time
-                            {
-                                Day = Convert.ToInt32(reader["DayOfWeek"]),
-                                OpenTime = reader["OpensAt"].ToString()!,
-                                CloseTime = reader["ClosesAt"].ToString()!
-                            });
-                        }
-                    }
-                }
+                    Day = Convert.ToInt32(reader["DayOfWeek"]),
+                    OpenTime = reader["OpensAt"].ToString()!,
+                    CloseTime = reader["ClosesAt"].ToString()!
+                });
             }
+
             return times;
         }
 
-
-
-        public List<string> getCarAttributes(string filter)
+        public List<string> GetCarAttributes(string column)
         {
-            List<string> carAttributes = new List<string>();
+            var result = new List<string>();
+            var user = GetUser(Session.UserId);
 
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            using var cmd = new SQLiteCommand(
+                $"SELECT DISTINCT {column} FROM Cars WHERE BranchId=@branch",
+                conn);
+            cmd.Parameters.AddWithValue("@branch", user.BranchId);
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
-                int userId = Session.UserId;
-                User user = GetUser(userId);
-                int branchId = user.BranchId;
-                conn.Open();
-                string query = $@"
-                SELECT DISTINCT {filter}
-                FROM Cars
-                WHERE BranchId = @branchId";
-                SQLiteCommand cmd = new SQLiteCommand(query, conn);
-                cmd.Parameters.AddWithValue("@branchId", branchId);
-                SQLiteDataReader reader = cmd.ExecuteReader();
-                if (filter.ToLower() == "price")
-                {
-                    var prices = new List<decimal>();
-                    while (reader.Read())
-                    {
-                        prices.Add(Convert.ToDecimal(reader["Price"]));
-                    }
-                    int step = 10000;
-
-                    var ranges = prices
-                        .Select(p => Math.Floor(p / step) * step)
-                        .Distinct()
-                        .OrderBy(p => p)
-                        .Select(min => $"{min}-{min + step - 1}")
-                        .ToList();
-                    carAttributes = ranges;
-
-                }
-                else
-                {
-                    while (reader.Read())
-                    {
-                        carAttributes.Add(reader[filter].ToString()!);
-                    }
-                }
+                result.Add(reader[column].ToString()!);
             }
-            return carAttributes;
+
+            return result;
         }
 
+        public bool AddCar(Car car)
+        {
+            try
+            {
+                var user = GetUser(Session.UserId);
+
+                using var conn = new SQLiteConnection(connectionString);
+                conn.Open();
+
+                using var cmd = new SQLiteCommand(@"
+                    INSERT INTO Cars
+                    (Brand, Model, Color, Doors, Price, BuildYear, Mileage, BranchId, TransmissionType)
+                    VALUES
+                    (@Brand, @Model, @Color, @Doors, @Price, @BuildYear, @Mileage, @BranchId, @TransmissionType)
+                ", conn);
+
+                cmd.Parameters.AddWithValue("@Brand", car.Brand);
+                cmd.Parameters.AddWithValue("@Model", car.Model);
+                cmd.Parameters.AddWithValue("@Color", car.Color);
+                cmd.Parameters.AddWithValue("@Doors", car.AmountOfDoors);
+                cmd.Parameters.AddWithValue("@Price", car.Price);
+                cmd.Parameters.AddWithValue("@BuildYear", car.BuildYear);
+                cmd.Parameters.AddWithValue("@Mileage", car.Mileage);
+                cmd.Parameters.AddWithValue("@BranchId", user.BranchId);
+                cmd.Parameters.AddWithValue("@TransmissionType", car.TransmissionType);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
     }
 }
-
