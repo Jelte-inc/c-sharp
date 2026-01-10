@@ -1,4 +1,5 @@
 ﻿using cheraasje_epp.Models.Entities;
+using CheraasjeApp.UI.Controls;
 
 namespace cheraasje_epp.UI.Pages.FleetWidgets
 {
@@ -8,10 +9,28 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
         {
             InitializeComponent();
 
+            var background = new RoundedRectangle
+            {
+                Dock = DockStyle.Fill,
+                FillColor = Color.White,
+                CornerRadius = 20
+            };
+
+            Controls.Add(background);
+            background.SendToBack();
+
             titleLabel.Text = $"{car.Name()} {car.BuildYear}";
             priceLabel.Text = car.Price.ToString("C");
             mileageLabel.Text = $"{car.Mileage:N0} km";
-        }
+            if (File.Exists(car.Image))
+            {
+                pictureBox1.Image = Image.FromFile(car.Image);
+            }
+            else
+            {
+                pictureBox1.Image = Properties.Resources.NoImage;
+            }
 
+        }
     }
 }
