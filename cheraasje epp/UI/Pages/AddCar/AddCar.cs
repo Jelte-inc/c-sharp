@@ -55,5 +55,10 @@ namespace cheraasje_epp.UI.Pages
                 return;
             }
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            PageChangeRequested?.Invoke(new Fleet());
+        }
     }
 }
