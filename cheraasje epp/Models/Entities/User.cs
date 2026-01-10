@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace cheraasje_epp.Models.Entities
 {
-    internal class User
+    public class User
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
         public int BranchId { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

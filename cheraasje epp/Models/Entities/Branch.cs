@@ -1,6 +1,6 @@
 ﻿namespace cheraasje_epp.Models.Entities
 {
-    internal class Branch
+    public class Branch
     {
         public int Id { get; set; }
         public string Name { get; set; }
