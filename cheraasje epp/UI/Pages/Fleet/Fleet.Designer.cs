@@ -1,4 +1,4 @@
-﻿using cheraasje_epp.UI.Controls;
+using cheraasje_epp.UI.Controls;
 
 namespace cheraasje_epp.UI.Pages
 {
@@ -70,14 +70,13 @@ namespace cheraasje_epp.UI.Pages
             searchBox.BorderColor = Color.Red;
             searchBox.BorderRadius = 15;
             searchBox.BorderSize = 2;
-            searchBox.FillColor = Color.FromArgb(255, 87, 87);
+            searchBox.FillColor = Color.White;
             searchBox.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            searchBox.ForeColor = Color.White;
+            searchBox.ForeColor = Color.Black;
             searchBox.Location = new Point(420, 39);
             searchBox.Name = "searchBox";
             searchBox.Padding = new Padding(10, 5, 10, 5);
             searchBox.PlaceholderText = "🔎 Type to search...";
-            //searchBox.PlaceholderTextColor = Color.White;
             searchBox.Size = new Size(307, 68);
             searchBox.TabIndex = 2;
             searchBox.TextAlign = HorizontalAlignment.Left;
