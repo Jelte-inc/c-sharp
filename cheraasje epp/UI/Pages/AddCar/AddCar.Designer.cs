@@ -82,7 +82,6 @@ namespace cheraasje_epp.UI.Pages
             brandInputField.Size = new Size(361, 37);
             brandInputField.TabIndex = 2;
             brandInputField.TextAlign = HorizontalAlignment.Left;
-            //brandInputField.UseSystemPasswordChar = false;
             brandInputField.UseSystemPasswordChar = false;
             // 
             // modelInputField
@@ -99,7 +98,6 @@ namespace cheraasje_epp.UI.Pages
             modelInputField.Size = new Size(361, 37);
             modelInputField.TabIndex = 3;
             modelInputField.TextAlign = HorizontalAlignment.Left;
-            //modelInputField.usePasswordMasking = false;
             modelInputField.UseSystemPasswordChar = false;
             // 
             // buildYearInputField
@@ -116,7 +114,6 @@ namespace cheraasje_epp.UI.Pages
             buildYearInputField.Size = new Size(361, 37);
             buildYearInputField.TabIndex = 4;
             buildYearInputField.TextAlign = HorizontalAlignment.Left;
-            //buildYearInputField.usePasswordMasking = false;
             buildYearInputField.UseSystemPasswordChar = false;
             // 
             // uploadedImagesView
@@ -156,7 +153,6 @@ namespace cheraasje_epp.UI.Pages
             mileageInputField.Size = new Size(361, 37);
             mileageInputField.TabIndex = 10;
             mileageInputField.TextAlign = HorizontalAlignment.Left;
-            //mileageInputField.usePasswordMasking = false;
             mileageInputField.UseSystemPasswordChar = false;
             // 
             // priceInputField
@@ -173,7 +169,6 @@ namespace cheraasje_epp.UI.Pages
             priceInputField.Size = new Size(361, 37);
             priceInputField.TabIndex = 11;
             priceInputField.TextAlign = HorizontalAlignment.Left;
-            //priceInputField.usePasswordMasking = false;
             priceInputField.UseSystemPasswordChar = false;
             // 
             // licencePlateInputField
@@ -190,7 +185,6 @@ namespace cheraasje_epp.UI.Pages
             licencePlateInputField.Size = new Size(361, 37);
             licencePlateInputField.TabIndex = 12;
             licencePlateInputField.TextAlign = HorizontalAlignment.Left;
-            //licencePlateInputField.usePasswordMasking = false;
             licencePlateInputField.UseSystemPasswordChar = false;
             // 
             // selectManualButton
@@ -237,7 +231,6 @@ namespace cheraasje_epp.UI.Pages
             amountOfDoorInputField.Size = new Size(361, 37);
             amountOfDoorInputField.TabIndex = 15;
             amountOfDoorInputField.TextAlign = HorizontalAlignment.Left;
-            //amountOfDoorInputField.usePasswordMasking = false;
             amountOfDoorInputField.UseSystemPasswordChar = false;
             // 
             // colorInputField
@@ -254,7 +247,6 @@ namespace cheraasje_epp.UI.Pages
             colorInputField.Size = new Size(361, 37);
             colorInputField.TabIndex = 16;
             colorInputField.TextAlign = HorizontalAlignment.Left;
-            //colorInputField.usePasswordMasking = false;
             colorInputField.UseSystemPasswordChar = false;
             // 
             // AddCar

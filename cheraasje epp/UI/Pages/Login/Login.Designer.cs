@@ -50,38 +50,50 @@ namespace cheraasje_epp
             // 
             // idBox
             // 
+            idBox.BackColor = Color.White;
+            idBox.BorderColor = Color.Red;
+            idBox.BorderRadius = 15;
+            idBox.BorderSize = 2;
+            idBox.FillColor = SystemColors.Window;
+            idBox.ForeColor = Color.Black;
             idBox.Location = new Point(300, 180);
             idBox.Name = "idBox";
+            idBox.Padding = new Padding(10, 6, 10, 6);
+            idBox.PlaceholderText = "User ID...";
             idBox.Size = new Size(250, 35);
             idBox.TabIndex = 0;
+            idBox.TextAlign = HorizontalAlignment.Left;
             idBox.UseSystemPasswordChar = false;
-            idBox.BackColor = Color.White;
-            idBox.ForeColor = Color.Black;
-            idBox.PlaceholderText = "User ID...";
-            passwordBox.UseSystemPasswordChar = true;
             // 
             // passwordBox
             // 
+            passwordBox.BackColor = Color.White;
+            passwordBox.BorderColor = Color.Red;
+            passwordBox.BorderRadius = 15;
+            passwordBox.BorderSize = 2;
+            passwordBox.FillColor = SystemColors.Window;
+            passwordBox.ForeColor = Color.Black;
             passwordBox.Location = new Point(300, 230);
             passwordBox.Name = "passwordBox";
+            passwordBox.Padding = new Padding(10, 6, 10, 6);
+            passwordBox.PlaceholderText = "Password...";
             passwordBox.Size = new Size(250, 35);
             passwordBox.TabIndex = 1;
-            passwordBox.BackColor = Color.White;
+            passwordBox.TextAlign = HorizontalAlignment.Left;
             passwordBox.UseSystemPasswordChar = true;
-            passwordBox.PlaceholderText = "Password...";
-            passwordBox.ForeColor = Color.Black;
             // 
             // loginButton
             // 
+            loginButton.BackColor = Color.Red;
             loginButton.Cursor = Cursors.Hand;
+            loginButton.FlatStyle = FlatStyle.Flat;
+            loginButton.ForeColor = Color.White;
             loginButton.Location = new Point(300, 284);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(160, 23);
             loginButton.TabIndex = 3;
             loginButton.Text = "Login";
-            loginButton.UseVisualStyleBackColor = true;
-            loginButton.BackColor = Color.Red;
-            loginButton.ForeColor = Color.White;
+            loginButton.UseVisualStyleBackColor = false;
             loginButton.Click += loginButton_Click;
             // 
             // Login
