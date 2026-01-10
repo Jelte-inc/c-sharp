@@ -40,12 +40,12 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
             // titleLabel
             // 
             titleLabel.AutoSize = true;
+            titleLabel.BackColor = Color.White;
             titleLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             titleLabel.Location = new Point(142, 22);
             titleLabel.Name = "titleLabel";
             titleLabel.Size = new Size(74, 25);
             titleLabel.TabIndex = 0;
-            titleLabel.BackColor = Color.White;
             titleLabel.Text = "{TITLE}";
             // 
             // pictureBox1
@@ -53,17 +53,17 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
             pictureBox1.Location = new Point(8, 9);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(103, 103);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             // 
             // priceLabel
             // 
             priceLabel.AutoSize = true;
+            priceLabel.BackColor = Color.White;
             priceLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             priceLabel.Location = new Point(142, 53);
             priceLabel.Name = "priceLabel";
-            priceLabel.BackColor = Color.White;
             priceLabel.Size = new Size(61, 21);
             priceLabel.TabIndex = 2;
             priceLabel.Text = "{PRICE}";
@@ -71,10 +71,10 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
             // mileageLabel
             // 
             mileageLabel.AutoSize = true;
+            mileageLabel.BackColor = Color.White;
             mileageLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mileageLabel.Location = new Point(279, 53);
             mileageLabel.Name = "mileageLabel";
-            mileageLabel.BackColor = Color.White;
             mileageLabel.Size = new Size(83, 21);
             mileageLabel.TabIndex = 3;
             mileageLabel.Text = "{MILEAGE}";

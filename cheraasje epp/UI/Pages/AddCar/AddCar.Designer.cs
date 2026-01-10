@@ -39,7 +39,7 @@ namespace cheraasje_epp.UI.Pages
             addCarButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             mileageInputField = new RoundedTextBox();
             priceInputField = new RoundedTextBox();
-            licencePlateInputField = new RoundedTextBox();
+            licensePlateInputField = new RoundedTextBox();
             selectManualButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             selectAutomaticButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             amountOfDoorInputField = new RoundedTextBox();
@@ -119,11 +119,13 @@ namespace cheraasje_epp.UI.Pages
             // 
             // uploadedImagesView
             // 
+            uploadedImagesView.AutoScroll = true;
             uploadedImagesView.BackColor = Color.White;
             uploadedImagesView.Location = new Point(118, 352);
             uploadedImagesView.Name = "uploadedImagesView";
-            uploadedImagesView.Size = new Size(279, 77);
+            uploadedImagesView.Size = new Size(279, 87);
             uploadedImagesView.TabIndex = 6;
+            uploadedImagesView.WrapContents = false;
             // 
             // addCarButton
             // 
@@ -172,21 +174,21 @@ namespace cheraasje_epp.UI.Pages
             priceInputField.TextAlign = HorizontalAlignment.Left;
             priceInputField.UseSystemPasswordChar = false;
             // 
-            // licencePlateInputField
+            // licensePlateInputField
             // 
-            licencePlateInputField.BackColor = Color.White;
-            licencePlateInputField.BorderColor = Color.Red;
-            licencePlateInputField.BorderRadius = 18;
-            licencePlateInputField.BorderSize = 2;
-            licencePlateInputField.FillColor = Color.White;
-            licencePlateInputField.Location = new Point(511, 138);
-            licencePlateInputField.Name = "licencePlateInputField";
-            licencePlateInputField.Padding = new Padding(10, 5, 10, 5);
-            licencePlateInputField.PlaceholderText = "Licence plate...";
-            licencePlateInputField.Size = new Size(361, 37);
-            licencePlateInputField.TabIndex = 12;
-            licencePlateInputField.TextAlign = HorizontalAlignment.Left;
-            licencePlateInputField.UseSystemPasswordChar = false;
+            licensePlateInputField.BackColor = Color.White;
+            licensePlateInputField.BorderColor = Color.Red;
+            licensePlateInputField.BorderRadius = 18;
+            licensePlateInputField.BorderSize = 2;
+            licensePlateInputField.FillColor = Color.White;
+            licensePlateInputField.Location = new Point(511, 138);
+            licensePlateInputField.Name = "licensePlateInputField";
+            licensePlateInputField.Padding = new Padding(10, 5, 10, 5);
+            licensePlateInputField.PlaceholderText = "Licence plate...";
+            licensePlateInputField.Size = new Size(361, 37);
+            licensePlateInputField.TabIndex = 12;
+            licensePlateInputField.TextAlign = HorizontalAlignment.Left;
+            licensePlateInputField.UseSystemPasswordChar = false;
             // 
             // selectManualButton
             // 
@@ -273,7 +275,7 @@ namespace cheraasje_epp.UI.Pages
             Controls.Add(amountOfDoorInputField);
             Controls.Add(selectAutomaticButton);
             Controls.Add(selectManualButton);
-            Controls.Add(licencePlateInputField);
+            Controls.Add(licensePlateInputField);
             Controls.Add(priceInputField);
             Controls.Add(mileageInputField);
             Controls.Add(addCarButton);
@@ -302,7 +304,7 @@ namespace cheraasje_epp.UI.Pages
         private Cheraasje.Epp.UI.Controls.RoundedButton addCarButton;
         private Controls.RoundedTextBox mileageInputField;
         private Controls.RoundedTextBox priceInputField;
-        private Controls.RoundedTextBox licencePlateInputField;
+        private Controls.RoundedTextBox licensePlateInputField;
         private Cheraasje.Epp.UI.Controls.RoundedButton selectManualButton;
         private Cheraasje.Epp.UI.Controls.RoundedButton selectAutomaticButton;
         private Controls.RoundedTextBox amountOfDoorInputField;

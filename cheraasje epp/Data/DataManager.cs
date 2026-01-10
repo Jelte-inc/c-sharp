@@ -1,5 +1,6 @@
 ﻿using cheraasje_epp.Models.Entities;
 using cheraasje_epp.Models.Filters;
+using System.Data;
 using System.Data.SQLite;
 
 namespace cheraasje_epp.Data
@@ -97,7 +98,7 @@ namespace cheraasje_epp.Data
             using var cmd = new SQLiteCommand();
             cmd.Connection = conn;
 
-            where.Add("BranchId=@BranchId");
+            where.Add("BranchId = @BranchId");
             cmd.Parameters.AddWithValue("@BranchId", user.BranchId);
 
             if (!string.IsNullOrWhiteSpace(filter.Brand))
@@ -120,7 +121,7 @@ namespace cheraasje_epp.Data
 
             if (filter.AmountOfDoors > 0)
             {
-                where.Add("Doors=@Doors");
+                where.Add("Doors = @Doors");
                 cmd.Parameters.AddWithValue("@Doors", filter.AmountOfDoors);
             }
 
@@ -132,7 +133,8 @@ namespace cheraasje_epp.Data
             }
 
             cmd.CommandText = $@"
-                SELECT * FROM Cars
+                SELECT *
+                FROM Cars
                 WHERE {string.Join(" AND ", where)}
             ";
 
@@ -141,6 +143,7 @@ namespace cheraasje_epp.Data
             {
                 cars.Add(new Car
                 {
+                    Id = Convert.ToInt32(reader["Id"]),
                     Brand = reader["Brand"].ToString()!,
                     Model = reader["Model"].ToString()!,
                     Color = reader["Color"].ToString()!,
@@ -148,13 +151,36 @@ namespace cheraasje_epp.Data
                     Price = Convert.ToDecimal(reader["Price"]),
                     BuildYear = Convert.ToInt32(reader["BuildYear"]),
                     Mileage = Convert.ToDecimal(reader["Mileage"]),
+                    LicensePlate = reader["LicensePlate"].ToString()!,
                     TransmissionType = reader["TransmissionType"].ToString()!,
-                    ImagePath = reader["ImagePath"].ToString()!
+                    ImagePaths = new List<string>()
                 });
+            }
+
+            // Afbeeldingen ophalen per auto
+            using var imgCmd = new SQLiteCommand(@"
+                SELECT Path
+                FROM CarImages
+                WHERE CarId = @CarId
+                ORDER BY Id
+            ", conn);
+
+            imgCmd.Parameters.Add("@CarId", DbType.Int64);
+
+            foreach (var car in cars)
+            {
+                imgCmd.Parameters["@CarId"].Value = car.Id;
+
+                using var imgReader = imgCmd.ExecuteReader();
+                while (imgReader.Read())
+                {
+                    car.ImagePaths.Add(imgReader["Path"].ToString()!);
+                }
             }
 
             return cars;
         }
+
 
         public List<Time> GetTimes(int branchId)
         {
@@ -205,36 +231,59 @@ namespace cheraasje_epp.Data
 
         public bool AddCar(Car car)
         {
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            using var transaction = conn.BeginTransaction();
+
             try
             {
                 var user = GetUser(Session.UserId);
 
-                using var conn = new SQLiteConnection(connectionString);
-                conn.Open();
+                // 1. Insert Car
+                using var carCmd = new SQLiteCommand(@"
+            INSERT INTO Cars
+            (Brand, Model, Color, Doors, Price, BuildYear, Mileage, BranchId, TransmissionType, LicensePlate)
+            VALUES
+            (@Brand, @Model, @Color, @Doors, @Price, @BuildYear, @Mileage, @BranchId, @TransmissionType, @LicensePlate);
+            SELECT last_insert_rowid();
+        ", conn, transaction);
 
-                using var cmd = new SQLiteCommand(@"
-                    INSERT INTO Cars
-                    (Brand, Model, Color, Doors, Price, BuildYear, Mileage, BranchId, TransmissionType, ImagePath)
-                    VALUES
-                    (@Brand, @Model, @Color, @Doors, @Price, @BuildYear, @Mileage, @BranchId, @TransmissionType, @ImagePath)
-                ", conn);
+                carCmd.Parameters.AddWithValue("@Brand", car.Brand);
+                carCmd.Parameters.AddWithValue("@Model", car.Model);
+                carCmd.Parameters.AddWithValue("@Color", car.Color);
+                carCmd.Parameters.AddWithValue("@Doors", car.AmountOfDoors);
+                carCmd.Parameters.AddWithValue("@Price", car.Price);
+                carCmd.Parameters.AddWithValue("@BuildYear", car.BuildYear);
+                carCmd.Parameters.AddWithValue("@Mileage", car.Mileage);
+                carCmd.Parameters.AddWithValue("@BranchId", user.BranchId);
+                carCmd.Parameters.AddWithValue("@TransmissionType", car.TransmissionType);
+                carCmd.Parameters.AddWithValue("@LicensePlate", car.LicensePlate);
 
-                cmd.Parameters.AddWithValue("@Brand", car.Brand);
-                cmd.Parameters.AddWithValue("@Model", car.Model);
-                cmd.Parameters.AddWithValue("@Color", car.Color);
-                cmd.Parameters.AddWithValue("@Doors", car.AmountOfDoors);
-                cmd.Parameters.AddWithValue("@Price", car.Price);
-                cmd.Parameters.AddWithValue("@BuildYear", car.BuildYear);
-                cmd.Parameters.AddWithValue("@Mileage", car.Mileage);
-                cmd.Parameters.AddWithValue("@BranchId", user.BranchId);
-                cmd.Parameters.AddWithValue("@TransmissionType", car.TransmissionType);
-                cmd.Parameters.AddWithValue("@ImagePath", car.ImagePath);
+                long carId = (long)carCmd.ExecuteScalar();
 
-                cmd.ExecuteNonQuery();
+                // 2. Insert Car Images
+                using var imageCmd = new SQLiteCommand(@"
+            INSERT INTO CarImages (Path, CarId)
+            VALUES (@Path, @CarId);
+        ", conn, transaction);
+
+                imageCmd.Parameters.Add("@Path", DbType.String);
+                imageCmd.Parameters.Add("@CarId", DbType.Int64);
+
+                foreach (var path in car.ImagePaths)
+                {
+                    imageCmd.Parameters["@Path"].Value = path;
+                    imageCmd.Parameters["@CarId"].Value = carId;
+                    imageCmd.ExecuteNonQuery();
+                }
+
+                transaction.Commit();
                 return true;
             }
             catch (Exception ex)
             {
+                transaction.Rollback();
                 MessageBox.Show(ex.ToString());
                 return false;
             }

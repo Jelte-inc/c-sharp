@@ -26,9 +26,12 @@ namespace cheraasje_epp.UI.Pages
         private void RenderCars(List<Car> cars)
         {
             carList.Controls.Clear();
+
             foreach (Car car in cars)
             {
-                carList.Controls.Add(new CarResultItem(car));
+                var item = new CarResultItem(car);
+                item.CarSelected += OnCarSelected;
+                carList.Controls.Add(item);
             }
         }
 
@@ -129,6 +132,11 @@ namespace cheraasje_epp.UI.Pages
 
             RenderCars(cars);
 
+        }
+
+        private void OnCarSelected(Car car)
+        {
+            PageChangeRequested?.Invoke(new CarView(car));
         }
 
         private void addNewCarButton_Click(object sender, EventArgs e)

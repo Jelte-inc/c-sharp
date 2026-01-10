@@ -11,12 +11,13 @@ namespace cheraasje_epp.UI.Pages
 
         private string transmissionType = "Manual";
 
-        private string ImagePath;
+        private List<string> ImagePaths;
 
         public AddCar()
         {
             InitializeComponent();
             branchLabel.Text = dataManager.GetBranchById(Session.UserId).Name;
+            ImagePaths = new List<string>();
         }
 
         private void addImagesButton_Click(object sender, EventArgs e)
@@ -44,6 +45,9 @@ namespace cheraasje_epp.UI.Pages
 
         private void CopyImagesToAppData(string[] filePaths)
         {
+            if (filePaths == null || filePaths.Length == 0)
+                return;
+
             string targetFolder = GetImageStorageFolder();
 
             foreach (string sourcePath in filePaths)
@@ -53,41 +57,36 @@ namespace cheraasje_epp.UI.Pages
                     Path.Combine(targetFolder, fileName)
                 );
 
-                Image img;
                 try
                 {
-                    using (var original = Image.FromFile(sourcePath))
+                    // Copy file
+                    File.Copy(sourcePath, destinationPath);
+                    using var loadedImage = Image.FromFile(destinationPath);
+                    Image previewImage = new Bitmap(loadedImage);
+                    ImagePaths.Add(destinationPath);
+                    var pictureBox = new PictureBox
                     {
-                        img = new Bitmap(original);
-                    }
+                        Image = previewImage,
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        Width = 150,
+                        Height = 100,
+                        Margin = new Padding(5)
+                    };
+
+                    uploadedImagesView.Controls.Add(pictureBox);
                 }
-                catch (ArgumentException)
+                catch (Exception ex)
                 {
                     MessageBox.Show(
-                        $"Invalid image file:\n{sourcePath}",
+                        $"Afbeelding kon niet worden toegevoegd:\n{sourcePath}\n\n{ex.Message}",
                         "Image error",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
-                    continue;
                 }
-
-                File.Copy(sourcePath, destinationPath);
-
-                ImagePath = destinationPath;
-
-                PictureBox pictureBox = new PictureBox
-                {
-                    Image = img,
-                    SizeMode = PictureBoxSizeMode.Zoom,
-                    Width = 150,
-                    Height = 100,
-                    Margin = new Padding(5)
-                };
-
-                uploadedImagesView.Controls.Add(pictureBox);
             }
         }
+
 
 
 
@@ -134,8 +133,9 @@ namespace cheraasje_epp.UI.Pages
                 Price = decimal.Parse(priceInputField.Text),
                 BuildYear = int.Parse(buildYearInputField.Text),
                 Mileage = decimal.Parse(mileageInputField.Text),
+                LicensePlate = licensePlateInputField.Text,
                 TransmissionType = transmissionType,
-                ImagePath = ImagePath
+                ImagePaths = ImagePaths
             };
             bool succes = dataManager.AddCar(car);
             if (succes)
