@@ -20,19 +20,6 @@ namespace cheraasje_epp.UI.Pages
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            DataManager dataManager = new DataManager();
-            var user = dataManager.GetUser(Convert.ToInt32(idBox.Text));
-            if (dataManager.GetBranchById(user.BranchId) == null)
-            {
-                if (user.IsAdmin)
-                {
-                    PageChangeRequested?.Invoke(new Admin());
-                    return;
-                }
-                    MessageBox.Show("You aren't added to a branch, please contact your admin for help");
-                    return;
-                    
-            }
             string userID = idBox.Text;      // haalt tekst uit idBox
             string password = passwordBox.Text; // haalt tekst uit passwordBox
 
@@ -45,12 +32,24 @@ namespace cheraasje_epp.UI.Pages
             }
 
             // Hier roep je je DataManager aan om te checken of de gebruiker bestaat
-            
+            DataManager dataManager = new DataManager();
             var boolean = dataManager.AuthenticateUser(userID, password);
 
             if (boolean)
             {
                 Session.Start(int.Parse(userID));
+                var user = dataManager.GetUser(Convert.ToInt32(idBox.Text));
+                if (dataManager.GetBranchById(user.BranchId) == null)
+                {
+                    if (user.IsAdmin)
+                    {
+                        PageChangeRequested?.Invoke(new Admin(true));
+                        return;
+                    }
+                    MessageBox.Show("You aren't added to a branch, please contact your admin for help");
+                    return;
+
+                }
                 PageChangeRequested?.Invoke(new Home());
             }
             else

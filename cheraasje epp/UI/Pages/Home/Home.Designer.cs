@@ -124,6 +124,8 @@ namespace cheraasje_epp.UI.Pages
             adminButton.TabIndex = 6;
             adminButton.Text = "Admin Center";
             adminButton.Click += adminButton_Click;
+            adminButton.MouseEnter += LabelMouseEnter;
+            adminButton.MouseLeave += LabelMouseLeave;
             // 
             // Home
             // 

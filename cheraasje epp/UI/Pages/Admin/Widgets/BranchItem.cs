@@ -9,12 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BranchModel = cheraasje_epp.Models.Entities;
+using AdminPage = cheraasje_epp.UI.Pages.Admin;
 
 
 namespace cheraasje_epp.UI.Admin.Widgets
 {
-    public partial class BranchItem : UserControl
+    public partial class BranchItem : UserControl, IPage
     {
+        public event Action<UserControl> PageChangeRequested;
         private BranchModel.Branch Branch;
         public BranchItem(BranchModel.Branch branch)
         {
@@ -29,7 +31,13 @@ namespace cheraasje_epp.UI.Admin.Widgets
             {
                 DataManager dataManager = new DataManager();
                 dataManager.DeleteBranch(Branch.Id);
-                this.Parent.Controls.Remove(this);
+                ////this.Parent.Controls.Remove(this);
+                ////var user = dataManager.GetUser(Session.UserId);
+                ////if (user.BranchId == Branch.Id)
+                //{
+                //    this.Parent.Controls.Find("menuButton", true).FirstOrDefault().Visible = false;
+                //}
+                PageChangeRequested?.Invoke(new AdminPage(true));
             }
 
         }

@@ -1,8 +1,5 @@
 using cheraasje_epp.Data;
 using cheraasje_epp.UI;
-using cheraasje_epp.UI.Account;
-using cheraasje_epp.UI.Admin;
-using cheraasje_epp.UI.Branch;
 using cheraasje_epp.UI.Pages;
 using User = cheraasje_epp.Models.Entities.User;
 
@@ -24,6 +21,10 @@ namespace cheraasje_epp.UI.Pages
             int y = 18;
             shortUserInfoLabel.Location = new Point(x, y);
             shortUserInfoLabel.Text = shortUserInfo;
+            if (!user.IsAdmin)
+            {
+                adminButton.Visible = false;
+            }
         }
 
         private void LabelClick(object sender, EventArgs e)

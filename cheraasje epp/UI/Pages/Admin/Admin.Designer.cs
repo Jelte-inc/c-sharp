@@ -1,7 +1,8 @@
 ﻿using Cheraasje.Epp.UI.Controls;
 using cheraasje_epp.UI.Controls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace cheraasje_epp.UI.Admin
+namespace cheraasje_epp.UI.Pages
 {
     partial class Admin
     {
@@ -39,6 +40,7 @@ namespace cheraasje_epp.UI.Admin
             branchButton = new RoundedButton();
             userInputField = new RoundedTextBox();
             userButton = new RoundedButton();
+            menuButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -132,6 +134,7 @@ namespace cheraasje_epp.UI.Admin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(menuButton);
             Controls.Add(userButton);
             Controls.Add(userInputField);
             Controls.Add(branchButton);
@@ -143,6 +146,21 @@ namespace cheraasje_epp.UI.Admin
             Size = new Size(923, 532);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
+            // 
+            // menuButton
+            // 
+            menuButton.BackColor = Color.White;
+            menuButton.Cursor = Cursors.Hand;
+            menuButton.FlatAppearance.BorderSize = 0;
+            menuButton.FlatStyle = FlatStyle.Flat;
+            menuButton.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            menuButton.Location = new Point(12, 21);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(36, 46);
+            menuButton.TabIndex = 21;
+            menuButton.Text = "☰";
+            menuButton.UseVisualStyleBackColor = false;
+            menuButton.Click += menuButton_Click;
         }
 
         #endregion
@@ -153,5 +171,6 @@ namespace cheraasje_epp.UI.Admin
         private RoundedButton branchButton;
         private RoundedTextBox userInputField;
         private RoundedButton userButton;
+        private Button menuButton;
     }
 }
