@@ -148,7 +148,8 @@ namespace cheraasje_epp.Data
                     Price = Convert.ToDecimal(reader["Price"]),
                     BuildYear = Convert.ToInt32(reader["BuildYear"]),
                     Mileage = Convert.ToDecimal(reader["Mileage"]),
-                    TransmissionType = reader["TransmissionType"].ToString()!
+                    TransmissionType = reader["TransmissionType"].ToString()!,
+                    ImagePath = reader["ImagePath"].ToString()!
                 });
             }
 
@@ -213,9 +214,9 @@ namespace cheraasje_epp.Data
 
                 using var cmd = new SQLiteCommand(@"
                     INSERT INTO Cars
-                    (Brand, Model, Color, Doors, Price, BuildYear, Mileage, BranchId, TransmissionType)
+                    (Brand, Model, Color, Doors, Price, BuildYear, Mileage, BranchId, TransmissionType, ImagePath)
                     VALUES
-                    (@Brand, @Model, @Color, @Doors, @Price, @BuildYear, @Mileage, @BranchId, @TransmissionType)
+                    (@Brand, @Model, @Color, @Doors, @Price, @BuildYear, @Mileage, @BranchId, @TransmissionType, @ImagePath)
                 ", conn);
 
                 cmd.Parameters.AddWithValue("@Brand", car.Brand);
@@ -227,6 +228,7 @@ namespace cheraasje_epp.Data
                 cmd.Parameters.AddWithValue("@Mileage", car.Mileage);
                 cmd.Parameters.AddWithValue("@BranchId", user.BranchId);
                 cmd.Parameters.AddWithValue("@TransmissionType", car.TransmissionType);
+                cmd.Parameters.AddWithValue("@ImagePath", car.ImagePath);
 
                 cmd.ExecuteNonQuery();
                 return true;

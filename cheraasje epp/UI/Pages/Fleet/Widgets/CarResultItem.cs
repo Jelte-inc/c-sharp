@@ -22,12 +22,13 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
             titleLabel.Text = $"{car.Name()} {car.BuildYear}";
             priceLabel.Text = car.Price.ToString("C");
             mileageLabel.Text = $"{car.Mileage:N0} km";
-            if (File.Exists(car.Image))
+            if (File.Exists(car.ImagePath))
             {
-                pictureBox1.Image = Image.FromFile(car.Image);
+                pictureBox1.Image = Image.FromFile(car.ImagePath);
             }
             else
             {
+                MessageBox.Show($"Image path does not exist {car.ImagePath}");
                 pictureBox1.Image = Properties.Resources.NoImage;
             }
 

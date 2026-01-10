@@ -32,18 +32,19 @@ namespace cheraasje_epp.UI.Pages
         {
             pictureBox1 = new PictureBox();
             branchLabel = new Label();
-            brandInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            modelInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            buildYearInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
+            brandInputField = new RoundedTextBox();
+            modelInputField = new RoundedTextBox();
+            buildYearInputField = new RoundedTextBox();
             uploadedImagesView = new FlowLayoutPanel();
             addCarButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            mileageInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            priceInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            licencePlateInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
+            mileageInputField = new RoundedTextBox();
+            priceInputField = new RoundedTextBox();
+            licencePlateInputField = new RoundedTextBox();
             selectManualButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             selectAutomaticButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            amountOfDoorInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            colorInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
+            amountOfDoorInputField = new RoundedTextBox();
+            colorInputField = new RoundedTextBox();
+            addImagesButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -119,9 +120,9 @@ namespace cheraasje_epp.UI.Pages
             // uploadedImagesView
             // 
             uploadedImagesView.BackColor = Color.White;
-            uploadedImagesView.Location = new Point(36, 352);
+            uploadedImagesView.Location = new Point(118, 352);
             uploadedImagesView.Name = "uploadedImagesView";
-            uploadedImagesView.Size = new Size(361, 77);
+            uploadedImagesView.Size = new Size(279, 77);
             uploadedImagesView.TabIndex = 6;
             // 
             // addCarButton
@@ -249,10 +250,25 @@ namespace cheraasje_epp.UI.Pages
             colorInputField.TextAlign = HorizontalAlignment.Left;
             colorInputField.UseSystemPasswordChar = false;
             // 
+            // addImagesButton
+            // 
+            addImagesButton.BackColor = Color.FromArgb(255, 87, 87);
+            addImagesButton.FlatAppearance.BorderSize = 0;
+            addImagesButton.FlatStyle = FlatStyle.Flat;
+            addImagesButton.ForeColor = Color.White;
+            addImagesButton.Location = new Point(36, 353);
+            addImagesButton.Name = "addImagesButton";
+            addImagesButton.Size = new Size(76, 76);
+            addImagesButton.TabIndex = 0;
+            addImagesButton.Text = "Add Images";
+            addImagesButton.UseVisualStyleBackColor = false;
+            addImagesButton.Click += addImagesButton_Click;
+            // 
             // AddCar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(addImagesButton);
             Controls.Add(colorInputField);
             Controls.Add(amountOfDoorInputField);
             Controls.Add(selectAutomaticButton);
@@ -291,5 +307,6 @@ namespace cheraasje_epp.UI.Pages
         private Cheraasje.Epp.UI.Controls.RoundedButton selectAutomaticButton;
         private Controls.RoundedTextBox amountOfDoorInputField;
         private Controls.RoundedTextBox colorInputField;
+        private Cheraasje.Epp.UI.Controls.RoundedButton addImagesButton;
     }
 }
