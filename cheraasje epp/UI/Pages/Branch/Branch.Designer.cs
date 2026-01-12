@@ -1,6 +1,6 @@
-﻿using cheraasje_epp.UI.Widgets;
+﻿using CheraasjeEpp.UI.Widgets;
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     partial class Branch
     {
@@ -31,7 +31,7 @@ namespace cheraasje_epp.UI.Pages
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Branch));
-            pictureBox1 = new PictureBox();
+            backgroundPictureBox = new PictureBox();
             cityLabel = new Label();
             sundayLabel = new Label();
             mondayLabel = new Label();
@@ -51,18 +51,18 @@ namespace cheraasje_epp.UI.Pages
             branchNameLabel = new Label();
             fleetButton = new RoundedButton();
             menuButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // backgroundPictureBox
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(923, 532);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            backgroundPictureBox.Image = (Image)resources.GetObject("backgroundPictureBox.Image");
+            backgroundPictureBox.Location = new Point(0, 0);
+            backgroundPictureBox.Name = "backgroundPictureBox";
+            backgroundPictureBox.Size = new Size(923, 532);
+            backgroundPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            backgroundPictureBox.TabIndex = 0;
+            backgroundPictureBox.TabStop = false;
             // 
             // cityLabel
             // 
@@ -303,17 +303,17 @@ namespace cheraasje_epp.UI.Pages
             Controls.Add(tuesdayLabel);
             Controls.Add(mondayLabel);
             Controls.Add(cityLabel);
-            Controls.Add(pictureBox1);
+            Controls.Add(backgroundPictureBox);
             Name = "Branch";
             Size = new Size(923, 532);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox backgroundPictureBox;
         private Label cityLabel;
         private Label sundayLabel;
         private Label mondayLabel;

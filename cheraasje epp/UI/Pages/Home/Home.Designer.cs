@@ -1,7 +1,7 @@
-﻿using cheraasje_epp.Data;
-using cheraasje_epp.Models;
+﻿using CheraasjeEpp.Data;
+using CheraasjeEpp.Models;
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     partial class Home
     {
@@ -31,26 +31,26 @@ namespace cheraasje_epp.UI.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            backgroundPictureBox = new PictureBox();
             branchButton = new Label();
             fleetButton = new Label();
             accountButton = new Label();
             shortUserInfoLabel = new Label();
             adminButton = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // backgroundPictureBox
             // 
-            pictureBox1.AccessibleName = "HomePageBackground";
-            pictureBox1.Image = Properties.Resources.HomepageBackground;
-            pictureBox1.Location = new Point(-1, -1);
-            pictureBox1.Margin = new Padding(2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(923, 532);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            backgroundPictureBox.AccessibleName = "HomePageBackground";
+            backgroundPictureBox.Image = Properties.Resources.HomepageBackground;
+            backgroundPictureBox.Location = new Point(-1, -1);
+            backgroundPictureBox.Margin = new Padding(2);
+            backgroundPictureBox.Name = "backgroundPictureBox";
+            backgroundPictureBox.Size = new Size(923, 532);
+            backgroundPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            backgroundPictureBox.TabIndex = 0;
+            backgroundPictureBox.TabStop = false;
             // 
             // branchButton
             // 
@@ -136,18 +136,18 @@ namespace cheraasje_epp.UI.Pages
             Controls.Add(accountButton);
             Controls.Add(fleetButton);
             Controls.Add(branchButton);
-            Controls.Add(pictureBox1);
+            Controls.Add(backgroundPictureBox);
             Margin = new Padding(2);
             Name = "Home";
             Size = new Size(923, 531);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox backgroundPictureBox;
         private Label branchButton;
         private Label fleetButton;
         private Label accountButton;

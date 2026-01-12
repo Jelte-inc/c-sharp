@@ -1,6 +1,6 @@
-﻿using System.Net.NetworkInformation;
+using System.Net.NetworkInformation;
 
-namespace cheraasje_epp.UI.Pages.FleetWidgets
+namespace CheraasjeEpp.UI.Pages.FleetWidgets
 {
     partial class CarResultItem
     {
@@ -31,10 +31,10 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
         private void InitializeComponent()
         {
             titleLabel = new Label();
-            pictureBox1 = new PictureBox();
+            carPictureBox = new PictureBox();
             priceLabel = new Label();
             mileageLabel = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)carPictureBox).BeginInit();
             SuspendLayout();
             // 
             // titleLabel
@@ -48,14 +48,14 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
             titleLabel.TabIndex = 0;
             titleLabel.Text = "{TITLE}";
             // 
-            // pictureBox1
+            // carPictureBox
             // 
-            pictureBox1.Location = new Point(8, 9);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(103, 103);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            carPictureBox.Location = new Point(8, 9);
+            carPictureBox.Name = "carPictureBox";
+            carPictureBox.Size = new Size(103, 103);
+            carPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            carPictureBox.TabIndex = 1;
+            carPictureBox.TabStop = false;
             // 
             // priceLabel
             // 
@@ -85,11 +85,11 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(mileageLabel);
             Controls.Add(priceLabel);
-            Controls.Add(pictureBox1);
+            Controls.Add(carPictureBox);
             Controls.Add(titleLabel);
             Name = "CarResultItem";
             Size = new Size(725, 121);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)carPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -97,7 +97,7 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
         #endregion
 
         private Label titleLabel;
-        private PictureBox pictureBox1;
+        private PictureBox carPictureBox;
         private Label priceLabel;
         private Label mileageLabel;
     }

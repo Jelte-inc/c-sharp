@@ -1,9 +1,9 @@
-﻿using cheraasje_epp.Data;
-using cheraasje_epp.Models.Entities;
-using cheraasje_epp.Models.Filters;
+using CheraasjeEpp.Data;
+using CheraasjeEpp.Models.Entities;
+using CheraasjeEpp.Models.Filters;
 using System.Globalization;
 
-namespace cheraasje_epp.UI.Pages.FleetWidgets
+namespace CheraasjeEpp.UI.Pages.FleetWidgets
 {
     public partial class PopUp : Form
     {
@@ -21,13 +21,13 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
             this.filter = filter;
             foreach (string item in items)
             {
-                comboBox1.Items.Add(item);
+                selectionComboBox.Items.Add(item);
             }
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem == null)
+            if (selectionComboBox.SelectedItem == null)
                 return;
 
             if (Session.CarFilter == null)
@@ -39,7 +39,7 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
 
             if (filter.Equals("Price", StringComparison.OrdinalIgnoreCase))
             {
-                var text = comboBox1.SelectedItem?.ToString();
+                var text = selectionComboBox.SelectedItem?.ToString();
                 if (string.IsNullOrWhiteSpace(text))
                     return;
 
@@ -59,19 +59,19 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
             }
             else if (filter.Equals("Brand", StringComparison.OrdinalIgnoreCase))
             {
-                filters.Brand = comboBox1.SelectedItem!.ToString();
+                filters.Brand = selectionComboBox.SelectedItem!.ToString();
             }
             else if (filter.Equals("Model", StringComparison.OrdinalIgnoreCase))
             {
-                filters.Model = comboBox1.SelectedItem!.ToString();
+                filters.Model = selectionComboBox.SelectedItem!.ToString();
             }
             else if (filter.Equals("Color", StringComparison.OrdinalIgnoreCase))
             {
-                filters.Color = comboBox1.SelectedItem!.ToString();
+                filters.Color = selectionComboBox.SelectedItem!.ToString();
             }
             else if (filter.Equals("Doors", StringComparison.OrdinalIgnoreCase))
             {
-                if (int.TryParse(comboBox1.SelectedItem!.ToString(), out var amountOfDoors))
+                if (int.TryParse(selectionComboBox.SelectedItem!.ToString(), out var amountOfDoors))
                 {
                     filters.AmountOfDoors = amountOfDoors;
                 }

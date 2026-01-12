@@ -1,4 +1,4 @@
-﻿using cheraasje_epp.Models.Filters;
+﻿using CheraasjeEpp.Models.Filters;
 
 public static class Session
 {

@@ -1,4 +1,4 @@
-﻿using cheraasje_epp.Models.ValueObjects;
+﻿using CheraasjeEpp.Models.ValueObjects;
 
 public class PriceRange
 {

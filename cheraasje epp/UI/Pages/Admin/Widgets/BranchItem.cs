@@ -1,10 +1,10 @@
-﻿using cheraasje_epp.Data;
-using cheraasje_epp.UI.Pages.AddUser;
-using cheraasje_epp.UI.Widgets;
-using AdminPage = cheraasje_epp.UI.Pages.Admin;
-using BranchModel = cheraasje_epp.Models.Entities;
+﻿using CheraasjeEpp.Data;
+using CheraasjeEpp.UI.Pages.AddUser;
+using CheraasjeEpp.UI.Widgets;
+using AdminPage = CheraasjeEpp.UI.Pages.Admin;
+using BranchModel = CheraasjeEpp.Models.Entities;
 
-namespace cheraasje_epp.UI.Admin.Widgets
+namespace CheraasjeEpp.UI.Admin.Widgets
 {
     public partial class BranchItem : UserControl, IPage
     {

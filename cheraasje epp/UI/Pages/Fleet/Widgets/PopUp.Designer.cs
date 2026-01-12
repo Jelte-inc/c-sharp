@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.UI.Pages.FleetWidgets
+namespace CheraasjeEpp.UI.Pages.FleetWidgets
 {
     partial class PopUp
     {
@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            comboBox1 = new ComboBox();
+            selectionComboBox = new ComboBox();
             chooseLabel = new Label();
             confirmButton = new Button();
             SuspendLayout();
             // 
-            // comboBox1
+            // selectionComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(57, 102);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(273, 23);
-            comboBox1.TabIndex = 0;
+            selectionComboBox.FormattingEnabled = true;
+            selectionComboBox.Location = new Point(57, 102);
+            selectionComboBox.Name = "selectionComboBox";
+            selectionComboBox.Size = new Size(273, 23);
+            selectionComboBox.TabIndex = 0;
             // 
             // chooseLabel
             // 
@@ -68,7 +68,7 @@
             ClientSize = new Size(385, 204);
             Controls.Add(confirmButton);
             Controls.Add(chooseLabel);
-            Controls.Add(comboBox1);
+            Controls.Add(selectionComboBox);
             Name = "PopUp";
             Text = "Ok";
             ResumeLayout(false);
@@ -77,7 +77,7 @@
 
         #endregion
 
-        private ComboBox comboBox1;
+        private ComboBox selectionComboBox;
         private Label chooseLabel;
         private Button confirmButton;
     }

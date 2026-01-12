@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace cheraasje_epp.UI
+namespace CheraasjeEpp.UI
 {
     public interface IPage
     {

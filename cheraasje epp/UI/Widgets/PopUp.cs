@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.UI.Widgets
+﻿namespace CheraasjeEpp.UI.Widgets
 {
     public partial class PopUp : Form
     {

@@ -1,7 +1,7 @@
-﻿using cheraasje_epp.UI.Widgets;
+﻿using CheraasjeEpp.UI.Widgets;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     partial class Admin
     {

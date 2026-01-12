@@ -1,9 +1,9 @@
-﻿using cheraasje_epp.Data;
-using cheraasje_epp.Models.Filters;
-using cheraasje_epp.Models.ValueObjects;
-using cheraasje_epp.UI.Widgets;
+﻿using CheraasjeEpp.Data;
+using CheraasjeEpp.Models.Filters;
+using CheraasjeEpp.Models.ValueObjects;
+using CheraasjeEpp.UI.Widgets;
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     public partial class Branch : UserControl, IPage
     {

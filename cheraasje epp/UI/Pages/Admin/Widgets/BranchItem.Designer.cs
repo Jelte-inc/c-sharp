@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.UI.Admin.Widgets
+﻿namespace CheraasjeEpp.UI.Admin.Widgets
 {
     partial class BranchItem
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BranchItem));
-            roundedRectangle1 = new CheraasjeApp.UI.Controls.RoundedRectangle();
+            roundedRectangle1 = new CheraasjeEpp.UI.Widgets.RoundedRectangle();
             editButton = new Button();
             binButton = new Button();
             nameLabel = new Label();
@@ -103,7 +103,7 @@
 
         #endregion
 
-        private CheraasjeApp.UI.Controls.RoundedRectangle roundedRectangle1;
+        private CheraasjeEpp.UI.Widgets.RoundedRectangle roundedRectangle1;
         private Button editButton;
         private Button binButton;
         private Label nameLabel;

@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.Models.ValueObjects
+﻿namespace CheraasjeEpp.Models.ValueObjects
 {
     public readonly struct Money
     {

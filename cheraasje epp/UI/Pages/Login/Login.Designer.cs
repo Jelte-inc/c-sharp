@@ -1,7 +1,7 @@
-﻿
-using cheraasje_epp.UI.Widgets;
 
-namespace cheraasje_epp.UI.Pages
+using CheraasjeEpp.UI.Widgets;
+
+namespace CheraasjeEpp.UI.Pages
 {
     partial class Login
     {
@@ -31,56 +31,56 @@ namespace cheraasje_epp.UI.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
-            idBox = new RoundedTextBox();
-            passwordBox = new RoundedTextBox();
+            backgroundPictureBox = new PictureBox();
+            userIdTextBox = new RoundedTextBox();
+            passwordTextBox = new RoundedTextBox();
             loginButton = new RoundedButton();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // backgroundPictureBox
             // 
-            pictureBox1.Image = Properties.Resources.LoginPageBackground;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(924, 532);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
+            backgroundPictureBox.Image = Properties.Resources.LoginPageBackground;
+            backgroundPictureBox.Location = new Point(0, 0);
+            backgroundPictureBox.Name = "backgroundPictureBox";
+            backgroundPictureBox.Size = new Size(924, 532);
+            backgroundPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            backgroundPictureBox.TabIndex = 2;
+            backgroundPictureBox.TabStop = false;
             // 
-            // idBox
+            // userIdTextBox
             // 
-            idBox.BackColor = Color.White;
-            idBox.BorderColor = Color.Red;
-            idBox.BorderRadius = 15;
-            idBox.BorderSize = 2;
-            idBox.FillColor = SystemColors.Window;
-            idBox.ForeColor = Color.Black;
-            idBox.Location = new Point(300, 180);
-            idBox.Name = "idBox";
-            idBox.Padding = new Padding(10, 6, 10, 6);
-            idBox.PlaceholderText = "User ID...";
-            idBox.Size = new Size(250, 35);
-            idBox.TabIndex = 0;
-            idBox.TextAlign = HorizontalAlignment.Left;
-            idBox.UseSystemPasswordChar = false;
+            userIdTextBox.BackColor = Color.White;
+            userIdTextBox.BorderColor = Color.Red;
+            userIdTextBox.BorderRadius = 15;
+            userIdTextBox.BorderSize = 2;
+            userIdTextBox.FillColor = SystemColors.Window;
+            userIdTextBox.ForeColor = Color.Black;
+            userIdTextBox.Location = new Point(300, 180);
+            userIdTextBox.Name = "userIdTextBox";
+            userIdTextBox.Padding = new Padding(10, 6, 10, 6);
+            userIdTextBox.PlaceholderText = "User ID...";
+            userIdTextBox.Size = new Size(250, 35);
+            userIdTextBox.TabIndex = 0;
+            userIdTextBox.TextAlign = HorizontalAlignment.Left;
+            userIdTextBox.UseSystemPasswordChar = false;
             // 
-            // passwordBox
+            // passwordTextBox
             // 
-            passwordBox.BackColor = Color.White;
-            passwordBox.BorderColor = Color.Red;
-            passwordBox.BorderRadius = 15;
-            passwordBox.BorderSize = 2;
-            passwordBox.FillColor = SystemColors.Window;
-            passwordBox.ForeColor = Color.Black;
-            passwordBox.Location = new Point(300, 230);
-            passwordBox.Name = "passwordBox";
-            passwordBox.Padding = new Padding(10, 6, 10, 6);
-            passwordBox.PlaceholderText = "Password...";
-            passwordBox.Size = new Size(250, 35);
-            passwordBox.TabIndex = 1;
-            passwordBox.TextAlign = HorizontalAlignment.Left;
-            passwordBox.UseSystemPasswordChar = true;
+            passwordTextBox.BackColor = Color.White;
+            passwordTextBox.BorderColor = Color.Red;
+            passwordTextBox.BorderRadius = 15;
+            passwordTextBox.BorderSize = 2;
+            passwordTextBox.FillColor = SystemColors.Window;
+            passwordTextBox.ForeColor = Color.Black;
+            passwordTextBox.Location = new Point(300, 230);
+            passwordTextBox.Name = "passwordTextBox";
+            passwordTextBox.Padding = new Padding(10, 6, 10, 6);
+            passwordTextBox.PlaceholderText = "Password...";
+            passwordTextBox.Size = new Size(250, 35);
+            passwordTextBox.TabIndex = 1;
+            passwordTextBox.TextAlign = HorizontalAlignment.Left;
+            passwordTextBox.UseSystemPasswordChar = true;
             // 
             // loginButton
             // 
@@ -99,21 +99,21 @@ namespace cheraasje_epp.UI.Pages
             // Login
             // 
             Controls.Add(loginButton);
-            Controls.Add(idBox);
-            Controls.Add(passwordBox);
-            Controls.Add(pictureBox1);
+            Controls.Add(userIdTextBox);
+            Controls.Add(passwordTextBox);
+            Controls.Add(backgroundPictureBox);
             Name = "Login";
             Size = new Size(923, 531);
             Load += Login_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).EndInit();
             ResumeLayout(false);
         }
 
 
         #endregion
-        private PictureBox pictureBox1;
-        private RoundedTextBox idBox;
-        private RoundedTextBox passwordBox;
+        private PictureBox backgroundPictureBox;
+        private RoundedTextBox userIdTextBox;
+        private RoundedTextBox passwordTextBox;
         private RoundedButton loginButton;
     }
 }

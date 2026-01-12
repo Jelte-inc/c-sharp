@@ -1,7 +1,7 @@
-﻿using cheraasje_epp.Data;
-using BranchModel = cheraasje_epp.Models.Entities;
+﻿using CheraasjeEpp.Data;
+using BranchModel = CheraasjeEpp.Models.Entities;
 
-namespace cheraasje_epp.UI.Pages.AddUser
+namespace CheraasjeEpp.UI.Pages.AddUser
 {
     public partial class BranchEditor : Form, IPage
     {

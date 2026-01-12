@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.UI.Common
+﻿namespace CheraasjeEpp.UI.Common
 {
     public enum PopupType
     {

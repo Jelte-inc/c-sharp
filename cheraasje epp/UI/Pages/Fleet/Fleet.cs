@@ -1,9 +1,9 @@
-﻿using cheraasje_epp.Data;
-using cheraasje_epp.Models.Entities;
-using cheraasje_epp.Models.Filters;
-using cheraasje_epp.UI.Pages.FleetWidgets;
+﻿using CheraasjeEpp.Data;
+using CheraasjeEpp.Models.Entities;
+using CheraasjeEpp.Models.Filters;
+using CheraasjeEpp.UI.Pages.FleetWidgets;
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     public partial class Fleet : UserControl, IPage
     {
