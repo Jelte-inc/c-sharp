@@ -1,59 +1,59 @@
-# 🚗 CheraasjeEpp – Garage Management Systeem
+# CheraasjeEpp – Garage Management System
 
-**Auteurs:** Jelte, Remco & Joachim
-
----
-
-## 📖 Beschrijving
-**CheraasjeEpp** is een uitgebreide Windows Forms-applicatie voor het beheren van een autogarageketen. Het systeem stelt medewerkers en beheerders in staat om de voorraad, filialen en gebruikers efficiënt te beheren. In plaats van eenvoudige tekstbestanden, maakt deze applicatie gebruik van een robuuste **SQLite-database** voor veilige en betrouwbare gegevensopslag.
-
-De applicatie is ontworpen met een moderne, consistente gebruikersinterface en biedt functionaliteit voor zowel dagelijks gebruik als administratief beheer.
+**Authors:** Jelte, Remco & Joachim
 
 ---
 
-## 🚀 Functionaliteiten
+## Description
+CheraasjeEpp is a comprehensive Windows Forms application for managing a car garage chain. The system allows employees and administrators to efficiently manage vehicle inventory, branches, and users. Instead of simple text files, the application uses a robust **SQLite database** to ensure secure and reliable data storage.
 
-### 🔹 Login & Beveiliging
-- **Veilige inlog:** Gebruikers loggen in met een uniek ID en wachtwoord.
-- **Rolgebaseerde toegang:** Onderscheid tussen standaard medewerkers en beheerders (Admins).
-
-### 🔹 Vlootbeheer (Fleet)
-- **Overzicht:** Bekijk de volledige autovoorraad per filiaal.
-- **Filteren & Zoeken:** Uitgebreide filteropties op:
-  - Merk & Model
-  - Prijsklasse
-  - Kleur
-  - Aantal deuren
-- **Details:** Bekijk gedetailleerde informatie per auto, inclusief specificaties en afbeeldingen.
-
-### 🔹 Filiaalbeheer
-- **Locatie-informatie:** Bekijk adresgegevens, telefoonnummers en eigenaren van filialen.
-- **Openingstijden:** Inzage in de openingstijden per vestiging.
-
-### 🔹 Administratie (Admin Only)
-- **Gebruikersbeheer:** Toevoegen, wijzigen en verwijderen van gebruikersaccounts.
-- **Filiaalbeheer:** Beheren van filialen (toevoegen, aanpassen, verwijderen).
-- **Auto Beheer:** Nieuwe auto's toevoegen aan de voorraad (inclusief afbeeldingen) of verkochte auto's verwijderen.
+The application features a modern, consistent user interface and supports both daily operational tasks and administrative management.
 
 ---
 
-## 💻 Technische Details
-- **Framework:** .NET 8.0 (Windows Forms)
-- **Taal:** C#
-- **Database:** SQLite (`database.db`)
-- **Architectuur:**
-  - Scheiding tussen **Data**, **Models**, en **UI** (User Interface).
-  - Gebruik van custom UI widgets (zoals `RoundedButton`, `RoundedTextBox`) voor een moderne 'look & feel'.
+## Features
+
+### Authentication & Security
+- Secure login using a unique user ID and password  
+- Role-based access control (Employee vs. Administrator)
+
+### Fleet Management
+- View the complete vehicle inventory per branch  
+- Advanced filtering and search options:
+  - Brand & model  
+  - Price range  
+  - Color  
+  - Number of doors  
+- Detailed vehicle view including specifications and images
+
+### Branch Management
+- View branch details such as address, phone number, and owner  
+- Access branch opening hours
+
+### Administration (Admin Only)
+- User management (add, edit, delete users)  
+- Branch management (add, edit, delete branches)  
+- Vehicle management (add new vehicles with images, remove sold vehicles)
 
 ---
 
-## 🛠️ Installatie & Gebruik
-1. Clone de repository.
-2. Open de oplossing (`.sln`) in Visual Studio.
-3. Zorg dat de `database.db` aanwezig is in de `Data` map (deze wordt standaard meegeleverd in de build output).
-4. Start de applicatie via `F5` of de "Start" knop.
+## Technical Details
+- **Framework:** .NET 8.0 (Windows Forms)  
+- **Language:** C#  
+- **Database:** SQLite (`database.db`)  
+- **Architecture:**
+  - Clear separation between Data, Models, and UI layers  
+  - Custom UI components (e.g., `RoundedButton`, `RoundedTextBox`) for a modern look and feel
 
 ---
 
-## ✅ Status
-Dit project voldoet aan de eisen van de opdracht en is verder uitgebreid met persistentie via een database en een verbeterde gebruikerservaring.
+## Installation & Usage
+1. Clone the repository.  
+2. Open the solution (`.sln`) in Visual Studio.  
+3. Ensure `database.db` is present in the `Data` folder (included by default in the build output).  
+4. Run the application using `F5` or the **Start** button.
+
+---
+
+## Project Status
+This project meets all assignment requirements and has been extended with database persistence and an enhanced user experience.
