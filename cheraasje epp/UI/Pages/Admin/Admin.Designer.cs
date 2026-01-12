@@ -69,7 +69,7 @@ namespace cheraasje_epp.UI.Pages
             userList.BackColor = Color.White;
             userList.Location = new Point(506, 148);
             userList.Name = "userList";
-            userList.Size = new Size(332, 197);
+            userList.Size = new Size(340, 197);
             userList.TabIndex = 1;
             // 
             // branchInputField

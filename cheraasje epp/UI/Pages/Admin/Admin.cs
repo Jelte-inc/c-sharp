@@ -1,17 +1,8 @@
 ﻿using cheraasje_epp.Data;
-using Model = cheraasje_epp.Models.Entities;
 using cheraasje_epp.UI.Admin.Widgets;
 using cheraasje_epp.UI.Pages.AddUser;
 using cheraasje_epp.UI.Widgets;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using Model = cheraasje_epp.Models.Entities;
 
 namespace cheraasje_epp.UI.Pages
 {
