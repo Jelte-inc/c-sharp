@@ -102,48 +102,69 @@ namespace CheraasjeEpp.UI.Pages
             if (filter == null)
                 return;
 
+            var defaultFont = new Font(
+                "Segoe UI",
+                14.25F,
+                FontStyle.Regular,
+                GraphicsUnit.Point
+            );
+
+            var activeFont = new Font(
+                "Segoe UI",
+                14.25F,
+                FontStyle.Bold | FontStyle.Italic,
+                GraphicsUnit.Point
+            );
+
+            // BRAND
             if (!string.IsNullOrWhiteSpace(filter.Brand))
             {
                 brandFilterButton.Text = filter.Brand;
-                brandFilterButton.Font = new Font(
-                    "Segoe UI",
-                    14.25F,
-                    FontStyle.Bold | FontStyle.Italic,
-                    GraphicsUnit.Point
-                );
+                brandFilterButton.Font = activeFont;
+            }
+            else
+            {
+                brandFilterButton.Text = "Brand";
+                brandFilterButton.Font = defaultFont;
             }
 
+            // PRICE
             if (filter.PriceRange != null)
             {
                 priceFilterButton.Text = filter.PriceRange.ToFilterLabel();
-                priceFilterButton.Font = new Font(
-                    "Segoe UI",
-                    14.25F,
-                    FontStyle.Bold | FontStyle.Italic,
-                    GraphicsUnit.Point
-                );
+                priceFilterButton.Font = activeFont;
             }
-            if (filter.Color != null)
+            else
+            {
+                priceFilterButton.Text = "Price";
+                priceFilterButton.Font = defaultFont;
+            }
+
+            // COLOR
+            if (!string.IsNullOrWhiteSpace(filter.Color))
             {
                 colorFilterButton.Text = filter.Color;
-                colorFilterButton.Font = new Font(
-                    "Segoe UI",
-                    14.25F,
-                    FontStyle.Bold | FontStyle.Italic,
-                    GraphicsUnit.Point
-                );
+                colorFilterButton.Font = activeFont;
             }
+            else
+            {
+                colorFilterButton.Text = "Color";
+                colorFilterButton.Font = defaultFont;
+            }
+
+            // DOORS
             if (filter.AmountOfDoors != null)
             {
-                doorFilterButton.Text = filter.AmountOfDoors.ToString() + " Doors";
-                doorFilterButton.Font = new Font(
-                    "Segoe UI",
-                    14.25F,
-                    FontStyle.Bold | FontStyle.Italic,
-                    GraphicsUnit.Point
-                );
+                doorFilterButton.Text = filter.AmountOfDoors + " Doors";
+                doorFilterButton.Font = activeFont;
+            }
+            else
+            {
+                doorFilterButton.Text = "Doors";
+                doorFilterButton.Font = defaultFont;
             }
         }
+
 
         private void SearchBox_TextChanged(object sender, EventArgs e)
         {

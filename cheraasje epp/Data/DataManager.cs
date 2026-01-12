@@ -134,7 +134,7 @@ namespace CheraasjeEpp.Data
                 cmd.Parameters.AddWithValue("@Color", $"%{filter.Color}%");
             }
 
-            if (filter.AmountOfDoors > 0)
+            if (filter.AmountOfDoors > 0 && filter.AmountOfDoors != null)
             {
                 where.Add("Doors = @Doors");
                 cmd.Parameters.AddWithValue("@Doors", filter.AmountOfDoors);
