@@ -1,6 +1,4 @@
 using CheraasjeEpp.Data;
-using CheraasjeEpp.UI;
-using CheraasjeEpp.UI.Pages;
 using User = CheraasjeEpp.Models.Entities.User;
 
 namespace CheraasjeEpp.UI.Pages
@@ -17,15 +15,36 @@ namespace CheraasjeEpp.UI.Pages
             User user = dataManager.GetUser(userId);
             string branchName = dataManager.GetBranchById(user.BranchId).Name;
             string shortUserInfo = user.Name + " at " + branchName;
-            int x = 636 - shortUserInfoLabel.Width + 50;
-            int y = 18;
-            shortUserInfoLabel.Location = new Point(x, y);
             shortUserInfoLabel.Text = shortUserInfo;
             if (!user.IsAdmin)
             {
                 adminButton.Visible = false;
             }
         }
+
+        private void PositionUserInfoLabel()
+        {
+            const int rightMargin = 20;
+            const int topMargin = 18;
+
+            shortUserInfoLabel.Location = new Point(
+                ClientSize.Width - shortUserInfoLabel.Width - rightMargin,
+                topMargin
+            );
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            PositionUserInfoLabel();
+        }
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            PositionUserInfoLabel();
+        }
+
 
         private void LabelClick(object sender, EventArgs e)
         {
