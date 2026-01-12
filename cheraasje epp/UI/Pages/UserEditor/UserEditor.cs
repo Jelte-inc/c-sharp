@@ -1,15 +1,5 @@
 ﻿using cheraasje_epp.Data;
 using cheraasje_epp.Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace cheraasje_epp.UI.Pages.AddUser
 {
@@ -60,17 +50,20 @@ namespace cheraasje_epp.UI.Pages.AddUser
             user.Name = nameInputField.Text;
             user.Password = passwordInputField.Text;
             user.BranchId = Convert.ToInt32(branchDropdown.SelectedValue);
-            if (User.Id != 0) 
+            if (User.Id != 0)
             {
                 user.Id = User.Id;
             }
-            if (adminCheckBox.Checked) 
+            if (adminCheckBox.Checked)
             {
                 user.IsAdmin = true;
             }
-            if (Update) {
+            if (Update)
+            {
                 dataManager.UpdateUser(user);
-            } else {
+            }
+            else
+            {
                 dataManager.AddUser(user);
             }
             this.Close();
@@ -79,6 +72,11 @@ namespace cheraasje_epp.UI.Pages.AddUser
         private void cancelButton_Click(Object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void nameLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

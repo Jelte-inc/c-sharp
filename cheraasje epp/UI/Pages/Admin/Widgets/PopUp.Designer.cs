@@ -46,7 +46,7 @@
             // 
             // cancelButton
             // 
-            cancelButton.Location = new Point(93, 107);
+            cancelButton.Location = new Point(191, 107);
             cancelButton.Name = "cancelButton";
             cancelButton.Size = new Size(75, 23);
             cancelButton.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // confirmButton
             // 
-            confirmButton.Location = new Point(191, 107);
+            confirmButton.Location = new Point(93, 107);
             confirmButton.Name = "confirmButton";
             confirmButton.Size = new Size(75, 23);
             confirmButton.TabIndex = 2;

@@ -188,7 +188,7 @@
             // ownerLabel
             // 
             ownerLabel.AutoSize = true;
-            ownerLabel.Location = new Point(48, 201);
+            ownerLabel.Location = new Point(34, 201);
             ownerLabel.Name = "ownerLabel";
             ownerLabel.Size = new Size(42, 15);
             ownerLabel.TabIndex = 15;
