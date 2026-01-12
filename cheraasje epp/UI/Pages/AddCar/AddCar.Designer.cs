@@ -1,4 +1,4 @@
-﻿using cheraasje_epp.UI.Controls;
+﻿using cheraasje_epp.UI.Widgets;
 
 namespace cheraasje_epp.UI.Pages
 {
@@ -41,14 +41,11 @@ namespace cheraasje_epp.UI.Pages
             mileageInputField = new RoundedTextBox();
             colorInputField = new RoundedTextBox();
             uploadedImagesView = new FlowLayoutPanel();
-            addCarButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            mileageInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            priceInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            selectManualButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            selectAutomaticButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            amountOfDoorInputField = new RoundedTextBox();
-            colorInputField = new RoundedTextBox();
-            cancelButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
+            addCarButton = new RoundedButton();
+            selectManualButton = new RoundedButton();
+            selectAutomaticButton = new RoundedButton();
+            cancelButton = new RoundedButton();
+            addImagesButton = new RoundedButton();
             ((System.ComponentModel.ISupportInitialize)backGround).BeginInit();
             SuspendLayout();
             // 
@@ -120,6 +117,7 @@ namespace cheraasje_epp.UI.Pages
             buildYearInputField.TabIndex = 3;
             buildYearInputField.TextAlign = HorizontalAlignment.Left;
             buildYearInputField.UseSystemPasswordChar = false;
+            buildYearInputField.InnerTextBox.KeyPress += OnlyAllowNumbers;
             // 
             // amountOfDoorInputField
             // 
@@ -136,6 +134,7 @@ namespace cheraasje_epp.UI.Pages
             amountOfDoorInputField.TabIndex = 4;
             amountOfDoorInputField.TextAlign = HorizontalAlignment.Left;
             amountOfDoorInputField.UseSystemPasswordChar = false;
+            amountOfDoorInputField.InnerTextBox.KeyPress += OnlyAllowNumbers;
             // 
             // licensePlateInputField
             // 
@@ -168,6 +167,7 @@ namespace cheraasje_epp.UI.Pages
             priceInputField.TabIndex = 6;
             priceInputField.TextAlign = HorizontalAlignment.Left;
             priceInputField.UseSystemPasswordChar = false;
+            priceInputField.InnerTextBox.KeyPress += OnlyAllowDecimal;
             // 
             // mileageInputField
             // 
@@ -184,6 +184,7 @@ namespace cheraasje_epp.UI.Pages
             mileageInputField.TabIndex = 7;
             mileageInputField.TextAlign = HorizontalAlignment.Left;
             mileageInputField.UseSystemPasswordChar = false;
+            mileageInputField.InnerTextBox.KeyPress += OnlyAllowNumbers;
             // 
             // colorInputField
             // 
@@ -220,7 +221,7 @@ namespace cheraasje_epp.UI.Pages
             addCarButton.ForeColor = Color.White;
             addCarButton.Location = new Point(36, 445);
             addCarButton.Name = "addCarButton";
-            addCarButton.Size = new Size(361, 38);
+            addCarButton.Size = new Size(175, 38);
             addCarButton.TabIndex = 12;
             addCarButton.Text = "Add";
             addCarButton.UseVisualStyleBackColor = false;
@@ -256,20 +257,6 @@ namespace cheraasje_epp.UI.Pages
             selectAutomaticButton.UseVisualStyleBackColor = false;
             selectAutomaticButton.Click += selectAutomaticButton_Click;
             // 
-            // addImagesButton
-            // 
-            addImagesButton.BackColor = Color.FromArgb(255, 87, 87);
-            addImagesButton.FlatAppearance.BorderSize = 0;
-            addImagesButton.FlatStyle = FlatStyle.Flat;
-            addImagesButton.ForeColor = Color.White;
-            addImagesButton.Location = new Point(36, 353);
-            addImagesButton.Name = "addImagesButton";
-            addImagesButton.Size = new Size(76, 76);
-            addImagesButton.TabIndex = 9;
-            addImagesButton.Text = "Add Images";
-            addImagesButton.UseVisualStyleBackColor = false;
-            addImagesButton.Click += addImagesButton_Click;
-            // 
             // cancelButton
             // 
             cancelButton.BackColor = Color.FromArgb(255, 87, 87);
@@ -284,6 +271,20 @@ namespace cheraasje_epp.UI.Pages
             cancelButton.Text = "Cancel";
             cancelButton.UseVisualStyleBackColor = false;
             cancelButton.Click += cancelButton_Click;
+            // 
+            // addImagesButton
+            // 
+            addImagesButton.BackColor = Color.FromArgb(255, 87, 87);
+            addImagesButton.FlatAppearance.BorderSize = 0;
+            addImagesButton.FlatStyle = FlatStyle.Flat;
+            addImagesButton.ForeColor = Color.White;
+            addImagesButton.Location = new Point(36, 353);
+            addImagesButton.Name = "addImagesButton";
+            addImagesButton.Size = new Size(76, 76);
+            addImagesButton.TabIndex = 9;
+            addImagesButton.Text = "Add Images";
+            addImagesButton.UseVisualStyleBackColor = false;
+            addImagesButton.Click += addImagesButton_Click;
             // 
             // AddCar
             // 
@@ -316,20 +317,20 @@ namespace cheraasje_epp.UI.Pages
 
         private PictureBox backGround;
         private Label branchLabel;
-        private Controls.RoundedTextBox brandInputField;
-        private Controls.RoundedTextBox modelInputField;
-        private Controls.RoundedTextBox buildYearInputField;
-        private Controls.RoundedTextBox roundedTextBox4;
+        private RoundedTextBox brandInputField;
+        private RoundedTextBox modelInputField;
+        private RoundedTextBox buildYearInputField;
+        private RoundedTextBox roundedTextBox4;
         private FlowLayoutPanel uploadedImagesView;
-        private Cheraasje.Epp.UI.Controls.RoundedButton addCarButton;
-        private Controls.RoundedTextBox mileageInputField;
-        private Controls.RoundedTextBox priceInputField;
-        private Controls.RoundedTextBox licensePlateInputField;
-        private Cheraasje.Epp.UI.Controls.RoundedButton selectManualButton;
-        private Cheraasje.Epp.UI.Controls.RoundedButton selectAutomaticButton;
-        private Controls.RoundedTextBox amountOfDoorInputField;
-        private Controls.RoundedTextBox colorInputField;
-        private Cheraasje.Epp.UI.Controls.RoundedButton addImagesButton;
-        private Cheraasje.Epp.UI.Controls.RoundedButton cancelButton;
+        private RoundedButton addCarButton;
+        private RoundedTextBox mileageInputField;
+        private RoundedTextBox priceInputField;
+        private RoundedTextBox licensePlateInputField;
+        private RoundedButton selectManualButton;
+        private RoundedButton selectAutomaticButton;
+        private RoundedTextBox amountOfDoorInputField;
+        private RoundedTextBox colorInputField;
+        private RoundedButton addImagesButton;
+        private RoundedButton cancelButton;
     }
 }

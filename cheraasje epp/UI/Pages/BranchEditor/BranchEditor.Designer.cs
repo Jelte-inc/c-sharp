@@ -1,4 +1,6 @@
-﻿namespace cheraasje_epp.UI.Pages.AddUser
+﻿using cheraasje_epp.UI.Widgets;
+
+namespace cheraasje_epp.UI.Pages.AddUser
 {
     partial class BranchEditor
     {
@@ -28,13 +30,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            nameInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            locationInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            adressInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            confirmButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            cancelButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            phoneInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            postalCodeInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
+            nameInputField = new RoundedTextBox();
+            locationInputField = new RoundedTextBox();
+            adressInputField = new RoundedTextBox();
+            confirmButton = new RoundedButton();
+            cancelButton = new RoundedButton();
+            phoneInputField = new RoundedTextBox();
+            postalCodeInputField = new RoundedTextBox();
             ownerDropdown = new ComboBox();
             nameLabel = new Label();
             locationLabel = new Label();
@@ -245,13 +247,13 @@
 
         #endregion
 
-        private Controls.RoundedTextBox nameInputField;
-        private Controls.RoundedTextBox locationInputField;
-        private Controls.RoundedTextBox adressInputField;
-        private Cheraasje.Epp.UI.Controls.RoundedButton confirmButton;
-        private Cheraasje.Epp.UI.Controls.RoundedButton cancelButton;
-        private Controls.RoundedTextBox phoneInputField;
-        private Controls.RoundedTextBox postalCodeInputField;
+        private RoundedTextBox nameInputField;
+        private RoundedTextBox locationInputField;
+        private RoundedTextBox adressInputField;
+        private RoundedButton confirmButton;
+        private RoundedButton cancelButton;
+        private RoundedTextBox phoneInputField;
+        private RoundedTextBox postalCodeInputField;
         private ComboBox ownerDropdown;
         private Label nameLabel;
         private Label locationLabel;

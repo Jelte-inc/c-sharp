@@ -1,4 +1,6 @@
-﻿namespace cheraasje_epp.UI.Pages
+﻿using cheraasje_epp.UI.Widgets;
+
+namespace cheraasje_epp.UI.Pages
 {
     partial class Branch
     {
@@ -47,7 +49,7 @@
             globalAveragePriceLabel = new Label();
             globalWorthLabel = new Label();
             branchNameLabel = new Label();
-            fleetButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
+            fleetButton = new RoundedButton();
             menuButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -329,7 +331,7 @@
         private Label globalAveragePriceLabel;
         private Label globalWorthLabel;
         private Label branchNameLabel;
-        private Cheraasje.Epp.UI.Controls.RoundedButton fleetButton;
+        private RoundedButton fleetButton;
         private Button menuButton;
     }
 }

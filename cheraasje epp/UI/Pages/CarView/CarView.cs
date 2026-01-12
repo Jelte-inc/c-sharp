@@ -1,5 +1,7 @@
-﻿using cheraasje_epp.Models.Entities;
+﻿using cheraasje_epp.Data;
+using cheraasje_epp.Models.Entities;
 using cheraasje_epp.Properties;
+using cheraasje_epp.UI.Widgets;
 
 namespace cheraasje_epp.UI.Pages
 {
@@ -8,6 +10,8 @@ namespace cheraasje_epp.UI.Pages
         public event Action<UserControl> PageChangeRequested;
 
         private int currentImage = 0;
+
+        private DataManager dataManager = new DataManager();
 
         private Car car;
 
@@ -94,5 +98,15 @@ namespace cheraasje_epp.UI.Pages
             LoadImageAtIndex(currentImage);
         }
 
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            var popup = new PopUp(message: "Are you sure you want to delete this car?");
+            popup.ShowDialog(this);
+            if (popup.DialogResult == DialogResult.OK)
+            {
+                dataManager.DeleteCar(car.Id);
+                PageChangeRequested?.Invoke(new Fleet());
+            }
+        }
     }
 }

@@ -2,7 +2,6 @@
 using cheraasje_epp.Models.Entities;
 using cheraasje_epp.Models.Filters;
 using cheraasje_epp.UI.Pages.FleetWidgets;
-using cheraasje_epp.UI.Widgets;
 
 namespace cheraasje_epp.UI.Pages
 {
@@ -12,7 +11,7 @@ namespace cheraasje_epp.UI.Pages
 
         private readonly DataManager dataManager = new();
 
-        private readonly SideBarMenu sideBarMenu = new();
+        private readonly Widgets.SideBarMenu sideBarMenu = new();
 
         private bool menuOpen = false;
 

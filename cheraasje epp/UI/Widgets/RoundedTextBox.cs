@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.UI.Controls
+﻿namespace cheraasje_epp.UI.Widgets
 {
     using System;
     using System.Drawing;
