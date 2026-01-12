@@ -18,7 +18,7 @@ De applicatie is ontworpen met een moderne, consistente gebruikersinterface en b
 - **Rolgebaseerde toegang:** Onderscheid tussen standaard medewerkers en beheerders (Admins).
 
 ### 🔹 Vlootbeheer (Fleet)
-- **Overzicht:** Bekijk de volledige autovoorraad over alle filialen heen of per filiaal.
+- **Overzicht:** Bekijk de volledige autovoorraad per filiaal.
 - **Filteren & Zoeken:** Uitgebreide filteropties op:
   - Merk & Model
   - Prijsklasse
