@@ -1,16 +1,7 @@
 ﻿using cheraasje_epp.Data;
 using cheraasje_epp.Models.Entities;
 using cheraasje_epp.UI.Pages.AddUser;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BranchModel = cheraasje_epp.Models.Entities;
+using cheraasje_epp.UI.Widgets;
 
 
 namespace cheraasje_epp.UI.Admin.Widgets

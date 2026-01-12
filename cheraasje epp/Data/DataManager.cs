@@ -450,5 +450,43 @@ namespace cheraasje_epp.Data
 
             cmd.ExecuteNonQuery();
         }
+        public bool DeleteCar(int carId)
+        {
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            using var transaction = conn.BeginTransaction();
+
+            try
+            {
+                // 1. Verwijder afbeeldingen van de auto
+                using var deleteImagesCmd = new SQLiteCommand(
+                    "DELETE FROM CarImages WHERE CarId = @CarId",
+                    conn,
+                    transaction
+                );
+                deleteImagesCmd.Parameters.AddWithValue("@CarId", carId);
+                deleteImagesCmd.ExecuteNonQuery();
+
+                // 2. Verwijder de auto zelf
+                using var deleteCarCmd = new SQLiteCommand(
+                    "DELETE FROM Cars WHERE Id = @Id",
+                    conn,
+                    transaction
+                );
+                deleteCarCmd.Parameters.AddWithValue("@Id", carId);
+                deleteCarCmd.ExecuteNonQuery();
+
+                transaction.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                MessageBox.Show(ex.ToString());
+                return false;
+            }
+        }
+
     }
 }

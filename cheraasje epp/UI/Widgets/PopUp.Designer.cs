@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.UI.Admin.Widgets
+﻿namespace cheraasje_epp.UI.Widgets
 {
     partial class PopUp
     {

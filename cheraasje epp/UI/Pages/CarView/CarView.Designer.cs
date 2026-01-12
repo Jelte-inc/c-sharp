@@ -46,7 +46,7 @@
             askingPriceTextLabel = new Label();
             licensePlateTextLabel = new Label();
             transmissionTextLabel = new Label();
-            titleLabel = new Label();
+            deleteButton = new cheraasje_epp.UI.Widgets.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)currentCarPicture).BeginInit();
             labelTable.SuspendLayout();
             SuspendLayout();
@@ -55,10 +55,10 @@
             // 
             carNameLabel.AutoSize = true;
             carNameLabel.BackColor = Color.White;
-            carNameLabel.Font = new Font("Segoe UI", 38F, FontStyle.Bold);
-            carNameLabel.Location = new Point(11, 117);
+            carNameLabel.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            carNameLabel.Location = new Point(70, 16);
             carNameLabel.Name = "carNameLabel";
-            carNameLabel.Size = new Size(288, 68);
+            carNameLabel.Size = new Size(211, 50);
             carNameLabel.TabIndex = 1;
             carNameLabel.Text = "{CarName}";
             // 
@@ -195,6 +195,7 @@
             labelTable.RowStyles.Add(new RowStyle());
             labelTable.RowStyles.Add(new RowStyle());
             labelTable.RowStyles.Add(new RowStyle());
+            labelTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             labelTable.Size = new Size(442, 260);
             labelTable.TabIndex = 0;
             // 
@@ -253,22 +254,27 @@
             transmissionTextLabel.TabIndex = 9;
             transmissionTextLabel.Text = "Transmission:";
             // 
-            // titleLabel
+            // deleteButton
             // 
-            titleLabel.AutoSize = true;
-            titleLabel.Font = new Font("Segoe UI", 32.75F);
-            titleLabel.Location = new Point(36, 19);
-            titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(226, 60);
-            titleLabel.TabIndex = 13;
-            titleLabel.Text = "Car viewer";
+            deleteButton.BackColor = Color.White;
+            deleteButton.FlatAppearance.BorderSize = 0;
+            deleteButton.FlatStyle = FlatStyle.Flat;
+            deleteButton.Font = new Font("Segoe UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            deleteButton.ForeColor = Color.Red;
+            deleteButton.Location = new Point(10, 16);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(54, 60);
+            deleteButton.TabIndex = 14;
+            deleteButton.Text = "🗑️";
+            deleteButton.UseVisualStyleBackColor = false;
+            deleteButton.Click += deleteButton_Click;
             // 
             // CarView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(titleLabel);
+            Controls.Add(deleteButton);
             Controls.Add(labelTable);
             Controls.Add(cycleForwardButton);
             Controls.Add(cycleBackButton);
@@ -298,11 +304,11 @@
         private Button cycleBackButton;
         private Button cycleForwardButton;
         private TableLayoutPanel labelTable;
-        private Label titleLabel;
         private Label buildYearTextLabel;
         private Label mileageTextLabel;
         private Label askingPriceTextLabel;
         private Label licensePlateTextLabel;
         private Label transmissionTextLabel;
+        private Widgets.RoundedButton deleteButton;
     }
 }
