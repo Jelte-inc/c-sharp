@@ -1,4 +1,6 @@
 using cheraasje_epp.Data;
+using cheraasje_epp.UI;
+using cheraasje_epp.UI.Pages;
 using User = cheraasje_epp.Models.Entities.User;
 
 namespace cheraasje_epp.UI.Pages
@@ -19,6 +21,10 @@ namespace cheraasje_epp.UI.Pages
             int y = 18;
             shortUserInfoLabel.Location = new Point(x, y);
             shortUserInfoLabel.Text = shortUserInfo;
+            if (!user.IsAdmin)
+            {
+                adminButton.Visible = false;
+            }
         }
 
         private void LabelClick(object sender, EventArgs e)
@@ -53,6 +59,11 @@ namespace cheraasje_epp.UI.Pages
         private void fleetButton_Click(Object sender, EventArgs e)
         {
             PageChangeRequested?.Invoke(new Fleet());
+        }
+
+        private void adminButton_Click(object sender, EventArgs e)
+        {
+            PageChangeRequested?.Invoke(new Admin());
         }
     }
 }

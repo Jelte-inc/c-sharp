@@ -1,6 +1,6 @@
 ﻿namespace cheraasje_epp.Models.Entities
 {
-    internal class Branch
+    public class Branch
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -8,7 +8,7 @@
         public string Adress { get; set; }
         public string PostalCode { get; set; }
         public string PhoneNumber { get; set; }
-        public string Owner { get; set; }
+        public int Owner { get; set; }
         public List<Car> Cars { get; set; } = new();
 
         public decimal AveragePrice =>

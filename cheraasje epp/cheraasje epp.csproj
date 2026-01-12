@@ -25,6 +25,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="UI\Pages\Admin\Widgets\UserItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UI\Pages\BranchEditor\BranchEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

@@ -84,7 +84,7 @@ namespace cheraasje_epp.UI.Pages
             var branch = dataManager.GetBranchById(Session.UserId);
             cityLabel.Text = branch.Location;
             adressLabel.Text = $"{branch.Adress} {branch.PostalCode}";
-            ownerLabel.Text = branch.Owner;
+            ownerLabel.Text = branch.Owner.ToString();
             phoneLabel.Text = branch.PhoneNumber;
             branchLabel.Text = branch.Id.ToString();
         }
@@ -103,12 +103,28 @@ namespace cheraasje_epp.UI.Pages
                 branchAveragePriceLabel.Text = new Money(Math.Floor((branchWorth / cars.Count))).ToString();
             }
             branchNameLabel.Text = dataManager.GetBranchById(Session.UserId).ToString();
+            var companyCars = dataManager.GetCars(new CarFilter(), true);
+            decimal companyWorth = 0;
+            foreach(var car in companyCars)
+            {
+                companyWorth += car.Price; 
+            }
+            globalWorthLabel.Text = new Money(companyWorth).ToString();
+            if (companyWorth != 0)
+            {
+                globalAveragePriceLabel.Text = new Money(Math.Floor(companyWorth / companyCars.Count)).ToString();
+            }
         }
 
         private void menuButton_Click(object sender, EventArgs e)
         {
             sideBarMenu.openSideBar();
             menuOpen = true;
+        }
+
+        private void fleetButton_Click(object sender, EventArgs e)
+        {
+            PageChangeRequested?.Invoke(new Fleet());
         }
     }
 }
