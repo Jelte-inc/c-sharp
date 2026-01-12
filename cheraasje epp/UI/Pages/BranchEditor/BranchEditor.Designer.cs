@@ -36,6 +36,12 @@
             phoneInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
             postalCodeInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
             ownerDropdown = new ComboBox();
+            nameLabel = new Label();
+            locationLabel = new Label();
+            adressLabel = new Label();
+            ownerLabel = new Label();
+            postalCodeLabel = new Label();
+            phoneNumberLabel = new Label();
             SuspendLayout();
             // 
             // nameInputField
@@ -44,7 +50,7 @@
             nameInputField.BorderRadius = 15;
             nameInputField.BorderSize = 2;
             nameInputField.FillColor = SystemColors.Window;
-            nameInputField.Location = new Point(31, 12);
+            nameInputField.Location = new Point(31, 17);
             nameInputField.Name = "nameInputField";
             nameInputField.Padding = new Padding(10, 6, 10, 6);
             nameInputField.PlaceholderText = "Enter name";
@@ -59,7 +65,7 @@
             locationInputField.BorderRadius = 15;
             locationInputField.BorderSize = 2;
             locationInputField.FillColor = SystemColors.Window;
-            locationInputField.Location = new Point(31, 67);
+            locationInputField.Location = new Point(31, 82);
             locationInputField.Name = "locationInputField";
             locationInputField.Padding = new Padding(10, 6, 10, 6);
             locationInputField.PlaceholderText = "Enter location";
@@ -74,7 +80,7 @@
             adressInputField.BorderRadius = 15;
             adressInputField.BorderSize = 2;
             adressInputField.FillColor = SystemColors.Window;
-            adressInputField.Location = new Point(31, 122);
+            adressInputField.Location = new Point(31, 147);
             adressInputField.Name = "adressInputField";
             adressInputField.Padding = new Padding(10, 6, 10, 6);
             adressInputField.PlaceholderText = "Enter adress";
@@ -117,7 +123,7 @@
             phoneInputField.BorderRadius = 15;
             phoneInputField.BorderSize = 2;
             phoneInputField.FillColor = SystemColors.Window;
-            phoneInputField.Location = new Point(31, 261);
+            phoneInputField.Location = new Point(31, 321);
             phoneInputField.Name = "phoneInputField";
             phoneInputField.Padding = new Padding(10, 6, 10, 6);
             phoneInputField.PlaceholderText = "Enter phone number";
@@ -132,7 +138,7 @@
             postalCodeInputField.BorderRadius = 15;
             postalCodeInputField.BorderSize = 2;
             postalCodeInputField.FillColor = SystemColors.Window;
-            postalCodeInputField.Location = new Point(31, 206);
+            postalCodeInputField.Location = new Point(31, 256);
             postalCodeInputField.Name = "postalCodeInputField";
             postalCodeInputField.Padding = new Padding(10, 6, 10, 6);
             postalCodeInputField.PlaceholderText = "Enter postal code";
@@ -144,16 +150,80 @@
             // ownerDropdown
             // 
             ownerDropdown.FormattingEnabled = true;
-            ownerDropdown.Location = new Point(31, 177);
+            ownerDropdown.Location = new Point(31, 217);
             ownerDropdown.Name = "ownerDropdown";
             ownerDropdown.Size = new Size(280, 23);
             ownerDropdown.TabIndex = 11;
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.BackColor = Color.Transparent;
+            nameLabel.Location = new Point(48, 9);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new Size(39, 15);
+            nameLabel.TabIndex = 12;
+            nameLabel.Text = "Name";
+            // 
+            // locationLabel
+            // 
+            locationLabel.AutoSize = true;
+            locationLabel.BackColor = Color.Transparent;
+            locationLabel.Location = new Point(48, 74);
+            locationLabel.Name = "locationLabel";
+            locationLabel.Size = new Size(53, 15);
+            locationLabel.TabIndex = 13;
+            locationLabel.Text = "Location";
+            // 
+            // adressLabel
+            // 
+            adressLabel.AutoSize = true;
+            adressLabel.BackColor = Color.Transparent;
+            adressLabel.Location = new Point(48, 139);
+            adressLabel.Name = "adressLabel";
+            adressLabel.Size = new Size(42, 15);
+            adressLabel.TabIndex = 14;
+            adressLabel.Text = "Adress";
+            // 
+            // ownerLabel
+            // 
+            ownerLabel.AutoSize = true;
+            ownerLabel.Location = new Point(34, 201);
+            ownerLabel.Name = "ownerLabel";
+            ownerLabel.Size = new Size(42, 15);
+            ownerLabel.TabIndex = 15;
+            ownerLabel.Text = "Owner";
+            // 
+            // postalCodeLabel
+            // 
+            postalCodeLabel.AutoSize = true;
+            postalCodeLabel.BackColor = Color.Transparent;
+            postalCodeLabel.Location = new Point(48, 248);
+            postalCodeLabel.Name = "postalCodeLabel";
+            postalCodeLabel.Size = new Size(68, 15);
+            postalCodeLabel.TabIndex = 16;
+            postalCodeLabel.Text = "Postal code";
+            // 
+            // phoneNumberLabel
+            // 
+            phoneNumberLabel.AutoSize = true;
+            phoneNumberLabel.Location = new Point(48, 313);
+            phoneNumberLabel.Name = "phoneNumberLabel";
+            phoneNumberLabel.Size = new Size(86, 15);
+            phoneNumberLabel.TabIndex = 17;
+            phoneNumberLabel.Text = "Phone number";
             // 
             // BranchEditor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(333, 450);
+            Controls.Add(phoneNumberLabel);
+            Controls.Add(postalCodeLabel);
+            Controls.Add(ownerLabel);
+            Controls.Add(adressLabel);
+            Controls.Add(locationLabel);
+            Controls.Add(nameLabel);
             Controls.Add(ownerDropdown);
             Controls.Add(postalCodeInputField);
             Controls.Add(phoneInputField);
@@ -165,6 +235,7 @@
             Name = "BranchEditor";
             Text = "Form1";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)
@@ -182,5 +253,11 @@
         private Controls.RoundedTextBox phoneInputField;
         private Controls.RoundedTextBox postalCodeInputField;
         private ComboBox ownerDropdown;
+        private Label nameLabel;
+        private Label locationLabel;
+        private Label adressLabel;
+        private Label ownerLabel;
+        private Label postalCodeLabel;
+        private Label phoneNumberLabel;
     }
 }

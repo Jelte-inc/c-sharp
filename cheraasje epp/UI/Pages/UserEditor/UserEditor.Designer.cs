@@ -35,6 +35,10 @@
             cancelButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             adminCheckBox = new CheckBox();
             branchDropdown = new ComboBox();
+            nameLabel = new Label();
+            passwordLabel1 = new Label();
+            passwordLabel2 = new Label();
+            branchLabel = new Label();
             SuspendLayout();
             // 
             // nameInputField
@@ -43,7 +47,7 @@
             nameInputField.BorderRadius = 15;
             nameInputField.BorderSize = 2;
             nameInputField.FillColor = SystemColors.Window;
-            nameInputField.Location = new Point(31, 63);
+            nameInputField.Location = new Point(31, 38);
             nameInputField.Name = "nameInputField";
             nameInputField.Padding = new Padding(10, 6, 10, 6);
             nameInputField.PlaceholderText = "Enter name";
@@ -58,7 +62,7 @@
             passwordInputField.BorderRadius = 15;
             passwordInputField.BorderSize = 2;
             passwordInputField.FillColor = SystemColors.Window;
-            passwordInputField.Location = new Point(31, 118);
+            passwordInputField.Location = new Point(31, 103);
             passwordInputField.Name = "passwordInputField";
             passwordInputField.Padding = new Padding(10, 6, 10, 6);
             passwordInputField.PlaceholderText = "Enter password";
@@ -73,7 +77,7 @@
             passwordCheckInputField.BorderRadius = 15;
             passwordCheckInputField.BorderSize = 2;
             passwordCheckInputField.FillColor = SystemColors.Window;
-            passwordCheckInputField.Location = new Point(31, 173);
+            passwordCheckInputField.Location = new Point(31, 168);
             passwordCheckInputField.Name = "passwordCheckInputField";
             passwordCheckInputField.Padding = new Padding(10, 6, 10, 6);
             passwordCheckInputField.PlaceholderText = "Re-enter password";
@@ -108,7 +112,7 @@
             cancelButton.TabIndex = 4;
             cancelButton.Text = "Cancel";
             cancelButton.UseVisualStyleBackColor = false;
-            cancelButton.Click += this.cancelButton_Click;
+            cancelButton.Click += cancelButton_Click;
             // 
             // adminCheckBox
             // 
@@ -129,11 +133,52 @@
             branchDropdown.Size = new Size(280, 23);
             branchDropdown.TabIndex = 7;
             // 
-            // AddUser
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new Point(50, 31);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new Size(39, 15);
+            nameLabel.TabIndex = 8;
+            nameLabel.Text = "Name";
+            nameLabel.Click += nameLabel_Click;
+            // 
+            // passwordLabel1
+            // 
+            passwordLabel1.AutoSize = true;
+            passwordLabel1.Location = new Point(50, 96);
+            passwordLabel1.Name = "passwordLabel1";
+            passwordLabel1.Size = new Size(57, 15);
+            passwordLabel1.TabIndex = 9;
+            passwordLabel1.Text = "Password";
+            // 
+            // passwordLabel2
+            // 
+            passwordLabel2.AutoSize = true;
+            passwordLabel2.Location = new Point(50, 161);
+            passwordLabel2.Name = "passwordLabel2";
+            passwordLabel2.Size = new Size(57, 15);
+            passwordLabel2.TabIndex = 10;
+            passwordLabel2.Text = "Password";
+            // 
+            // branchLabel
+            // 
+            branchLabel.AutoSize = true;
+            branchLabel.Location = new Point(31, 220);
+            branchLabel.Name = "branchLabel";
+            branchLabel.Size = new Size(44, 15);
+            branchLabel.TabIndex = 11;
+            branchLabel.Text = "Branch";
+            // 
+            // UserEditor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(333, 450);
+            Controls.Add(branchLabel);
+            Controls.Add(passwordLabel2);
+            Controls.Add(passwordLabel1);
+            Controls.Add(nameLabel);
             Controls.Add(branchDropdown);
             Controls.Add(adminCheckBox);
             Controls.Add(cancelButton);
@@ -141,7 +186,7 @@
             Controls.Add(passwordCheckInputField);
             Controls.Add(passwordInputField);
             Controls.Add(nameInputField);
-            Name = "AddUser";
+            Name = "UserEditor";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
@@ -161,5 +206,9 @@
         private Cheraasje.Epp.UI.Controls.RoundedButton cancelButton;
         private CheckBox adminCheckBox;
         private ComboBox branchDropdown;
+        private Label nameLabel;
+        private Label passwordLabel1;
+        private Label passwordLabel2;
+        private Label branchLabel;
     }
 }
