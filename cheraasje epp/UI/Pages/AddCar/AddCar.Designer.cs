@@ -117,6 +117,7 @@ namespace cheraasje_epp.UI.Pages
             buildYearInputField.TabIndex = 3;
             buildYearInputField.TextAlign = HorizontalAlignment.Left;
             buildYearInputField.UseSystemPasswordChar = false;
+            buildYearInputField.InnerTextBox.KeyPress += OnlyAllowNumbers;
             // 
             // amountOfDoorInputField
             // 
@@ -133,6 +134,7 @@ namespace cheraasje_epp.UI.Pages
             amountOfDoorInputField.TabIndex = 4;
             amountOfDoorInputField.TextAlign = HorizontalAlignment.Left;
             amountOfDoorInputField.UseSystemPasswordChar = false;
+            amountOfDoorInputField.InnerTextBox.KeyPress += OnlyAllowNumbers;
             // 
             // licensePlateInputField
             // 
@@ -165,6 +167,7 @@ namespace cheraasje_epp.UI.Pages
             priceInputField.TabIndex = 6;
             priceInputField.TextAlign = HorizontalAlignment.Left;
             priceInputField.UseSystemPasswordChar = false;
+            priceInputField.InnerTextBox.KeyPress += OnlyAllowDecimal;
             // 
             // mileageInputField
             // 
@@ -181,6 +184,7 @@ namespace cheraasje_epp.UI.Pages
             mileageInputField.TabIndex = 7;
             mileageInputField.TextAlign = HorizontalAlignment.Left;
             mileageInputField.UseSystemPasswordChar = false;
+            mileageInputField.InnerTextBox.KeyPress += OnlyAllowNumbers;
             // 
             // colorInputField
             // 

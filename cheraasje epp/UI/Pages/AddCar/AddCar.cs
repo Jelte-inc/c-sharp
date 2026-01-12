@@ -133,7 +133,6 @@ namespace cheraasje_epp.UI.Pages
                 priceInputField.Text,
                 buildYearInputField.Text,
                 mileageInputField.Text,
-                licensePlateInputField.Text,
             };
             if (inputs.Any(string.IsNullOrWhiteSpace))
             {
