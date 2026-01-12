@@ -30,16 +30,21 @@ namespace cheraasje_epp.UI.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            backGround = new PictureBox();
             branchLabel = new Label();
             brandInputField = new RoundedTextBox();
             modelInputField = new RoundedTextBox();
             buildYearInputField = new RoundedTextBox();
+            amountOfDoorInputField = new RoundedTextBox();
+            licensePlateInputField = new RoundedTextBox();
+            priceInputField = new RoundedTextBox();
+            mileageInputField = new RoundedTextBox();
+            colorInputField = new RoundedTextBox();
             uploadedImagesView = new FlowLayoutPanel();
             addCarButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            mileageInputField = new RoundedTextBox();
-            priceInputField = new RoundedTextBox();
-            licencePlateInputField = new RoundedTextBox();
+            mileageInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
+            priceInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
+            licencePlateInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
             selectManualButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             selectAutomaticButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             amountOfDoorInputField = new RoundedTextBox();
@@ -48,15 +53,15 @@ namespace cheraasje_epp.UI.Pages
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // backGround
             // 
-            pictureBox1.Image = Properties.Resources.AddCarPageBackground;
-            pictureBox1.Location = new Point(0, -1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(923, 531);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            backGround.Image = Properties.Resources.AddCarPageBackground;
+            backGround.Location = new Point(0, -1);
+            backGround.Name = "backGround";
+            backGround.Size = new Size(923, 531);
+            backGround.SizeMode = PictureBoxSizeMode.Zoom;
+            backGround.TabIndex = 0;
+            backGround.TabStop = false;
             // 
             // branchLabel
             // 
@@ -66,7 +71,7 @@ namespace cheraasje_epp.UI.Pages
             branchLabel.Location = new Point(75, 65);
             branchLabel.Name = "branchLabel";
             branchLabel.Size = new Size(239, 40);
-            branchLabel.TabIndex = 1;
+            branchLabel.TabIndex = 13;
             branchLabel.Text = "{BRANCH NAME}";
             // 
             // brandInputField
@@ -81,7 +86,7 @@ namespace cheraasje_epp.UI.Pages
             brandInputField.Padding = new Padding(10, 5, 10, 5);
             brandInputField.PlaceholderText = "Brand...";
             brandInputField.Size = new Size(361, 37);
-            brandInputField.TabIndex = 2;
+            brandInputField.TabIndex = 1;
             brandInputField.TextAlign = HorizontalAlignment.Left;
             brandInputField.UseSystemPasswordChar = false;
             // 
@@ -97,7 +102,7 @@ namespace cheraasje_epp.UI.Pages
             modelInputField.Padding = new Padding(10, 5, 10, 5);
             modelInputField.PlaceholderText = "Model...";
             modelInputField.Size = new Size(361, 37);
-            modelInputField.TabIndex = 3;
+            modelInputField.TabIndex = 2;
             modelInputField.TextAlign = HorizontalAlignment.Left;
             modelInputField.UseSystemPasswordChar = false;
             // 
@@ -113,48 +118,41 @@ namespace cheraasje_epp.UI.Pages
             buildYearInputField.Padding = new Padding(10, 5, 10, 5);
             buildYearInputField.PlaceholderText = "Build year...";
             buildYearInputField.Size = new Size(361, 37);
-            buildYearInputField.TabIndex = 4;
+            buildYearInputField.TabIndex = 3;
             buildYearInputField.TextAlign = HorizontalAlignment.Left;
             buildYearInputField.UseSystemPasswordChar = false;
             // 
-            // uploadedImagesView
+            // amountOfDoorInputField
             // 
-            uploadedImagesView.BackColor = Color.White;
-            uploadedImagesView.Location = new Point(36, 352);
-            uploadedImagesView.Name = "uploadedImagesView";
-            uploadedImagesView.Size = new Size(361, 77);
-            uploadedImagesView.TabIndex = 6;
+            amountOfDoorInputField.BackColor = Color.White;
+            amountOfDoorInputField.BorderColor = Color.Red;
+            amountOfDoorInputField.BorderRadius = 18;
+            amountOfDoorInputField.BorderSize = 2;
+            amountOfDoorInputField.FillColor = Color.White;
+            amountOfDoorInputField.Location = new Point(36, 303);
+            amountOfDoorInputField.Name = "amountOfDoorInputField";
+            amountOfDoorInputField.Padding = new Padding(10, 5, 10, 5);
+            amountOfDoorInputField.PlaceholderText = "Amount of doors...";
+            amountOfDoorInputField.Size = new Size(361, 37);
+            amountOfDoorInputField.TabIndex = 4;
+            amountOfDoorInputField.TextAlign = HorizontalAlignment.Left;
+            amountOfDoorInputField.UseSystemPasswordChar = false;
             // 
-            // addCarButton
+            // licensePlateInputField
             // 
-            addCarButton.BackColor = Color.FromArgb(255, 87, 87);
-            addCarButton.FlatAppearance.BorderSize = 0;
-            addCarButton.FlatStyle = FlatStyle.Flat;
-            addCarButton.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            addCarButton.ForeColor = Color.White;
-            addCarButton.Location = new Point(36, 445);
-            addCarButton.Name = "addCarButton";
-            addCarButton.Size = new Size(175, 38);
-            addCarButton.TabIndex = 7;
-            addCarButton.Text = "Add";
-            addCarButton.UseVisualStyleBackColor = false;
-            addCarButton.Click += addCarButton_Click;
-            // 
-            // mileageInputField
-            // 
-            mileageInputField.BackColor = Color.White;
-            mileageInputField.BorderColor = Color.Red;
-            mileageInputField.BorderRadius = 18;
-            mileageInputField.BorderSize = 2;
-            mileageInputField.FillColor = Color.White;
-            mileageInputField.Location = new Point(511, 248);
-            mileageInputField.Name = "mileageInputField";
-            mileageInputField.Padding = new Padding(10, 5, 10, 5);
-            mileageInputField.PlaceholderText = "Mileage...";
-            mileageInputField.Size = new Size(361, 37);
-            mileageInputField.TabIndex = 10;
-            mileageInputField.TextAlign = HorizontalAlignment.Left;
-            mileageInputField.UseSystemPasswordChar = false;
+            licensePlateInputField.BackColor = Color.White;
+            licensePlateInputField.BorderColor = Color.Red;
+            licensePlateInputField.BorderRadius = 18;
+            licensePlateInputField.BorderSize = 2;
+            licensePlateInputField.FillColor = Color.White;
+            licensePlateInputField.Location = new Point(511, 138);
+            licensePlateInputField.Name = "licensePlateInputField";
+            licensePlateInputField.Padding = new Padding(10, 5, 10, 5);
+            licensePlateInputField.PlaceholderText = "License plate...";
+            licensePlateInputField.Size = new Size(361, 37);
+            licensePlateInputField.TabIndex = 5;
+            licensePlateInputField.TextAlign = HorizontalAlignment.Left;
+            licensePlateInputField.UseSystemPasswordChar = false;
             // 
             // priceInputField
             // 
@@ -168,25 +166,66 @@ namespace cheraasje_epp.UI.Pages
             priceInputField.Padding = new Padding(10, 5, 10, 5);
             priceInputField.PlaceholderText = "Price...";
             priceInputField.Size = new Size(361, 37);
-            priceInputField.TabIndex = 11;
+            priceInputField.TabIndex = 6;
             priceInputField.TextAlign = HorizontalAlignment.Left;
             priceInputField.UseSystemPasswordChar = false;
             // 
-            // licencePlateInputField
+            // mileageInputField
             // 
-            licencePlateInputField.BackColor = Color.White;
-            licencePlateInputField.BorderColor = Color.Red;
-            licencePlateInputField.BorderRadius = 18;
-            licencePlateInputField.BorderSize = 2;
-            licencePlateInputField.FillColor = Color.White;
-            licencePlateInputField.Location = new Point(511, 138);
-            licencePlateInputField.Name = "licencePlateInputField";
-            licencePlateInputField.Padding = new Padding(10, 5, 10, 5);
-            licencePlateInputField.PlaceholderText = "Licence plate...";
-            licencePlateInputField.Size = new Size(361, 37);
-            licencePlateInputField.TabIndex = 12;
-            licencePlateInputField.TextAlign = HorizontalAlignment.Left;
-            licencePlateInputField.UseSystemPasswordChar = false;
+            mileageInputField.BackColor = Color.White;
+            mileageInputField.BorderColor = Color.Red;
+            mileageInputField.BorderRadius = 18;
+            mileageInputField.BorderSize = 2;
+            mileageInputField.FillColor = Color.White;
+            mileageInputField.Location = new Point(511, 248);
+            mileageInputField.Name = "mileageInputField";
+            mileageInputField.Padding = new Padding(10, 5, 10, 5);
+            mileageInputField.PlaceholderText = "Mileage...";
+            mileageInputField.Size = new Size(361, 37);
+            mileageInputField.TabIndex = 7;
+            mileageInputField.TextAlign = HorizontalAlignment.Left;
+            mileageInputField.UseSystemPasswordChar = false;
+            // 
+            // colorInputField
+            // 
+            colorInputField.BackColor = Color.White;
+            colorInputField.BorderColor = Color.Red;
+            colorInputField.BorderRadius = 18;
+            colorInputField.BorderSize = 2;
+            colorInputField.FillColor = Color.White;
+            colorInputField.Location = new Point(511, 303);
+            colorInputField.Name = "colorInputField";
+            colorInputField.Padding = new Padding(10, 5, 10, 5);
+            colorInputField.PlaceholderText = "Color...";
+            colorInputField.Size = new Size(361, 37);
+            colorInputField.TabIndex = 8;
+            colorInputField.TextAlign = HorizontalAlignment.Left;
+            colorInputField.UseSystemPasswordChar = false;
+            // 
+            // uploadedImagesView
+            // 
+            uploadedImagesView.AutoScroll = true;
+            uploadedImagesView.BackColor = Color.White;
+            uploadedImagesView.Location = new Point(118, 352);
+            uploadedImagesView.Name = "uploadedImagesView";
+            uploadedImagesView.Size = new Size(279, 87);
+            uploadedImagesView.TabIndex = 6;
+            uploadedImagesView.WrapContents = false;
+            // 
+            // addCarButton
+            // 
+            addCarButton.BackColor = Color.FromArgb(255, 87, 87);
+            addCarButton.FlatAppearance.BorderSize = 0;
+            addCarButton.FlatStyle = FlatStyle.Flat;
+            addCarButton.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            addCarButton.ForeColor = Color.White;
+            addCarButton.Location = new Point(36, 445);
+            addCarButton.Name = "addCarButton";
+            addCarButton.Size = new Size(361, 38);
+            addCarButton.TabIndex = 12;
+            addCarButton.Text = "Add";
+            addCarButton.UseVisualStyleBackColor = false;
+            addCarButton.Click += addCarButton_Click;
             // 
             // selectManualButton
             // 
@@ -198,7 +237,7 @@ namespace cheraasje_epp.UI.Pages
             selectManualButton.Location = new Point(511, 353);
             selectManualButton.Name = "selectManualButton";
             selectManualButton.Size = new Size(174, 38);
-            selectManualButton.TabIndex = 13;
+            selectManualButton.TabIndex = 10;
             selectManualButton.Text = "Manual";
             selectManualButton.UseVisualStyleBackColor = false;
             selectManualButton.Click += selectManualButton_Click;
@@ -213,42 +252,24 @@ namespace cheraasje_epp.UI.Pages
             selectAutomaticButton.Location = new Point(710, 353);
             selectAutomaticButton.Name = "selectAutomaticButton";
             selectAutomaticButton.Size = new Size(162, 38);
-            selectAutomaticButton.TabIndex = 14;
+            selectAutomaticButton.TabIndex = 11;
             selectAutomaticButton.Text = "Automatic";
             selectAutomaticButton.UseVisualStyleBackColor = false;
             selectAutomaticButton.Click += selectAutomaticButton_Click;
             // 
-            // amountOfDoorInputField
+            // addImagesButton
             // 
-            amountOfDoorInputField.BackColor = Color.White;
-            amountOfDoorInputField.BorderColor = Color.Red;
-            amountOfDoorInputField.BorderRadius = 18;
-            amountOfDoorInputField.BorderSize = 2;
-            amountOfDoorInputField.FillColor = Color.White;
-            amountOfDoorInputField.Location = new Point(36, 303);
-            amountOfDoorInputField.Name = "amountOfDoorInputField";
-            amountOfDoorInputField.Padding = new Padding(10, 5, 10, 5);
-            amountOfDoorInputField.PlaceholderText = "Amount of doors...";
-            amountOfDoorInputField.Size = new Size(361, 37);
-            amountOfDoorInputField.TabIndex = 15;
-            amountOfDoorInputField.TextAlign = HorizontalAlignment.Left;
-            amountOfDoorInputField.UseSystemPasswordChar = false;
-            // 
-            // colorInputField
-            // 
-            colorInputField.BackColor = Color.White;
-            colorInputField.BorderColor = Color.Red;
-            colorInputField.BorderRadius = 18;
-            colorInputField.BorderSize = 2;
-            colorInputField.FillColor = Color.White;
-            colorInputField.Location = new Point(511, 303);
-            colorInputField.Name = "colorInputField";
-            colorInputField.Padding = new Padding(10, 5, 10, 5);
-            colorInputField.PlaceholderText = "Color...";
-            colorInputField.Size = new Size(361, 37);
-            colorInputField.TabIndex = 16;
-            colorInputField.TextAlign = HorizontalAlignment.Left;
-            colorInputField.UseSystemPasswordChar = false;
+            addImagesButton.BackColor = Color.FromArgb(255, 87, 87);
+            addImagesButton.FlatAppearance.BorderSize = 0;
+            addImagesButton.FlatStyle = FlatStyle.Flat;
+            addImagesButton.ForeColor = Color.White;
+            addImagesButton.Location = new Point(36, 353);
+            addImagesButton.Name = "addImagesButton";
+            addImagesButton.Size = new Size(76, 76);
+            addImagesButton.TabIndex = 9;
+            addImagesButton.Text = "Add Images";
+            addImagesButton.UseVisualStyleBackColor = false;
+            addImagesButton.Click += addImagesButton_Click;
             // 
             // cancelButton
             // 
@@ -269,12 +290,13 @@ namespace cheraasje_epp.UI.Pages
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(addImagesButton);
             Controls.Add(cancelButton);
             Controls.Add(colorInputField);
             Controls.Add(amountOfDoorInputField);
             Controls.Add(selectAutomaticButton);
             Controls.Add(selectManualButton);
-            Controls.Add(licencePlateInputField);
+            Controls.Add(licensePlateInputField);
             Controls.Add(priceInputField);
             Controls.Add(mileageInputField);
             Controls.Add(addCarButton);
@@ -283,17 +305,17 @@ namespace cheraasje_epp.UI.Pages
             Controls.Add(modelInputField);
             Controls.Add(brandInputField);
             Controls.Add(branchLabel);
-            Controls.Add(pictureBox1);
+            Controls.Add(backGround);
             Name = "AddCar";
             Size = new Size(923, 531);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)backGround).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox backGround;
         private Label branchLabel;
         private Controls.RoundedTextBox brandInputField;
         private Controls.RoundedTextBox modelInputField;
@@ -303,11 +325,12 @@ namespace cheraasje_epp.UI.Pages
         private Cheraasje.Epp.UI.Controls.RoundedButton addCarButton;
         private Controls.RoundedTextBox mileageInputField;
         private Controls.RoundedTextBox priceInputField;
-        private Controls.RoundedTextBox licencePlateInputField;
+        private Controls.RoundedTextBox licensePlateInputField;
         private Cheraasje.Epp.UI.Controls.RoundedButton selectManualButton;
         private Cheraasje.Epp.UI.Controls.RoundedButton selectAutomaticButton;
         private Controls.RoundedTextBox amountOfDoorInputField;
         private Controls.RoundedTextBox colorInputField;
+        private Cheraasje.Epp.UI.Controls.RoundedButton addImagesButton;
         private Cheraasje.Epp.UI.Controls.RoundedButton cancelButton;
     }
 }

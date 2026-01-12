@@ -1,4 +1,6 @@
-﻿namespace cheraasje_epp.UI.Pages.FleetWidgets
+﻿using System.Net.NetworkInformation;
+
+namespace cheraasje_epp.UI.Pages.FleetWidgets
 {
     partial class CarResultItem
     {
@@ -38,6 +40,7 @@
             // titleLabel
             // 
             titleLabel.AutoSize = true;
+            titleLabel.BackColor = Color.White;
             titleLabel.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             titleLabel.Location = new Point(142, 22);
             titleLabel.Name = "titleLabel";
@@ -50,12 +53,14 @@
             pictureBox1.Location = new Point(8, 9);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(103, 103);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // priceLabel
             // 
             priceLabel.AutoSize = true;
+            priceLabel.BackColor = Color.White;
             priceLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             priceLabel.Location = new Point(142, 53);
             priceLabel.Name = "priceLabel";
@@ -66,6 +71,7 @@
             // mileageLabel
             // 
             mileageLabel.AutoSize = true;
+            mileageLabel.BackColor = Color.White;
             mileageLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             mileageLabel.Location = new Point(279, 53);
             mileageLabel.Name = "mileageLabel";
@@ -82,7 +88,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(titleLabel);
             Name = "CarResultItem";
-            Size = new Size(634, 121);
+            Size = new Size(725, 121);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
