@@ -37,7 +37,6 @@ namespace cheraasje_epp.UI.Pages
             UserNameTitleLabel = new Label();
             UserIdTitleLabel = new Label();
             UserIdLabel = new Label();
-            ChangePasswordButton = new RoundedButton();
             LogOutButton = new RoundedButton();
             menuButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -97,20 +96,6 @@ namespace cheraasje_epp.UI.Pages
             UserIdLabel.TabIndex = 4;
             UserIdLabel.Text = "{USERID}";
             // 
-            // ChangePasswordButton
-            // 
-            ChangePasswordButton.BackColor = Color.FromArgb(255, 87, 87);
-            ChangePasswordButton.FlatAppearance.BorderSize = 0;
-            ChangePasswordButton.FlatStyle = FlatStyle.Flat;
-            ChangePasswordButton.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ChangePasswordButton.ForeColor = Color.White;
-            ChangePasswordButton.Location = new Point(43, 362);
-            ChangePasswordButton.Name = "ChangePasswordButton";
-            ChangePasswordButton.Size = new Size(401, 35);
-            ChangePasswordButton.TabIndex = 5;
-            ChangePasswordButton.Text = "change password";
-            ChangePasswordButton.UseVisualStyleBackColor = false;
-            // 
             // LogOutButton
             // 
             LogOutButton.BackColor = Color.FromArgb(204, 0, 0);
@@ -147,7 +132,6 @@ namespace cheraasje_epp.UI.Pages
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(menuButton);
             Controls.Add(LogOutButton);
-            Controls.Add(ChangePasswordButton);
             Controls.Add(UserNameTitleLabel);
             Controls.Add(userNameLabel);
             Controls.Add(UserIdTitleLabel);
@@ -166,7 +150,6 @@ namespace cheraasje_epp.UI.Pages
         private Label UserNameTitleLabel;
         private Label UserIdTitleLabel;
         private Label UserIdLabel;
-        private RoundedButton ChangePasswordButton;
         private RoundedButton LogOutButton;
         private Button menuButton;
     }
