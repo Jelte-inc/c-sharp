@@ -1,84 +1,41 @@
-\## Inloggen
-
-
+## Inloggen
 
 Gebruik de volgende inloggegevens:
 
-
-
-\- \*\*ID:\*\* 4  
-
-\- \*\*Wachtwoord:\*\* Mulder  
-
-
+- **ID:** 4  
+- **Wachtwoord:** Mulder  
 
 ---
 
+## Zoeken naar auto’s (Fleetpage)
 
+Bij het zoeken naar auto’s geldt **strikt** de volgende volgorde:
 
-\## Zoeken naar auto’s (Fleetpage)
+1. **Eerst het automerk**
+2. **Daarna het model**
 
+Alles wat **na merk en model** wordt ingevoerd, heeft **geen invloed** op het zoekresultaat.
 
+### Voorbeelden
 
-Bij het zoeken naar auto’s geldt \*\*strikt\*\* de volgende volgorde:
+**Correct**
+- `Suzuki Swift`
+- `su sw`
 
-
-
-1\. \*\*Eerst het automerk\*\*
-
-2\. \*\*Daarna het model\*\*
-
-
-
-Alles wat \*\*na merk en model\*\* wordt ingevoerd, heeft \*\*geen invloed\*\* op het zoekresultaat.
-
-
-
-\### Voorbeelden
-
-
-
-\*\*Correct\*\*
-
-\- `Suzuki Swift`
-
-\- `su sw`
-
-
-
-\*\*Onjuist\*\*
-
-\- `swift`
-
-\- `Sukuki Swift 2007`
-
-
+**Onjuist**
+- `swift`
+- `Sukuki Swift 2007`
 
 ---
 
-
-
-\## Database uitlezen
-
-
+## Database uitlezen
 
 Om de database te bekijken heeft u een tool nodig zoals:
 
-
-
-\- \*\*DB Browser\*\*
-
-\- \*\*DBeaver\*\*
-
-
+- **DB Browser**
+- **DBeaver**
 
 De database is te vinden op het volgende pad:
 
-
-
 ```text
-
-<ProjectRoot>\\bin\\Debug\\net8.0-windows\\Data
-
-
-
+<ProjectRoot>\bin\Debug\net8.0-windows\Data
