@@ -1,4 +1,6 @@
-﻿namespace cheraasje_epp.UI.Pages.AddUser
+﻿using cheraasje_epp.UI.Widgets;
+
+namespace cheraasje_epp.UI.Pages.AddUser
 {
     partial class UserEditor
     {
@@ -28,11 +30,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            nameInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            passwordInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            passwordCheckInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            confirmButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            cancelButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
+            nameInputField = new RoundedTextBox();
+            passwordInputField = new RoundedTextBox();
+            passwordCheckInputField = new RoundedTextBox();
+            confirmButton = new RoundedButton();
+            cancelButton = new RoundedButton();
             adminCheckBox = new CheckBox();
             branchDropdown = new ComboBox();
             nameLabel = new Label();
@@ -199,11 +201,11 @@
 
         #endregion
 
-        private Controls.RoundedTextBox nameInputField;
-        private Controls.RoundedTextBox passwordInputField;
-        private Controls.RoundedTextBox passwordCheckInputField;
-        private Cheraasje.Epp.UI.Controls.RoundedButton confirmButton;
-        private Cheraasje.Epp.UI.Controls.RoundedButton cancelButton;
+        private RoundedTextBox nameInputField;
+        private RoundedTextBox passwordInputField;
+        private RoundedTextBox passwordCheckInputField;
+        private RoundedButton confirmButton;
+        private RoundedButton cancelButton;
         private CheckBox adminCheckBox;
         private ComboBox branchDropdown;
         private Label nameLabel;

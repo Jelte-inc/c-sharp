@@ -124,6 +124,22 @@ namespace cheraasje_epp.UI.Pages
 
         private void addCarButton_Click(object sender, EventArgs e)
         {
+            var inputs = new[]
+{
+                brandInputField.Text,
+                modelInputField.Text,
+                colorInputField.Text,
+                amountOfDoorInputField.Text,
+                priceInputField.Text,
+                buildYearInputField.Text,
+                mileageInputField.Text,
+                licensePlateInputField.Text,
+            };
+            if (inputs.Any(string.IsNullOrWhiteSpace))
+            {
+                MessageBox.Show("Fill in all the fields");
+                return;
+            }
             Car car = new Car
             {
                 Brand = brandInputField.Text,

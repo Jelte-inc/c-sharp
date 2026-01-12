@@ -1,5 +1,4 @@
-﻿using cheraasje_epp.UI.Controls;
-using cheraasje_epp.UI.Widgets;
+﻿using cheraasje_epp.UI.Widgets;
 
 namespace cheraasje_epp.UI.Pages
 {
@@ -34,12 +33,12 @@ namespace cheraasje_epp.UI.Pages
             pictureBox1 = new PictureBox();
             branchLabel = new Label();
             searchBox = new RoundedTextBox();
-            addNewCarButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            brandFilterButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            priceFilterButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            colorFilterButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            doorFilterButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            removeFiltersButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
+            addNewCarButton = new RoundedButton();
+            brandFilterButton = new RoundedButton();
+            priceFilterButton = new RoundedButton();
+            colorFilterButton = new RoundedButton();
+            doorFilterButton = new RoundedButton();
+            removeFiltersButton = new RoundedButton();
             carList = new FlowLayoutPanel();
             menuButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -226,13 +225,13 @@ namespace cheraasje_epp.UI.Pages
 
         private PictureBox pictureBox1;
         private Label branchLabel;
-        private Controls.RoundedTextBox searchBox;
-        private Cheraasje.Epp.UI.Controls.RoundedButton addNewCarButton;
-        private Cheraasje.Epp.UI.Controls.RoundedButton brandFilterButton;
-        private Cheraasje.Epp.UI.Controls.RoundedButton priceFilterButton;
-        private Cheraasje.Epp.UI.Controls.RoundedButton colorFilterButton;
-        private Cheraasje.Epp.UI.Controls.RoundedButton doorFilterButton;
-        private Cheraasje.Epp.UI.Controls.RoundedButton removeFiltersButton;
+        private RoundedTextBox searchBox;
+        private RoundedButton addNewCarButton;
+        private RoundedButton brandFilterButton;
+        private RoundedButton priceFilterButton;
+        private RoundedButton colorFilterButton;
+        private RoundedButton doorFilterButton;
+        private RoundedButton removeFiltersButton;
         private FlowLayoutPanel carList;
         private Button menuButton;
     }

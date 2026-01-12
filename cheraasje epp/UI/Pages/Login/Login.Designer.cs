@@ -1,5 +1,5 @@
-﻿using Cheraasje.Epp.UI.Controls;
-using cheraasje_epp.UI.Controls;
+﻿
+using cheraasje_epp.UI.Widgets;
 
 namespace cheraasje_epp.UI.Pages
 {
