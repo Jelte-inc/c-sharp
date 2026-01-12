@@ -8,7 +8,7 @@
         public string Adress { get; set; }
         public string PostalCode { get; set; }
         public string PhoneNumber { get; set; }
-        public string Owner { get; set; }
+        public int Owner { get; set; }
         public List<Car> Cars { get; set; } = new();
 
         public decimal AveragePrice =>

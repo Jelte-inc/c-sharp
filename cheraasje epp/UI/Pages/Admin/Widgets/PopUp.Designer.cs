@@ -37,7 +37,8 @@
             // 
             questionLabel.AutoSize = true;
             questionLabel.Font = new Font("Segoe UI", 12F);
-            questionLabel.Location = new Point(129, 67);
+            questionLabel.Location = new Point(49, 65);
+            questionLabel.MaximumSize = new Size(345, 0);
             questionLabel.Name = "questionLabel";
             questionLabel.Size = new Size(107, 21);
             questionLabel.TabIndex = 0;

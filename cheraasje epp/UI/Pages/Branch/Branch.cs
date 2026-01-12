@@ -84,7 +84,7 @@ namespace cheraasje_epp.UI.Pages
             var branch = dataManager.GetBranchById(Session.UserId);
             cityLabel.Text = branch.Location;
             adressLabel.Text = $"{branch.Adress} {branch.PostalCode}";
-            ownerLabel.Text = branch.Owner;
+            ownerLabel.Text = branch.Owner.ToString();
             phoneLabel.Text = branch.PhoneNumber;
             branchLabel.Text = branch.Id.ToString();
         }

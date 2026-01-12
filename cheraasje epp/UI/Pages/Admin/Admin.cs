@@ -1,5 +1,7 @@
 ﻿using cheraasje_epp.Data;
+using Model = cheraasje_epp.Models.Entities;
 using cheraasje_epp.UI.Admin.Widgets;
+using cheraasje_epp.UI.Pages.AddUser;
 using cheraasje_epp.UI.Widgets;
 using System;
 using System.Collections.Generic;
@@ -70,7 +72,8 @@ namespace cheraasje_epp.UI.Pages
             foreach (var branch in branches)
             {
                 var branchItem = new BranchItem(branch);
-                branchItem.PageChangeRequested += (newPage) => {
+                branchItem.PageChangeRequested += (newPage) =>
+                {
                     this.PageChangeRequested?.Invoke(newPage);
                 };
                 branchList.Controls.Add(branchItem);
@@ -83,6 +86,10 @@ namespace cheraasje_epp.UI.Pages
             foreach (var user in users)
             {
                 var userItem = new UserItem(user);
+                userItem.PageChangeRequested += (newPage) =>
+                {
+                    this.PageChangeRequested?.Invoke(newPage);
+                };
                 userList.Controls.Add(userItem);
             }
         }
@@ -90,6 +97,40 @@ namespace cheraasje_epp.UI.Pages
         {
             sideBarMenu.openSideBar();
             menuOpen = true;
+        }
+
+        private void userButton_Click(object sender, EventArgs e)
+        {
+            if (userInputField.Text == "")
+            {
+                MessageBox.Show("Please input a name");
+                return;
+            }
+            var user = new Model.User();
+            user.Name = userInputField.Text;
+            var popUp = new UserEditor(user, false);
+            popUp.PageChangeRequested += (newPage) =>
+            {
+                this.PageChangeRequested?.Invoke(newPage);
+            };
+            popUp.Show(this);
+        }
+
+        private void branchButton_Click(object sender, EventArgs e)
+        {
+            if (branchInputField.Text == "")
+            {
+                MessageBox.Show("Please input a name");
+                return;
+            }
+            var branch = new Model.Branch();
+            branch.Name = branchInputField.Text;
+            var popUp = new BranchEditor(branch, false);
+            popUp.PageChangeRequested += (newPage) =>
+            {
+                this.PageChangeRequested?.Invoke(newPage);
+            };
+            popUp.Show(this);
         }
     }
 }

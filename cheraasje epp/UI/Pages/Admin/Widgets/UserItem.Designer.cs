@@ -58,6 +58,7 @@
             editButton.Size = new Size(49, 49);
             editButton.TabIndex = 1;
             editButton.UseVisualStyleBackColor = false;
+            editButton.Click += editButton_Click;
             // 
             // binButton
             // 

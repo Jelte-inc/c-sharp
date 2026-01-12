@@ -58,6 +58,7 @@
             editButton.Size = new Size(49, 49);
             editButton.TabIndex = 1;
             editButton.UseVisualStyleBackColor = false;
+            editButton.Click += editButton_Click;
             // 
             // binButton
             // 
@@ -71,7 +72,7 @@
             binButton.Size = new Size(49, 49);
             binButton.TabIndex = 2;
             binButton.UseVisualStyleBackColor = false;
-            binButton.Click += this.binButton_Click;
+            binButton.Click += binButton_Click;
             // 
             // nameLabel
             // 

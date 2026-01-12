@@ -75,7 +75,7 @@ namespace cheraasje_epp.Data
                 Adress = reader["Adress"].ToString()!,
                 PhoneNumber = reader["PhoneNumber"].ToString()!,
                 PostalCode = reader["PostalCode"].ToString()!,
-                Owner = reader["OwnerId"].ToString()!
+                Owner = Convert.ToInt32(reader["OwnerId"])
             };
         }
 
@@ -255,7 +255,7 @@ namespace cheraasje_epp.Data
                     PostalCode = reader["PostalCode"].ToString()!,
                     // Let op: in je GetBranchById noem je de databasekolom 'OwnerId' 
                     // maar sla je het op in de property 'Owner'.
-                    Owner = reader["OwnerId"].ToString()!
+                    Owner = Convert.ToInt32(reader["OwnerId"])
                 });
             }
 
@@ -302,6 +302,97 @@ namespace cheraasje_epp.Data
 
             using var cmd = new SQLiteCommand("DELETE FROM Branches WHERE Id = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
+
+            cmd.ExecuteNonQuery();
+        }
+        public void AddUser(User user)
+        {
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            using var cmd = new SQLiteCommand(@"
+        INSERT INTO Users 
+        (Name, Password, BranchId, IsAdmin) 
+        VALUES 
+        (@Name, @Password, @BranchId, @IsAdmin)
+    ", conn);
+
+            cmd.Parameters.AddWithValue("@Name", user.Name);
+            cmd.Parameters.AddWithValue("@Password", user.Password);
+            cmd.Parameters.AddWithValue("@BranchId", user.BranchId);
+            cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin ? 1 : 0);
+
+            cmd.ExecuteNonQuery();
+        }
+        public void UpdateUser(User user)
+        {
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            // We updaten de velden voor de gebruiker waar het Id overeenkomt
+            using var cmd = new SQLiteCommand(@"
+        UPDATE Users 
+        SET Name = @Name, 
+            Password = @Password, 
+            BranchId = @BranchId, 
+            IsAdmin = @IsAdmin
+        WHERE Id = @Id
+    ", conn);
+
+            cmd.Parameters.AddWithValue("@Name", user.Name);
+            cmd.Parameters.AddWithValue("@Password", user.Password);
+            cmd.Parameters.AddWithValue("@BranchId", user.BranchId);
+            // SQLite gebruikt 1 voor true en 0 voor false
+            cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin ? 1 : 0);
+            cmd.Parameters.AddWithValue("@Id", user.Id);
+
+            cmd.ExecuteNonQuery();
+        }
+        public void AddBranch(Branch branch)
+        {
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            using var cmd = new SQLiteCommand(@"
+        INSERT INTO Branches 
+        (Name, Location, Adress, PhoneNumber, PostalCode, OwnerId) 
+        VALUES 
+        (@Name, @Location, @Adress, @PhoneNumber, @PostalCode, @OwnerId)
+    ", conn);
+
+            cmd.Parameters.AddWithValue("@Name", branch.Name);
+            cmd.Parameters.AddWithValue("@Location", branch.Location);
+            cmd.Parameters.AddWithValue("@Adress", branch.Adress);
+            cmd.Parameters.AddWithValue("@PhoneNumber", branch.PhoneNumber);
+            cmd.Parameters.AddWithValue("@PostalCode", branch.PostalCode);
+            cmd.Parameters.AddWithValue("@OwnerId", branch.Owner);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public void UpdateBranch(Branch branch)
+        {
+            using var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+
+            using var cmd = new SQLiteCommand(@"
+        UPDATE Branches 
+        SET Name = @Name, 
+            Location = @Location, 
+            Adress = @Adress, 
+            PhoneNumber = @PhoneNumber, 
+            PostalCode = @PostalCode, 
+            OwnerId = @OwnerId
+        WHERE Id = @Id
+    ", conn);
+
+            cmd.Parameters.AddWithValue("@Name", branch.Name);
+            cmd.Parameters.AddWithValue("@Location", branch.Location);
+            cmd.Parameters.AddWithValue("@Adress", branch.Adress);
+            cmd.Parameters.AddWithValue("@PhoneNumber", branch.PhoneNumber);
+            cmd.Parameters.AddWithValue("@PostalCode", branch.PostalCode);
+            cmd.Parameters.AddWithValue("@OwnerId", branch.Owner);
+            cmd.Parameters.AddWithValue("@Id", branch.Id);
 
             cmd.ExecuteNonQuery();
         }

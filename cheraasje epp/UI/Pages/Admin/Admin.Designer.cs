@@ -100,6 +100,7 @@ namespace cheraasje_epp.UI.Pages
             branchButton.TabIndex = 3;
             branchButton.Text = "Add";
             branchButton.UseVisualStyleBackColor = false;
+            branchButton.Click += branchButton_Click;
             // 
             // userInputField
             // 
@@ -129,6 +130,22 @@ namespace cheraasje_epp.UI.Pages
             userButton.TabIndex = 5;
             userButton.Text = "Add";
             userButton.UseVisualStyleBackColor = false;
+            userButton.Click += userButton_Click;
+            // 
+            // menuButton
+            // 
+            menuButton.BackColor = Color.White;
+            menuButton.Cursor = Cursors.Hand;
+            menuButton.FlatAppearance.BorderSize = 0;
+            menuButton.FlatStyle = FlatStyle.Flat;
+            menuButton.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            menuButton.Location = new Point(12, 21);
+            menuButton.Name = "menuButton";
+            menuButton.Size = new Size(36, 46);
+            menuButton.TabIndex = 21;
+            menuButton.Text = "☰";
+            menuButton.UseVisualStyleBackColor = false;
+            menuButton.Click += menuButton_Click;
             // 
             // Admin
             // 
@@ -146,21 +163,6 @@ namespace cheraasje_epp.UI.Pages
             Size = new Size(923, 532);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
-            // 
-            // menuButton
-            // 
-            menuButton.BackColor = Color.White;
-            menuButton.Cursor = Cursors.Hand;
-            menuButton.FlatAppearance.BorderSize = 0;
-            menuButton.FlatStyle = FlatStyle.Flat;
-            menuButton.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            menuButton.Location = new Point(12, 21);
-            menuButton.Name = "menuButton";
-            menuButton.Size = new Size(36, 46);
-            menuButton.TabIndex = 21;
-            menuButton.Text = "☰";
-            menuButton.UseVisualStyleBackColor = false;
-            menuButton.Click += menuButton_Click;
         }
 
         #endregion

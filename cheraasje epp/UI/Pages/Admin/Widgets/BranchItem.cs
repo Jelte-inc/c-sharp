@@ -1,4 +1,5 @@
 ﻿using cheraasje_epp.Data;
+using cheraasje_epp.UI.Pages.AddUser;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,8 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BranchModel = cheraasje_epp.Models.Entities;
 using AdminPage = cheraasje_epp.UI.Pages.Admin;
+using BranchModel = cheraasje_epp.Models.Entities;
 
 
 namespace cheraasje_epp.UI.Admin.Widgets
@@ -25,7 +26,7 @@ namespace cheraasje_epp.UI.Admin.Widgets
             Branch = branch;
         }
         private void binButton_Click(object sender, EventArgs e)
-        { 
+        {
             var popUp = new PopUp($"Are you sure you want to delete {Branch.Name}?");
             if (popUp.ShowDialog(this) == DialogResult.OK)
             {
@@ -40,6 +41,18 @@ namespace cheraasje_epp.UI.Admin.Widgets
                 PageChangeRequested?.Invoke(new AdminPage(noMenu));
             }
 
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            DataManager dataManager = new DataManager();
+            var branch = dataManager.GetBranchById(Branch.Id);
+            var popUp = new BranchEditor(branch, true);
+            popUp.PageChangeRequested += (newPage) =>
+            {
+                this.PageChangeRequested?.Invoke(newPage);
+            };
+            popUp.Show(this);
         }
     }
 }
