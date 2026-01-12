@@ -21,12 +21,12 @@ namespace cheraasje_epp.UI.Pages
         private readonly SideBarMenu sideBarMenu = new();
 
         private bool menuOpen = false;
-        public Admin(bool safeLogin = false)
+        public Admin()
         {
             InitializeComponent();
             BuildBranchList();
             BuildUserList();
-            if (safeLogin)
+            if (Session.SafeLogin)
             {
                 menuButton.Visible = false;
             }

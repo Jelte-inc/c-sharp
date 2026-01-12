@@ -43,7 +43,8 @@ namespace cheraasje_epp.UI.Pages
                 {
                     if (user.IsAdmin)
                     {
-                        PageChangeRequested?.Invoke(new Admin(true));
+                        Session.SafeLogin = true;
+                        PageChangeRequested?.Invoke(new Admin());
                         return;
                     }
                     MessageBox.Show("You aren't added to a branch, please contact your admin for help");

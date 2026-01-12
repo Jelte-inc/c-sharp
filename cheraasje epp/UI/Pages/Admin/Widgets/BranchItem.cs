@@ -33,12 +33,11 @@ namespace cheraasje_epp.UI.Admin.Widgets
                 DataManager dataManager = new DataManager();
                 dataManager.DeleteBranch(Branch.Id);
                 var user = dataManager.GetUser(Session.UserId);
-                var noMenu = false;
                 if (user.BranchId == Branch.Id)
                 {
-                    noMenu = true;
+                    Session.SafeLogin = true;
                 }
-                PageChangeRequested?.Invoke(new AdminPage(noMenu));
+                PageChangeRequested?.Invoke(new AdminPage());
             }
 
         }
