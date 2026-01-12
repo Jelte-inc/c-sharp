@@ -105,11 +105,12 @@ namespace CheraasjeEpp.UI.Pages
             shortUserInfoLabel.AutoSize = true;
             shortUserInfoLabel.BackColor = Color.White;
             shortUserInfoLabel.Font = new Font("Consolas", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            shortUserInfoLabel.Location = new Point(636, 18);
             shortUserInfoLabel.Name = "shortUserInfoLabel";
             shortUserInfoLabel.Size = new Size(120, 23);
             shortUserInfoLabel.TabIndex = 5;
             shortUserInfoLabel.Text = "{USERINFO}";
+            shortUserInfoLabel.AutoSize = true;
+            shortUserInfoLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             // 
             // adminButton
             // 
