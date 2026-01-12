@@ -1,74 +1,59 @@
-# 🚗 Garage App – Informatica Project
+# 🚗 CheraasjeEpp – Garage Management Systeem
 
-**Auteurs:** Jelte, Remco & Joachim  
-
----
-
-## 📋 Opdracht Samenvatting
-
-Ontwikkel een **garageprogramma** waarmee medewerkers eenvoudig gegevens van auto’s kunnen opvragen en beheren.  
-Het programma moet werken met meerdere filialen, elk met een eigen voorraad en informatie.
+**Auteurs:** Jelte, Remco & Joachim
 
 ---
 
-## ⚙️ Functionaliteiten
+## 📖 Beschrijving
+**CheraasjeEpp** is een uitgebreide Windows Forms-applicatie voor het beheren van een autogarageketen. Het systeem stelt medewerkers en beheerders in staat om de voorraad, filialen en gebruikers efficiënt te beheren. In plaats van eenvoudige tekstbestanden, maakt deze applicatie gebruik van een robuuste **SQLite-database** voor veilige en betrouwbare gegevensopslag.
 
-### 🔹 Auto’s
-Elke auto heeft de volgende eigenschappen:
-- **Merk**
-- **Model**
-- **Kleur**
-- **Aantal deuren** (`int`)
-- **Vraagprijs** (`float`)
-- **Afbeelding** (`img`)
-
-### Methoden
-| Methode | Beschrijving |
-|----------|---------------|
-| `geefNaam()` | Retourneert de combinatie *merk + model* |
-| `heeftAfbeelding()` | Retourneert *true* of *false* |
-| `updateVraagprijs()` | Wijzigt de vraagprijs van de auto |
-| `toonVraagprijs()` | Geeft de prijs weer als *double*, afgerond op 2 cijfers |
-| `toString()` | Retourneert de output van `geefNaam()` (opdracht is hier wat vaag over) |
+De applicatie is ontworpen met een moderne, consistente gebruikersinterface en biedt functionaliteit voor zowel dagelijks gebruik als administratief beheer.
 
 ---
 
-## 🏢 Filialen
-Het programma ondersteunt **meerdere garagelocaties**, elk met:
-- Locatiegegevens (adres, telefoonnummer, eigenaar, etc.)
-- Een eigen **inventaris** aan auto’s
+## 🚀 Functionaliteiten
 
-Bij het inleveren moeten **minstens 3 locaties** zijn ingeprogrammeerd, elk met een bestaande voorraad.
+### 🔹 Login & Beveiliging
+- **Veilige inlog:** Gebruikers loggen in met een uniek ID en wachtwoord.
+- **Rolgebaseerde toegang:** Onderscheid tussen standaard medewerkers en beheerders (Admins).
 
----
+### 🔹 Vlootbeheer (Fleet)
+- **Overzicht:** Bekijk de volledige autovoorraad over alle filialen heen of per filiaal.
+- **Filteren & Zoeken:** Uitgebreide filteropties op:
+  - Merk & Model
+  - Prijsklasse
+  - Kleur
+  - Aantal deuren
+- **Details:** Bekijk gedetailleerde informatie per auto, inclusief specificaties en afbeeldingen.
 
-## 🧭 Navigatie & Interface
-- Een **menubalk** met onder andere:
-  - Medewerkersinformatie aanpassen  
-  - Wisselen tussen filialen  
-- Een **statistiekenscherm** met:
-  - Gemiddelde vraagprijs per filiaal  
-  - Totale waarde van de voorraad  
+### 🔹 Filiaalbeheer
+- **Locatie-informatie:** Bekijk adresgegevens, telefoonnummers en eigenaren van filialen.
+- **Openingstijden:** Inzage in de openingstijden per vestiging.
 
----
-
-## 💾 Gegevensopslag
-- Bij **afsluiten** worden alle gegevens opgeslagen in een `.txt`-bestand  
-- Bij **opstarten** controleert het programma of opslagbestanden bestaan en laadt deze automatisch  
-
----
-
-## 🛠️ CRUD-functionaliteit
-Gebruikers moeten:
-- Nieuwe auto’s en filialen kunnen **toevoegen**
-- Bestaande kunnen **aanpassen**
-- En eventueel **verwijderen**
+### 🔹 Administratie (Admin Only)
+- **Gebruikersbeheer:** Toevoegen, wijzigen en verwijderen van gebruikersaccounts.
+- **Filiaalbeheer:** Beheren van filialen (toevoegen, aanpassen, verwijderen).
+- **Auto Beheer:** Nieuwe auto's toevoegen aan de voorraad (inclusief afbeeldingen) of verkochte auto's verwijderen.
 
 ---
 
-## ✅ Samenvatting van de eisen
-- [x] 3 garagelocaties met bestaande voorraad  
-- [x] Auto’s met de genoemde eigenschappen  
-- [x] CRUD-functionaliteit voor auto’s en filialen  
-- [x] Menu en statistiekenweergave  
-- [x] Opslaan en laden van data via `.txt`-bestanden  
+## 💻 Technische Details
+- **Framework:** .NET 8.0 (Windows Forms)
+- **Taal:** C#
+- **Database:** SQLite (`database.db`)
+- **Architectuur:**
+  - Scheiding tussen **Data**, **Models**, en **UI** (User Interface).
+  - Gebruik van custom UI widgets (zoals `RoundedButton`, `RoundedTextBox`) voor een moderne 'look & feel'.
+
+---
+
+## 🛠️ Installatie & Gebruik
+1. Clone de repository.
+2. Open de oplossing (`.sln`) in Visual Studio.
+3. Zorg dat de `database.db` aanwezig is in de `Data` map (deze wordt standaard meegeleverd in de build output).
+4. Start de applicatie via `F5` of de "Start" knop.
+
+---
+
+## ✅ Status
+Dit project voldoet aan de eisen van de opdracht en is verder uitgebreid met persistentie via een database en een verbeterde gebruikerservaring.
