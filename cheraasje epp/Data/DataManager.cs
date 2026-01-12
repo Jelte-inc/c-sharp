@@ -79,12 +79,10 @@ namespace cheraasje_epp.Data
             };
         }
 
-        public List<Car> GetCars(CarFilter filter)
+        public List<Car> GetCars(CarFilter filter, bool companyWide = false)
         {
             var cars = new List<Car>();
             var where = new List<string>();
-
-            var user = GetUser(Session.UserId);
 
             using var conn = new SQLiteConnection(connectionString);
             conn.Open();
@@ -92,8 +90,12 @@ namespace cheraasje_epp.Data
             using var cmd = new SQLiteCommand();
             cmd.Connection = conn;
 
-            where.Add("BranchId=@BranchId");
-            cmd.Parameters.AddWithValue("@BranchId", user.BranchId);
+            if (!companyWide)
+            {
+                var user = GetUser(Session.UserId);
+                where.Add("BranchId=@BranchId");
+                cmd.Parameters.AddWithValue("@BranchId", user.BranchId);
+            }
 
             if (!string.IsNullOrWhiteSpace(filter.Brand))
             {
@@ -126,10 +128,12 @@ namespace cheraasje_epp.Data
                 cmd.Parameters.AddWithValue("@Max", filter.PriceRange.Max.Amount);
             }
 
-            cmd.CommandText = $@"
-                SELECT * FROM Cars
-                WHERE {string.Join(" AND ", where)}
-            ";
+            string sql = "SELECT * FROM Cars";
+            if (where.Count > 0)
+            {
+                sql += " WHERE " + string.Join(" AND ", where);
+            }
+            cmd.CommandText = sql;
 
             using var reader = cmd.ExecuteReader();
             while (reader.Read())
