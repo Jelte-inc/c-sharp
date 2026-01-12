@@ -44,13 +44,12 @@ namespace cheraasje_epp.UI.Pages
             addCarButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             mileageInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
             priceInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
-            licencePlateInputField = new cheraasje_epp.UI.Controls.RoundedTextBox();
             selectManualButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             selectAutomaticButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
             amountOfDoorInputField = new RoundedTextBox();
             colorInputField = new RoundedTextBox();
             cancelButton = new Cheraasje.Epp.UI.Controls.RoundedButton();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)backGround).BeginInit();
             SuspendLayout();
             // 
             // backGround
