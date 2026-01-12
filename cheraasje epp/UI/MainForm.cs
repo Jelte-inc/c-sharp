@@ -1,6 +1,6 @@
-﻿using cheraasje_epp.UI.Pages;
+﻿using CheraasjeEpp.UI.Pages;
 
-namespace cheraasje_epp.UI
+namespace CheraasjeEpp.UI
 {
     public partial class MainForm : Form
     {

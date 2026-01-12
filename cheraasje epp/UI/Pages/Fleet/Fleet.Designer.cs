@@ -1,6 +1,6 @@
-﻿using cheraasje_epp.UI.Widgets;
+﻿using CheraasjeEpp.UI.Widgets;
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     partial class Fleet
     {
@@ -30,7 +30,7 @@ namespace cheraasje_epp.UI.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            backgroundPictureBox = new PictureBox();
             branchLabel = new Label();
             searchBox = new RoundedTextBox();
             addNewCarButton = new RoundedButton();
@@ -41,19 +41,19 @@ namespace cheraasje_epp.UI.Pages
             removeFiltersButton = new RoundedButton();
             carList = new FlowLayoutPanel();
             menuButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // backgroundPictureBox
             // 
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Image = Properties.Resources.FleetPageBackground;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(923, 531);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            backgroundPictureBox.BackColor = Color.White;
+            backgroundPictureBox.Image = Properties.Resources.FleetPageBackground;
+            backgroundPictureBox.Location = new Point(0, 0);
+            backgroundPictureBox.Name = "backgroundPictureBox";
+            backgroundPictureBox.Size = new Size(923, 531);
+            backgroundPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            backgroundPictureBox.TabIndex = 0;
+            backgroundPictureBox.TabStop = false;
             // 
             // branchLabel
             // 
@@ -213,17 +213,17 @@ namespace cheraasje_epp.UI.Pages
             Controls.Add(addNewCarButton);
             Controls.Add(searchBox);
             Controls.Add(branchLabel);
-            Controls.Add(pictureBox1);
+            Controls.Add(backgroundPictureBox);
             Name = "Fleet";
             Size = new Size(923, 531);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox backgroundPictureBox;
         private Label branchLabel;
         private RoundedTextBox searchBox;
         private RoundedButton addNewCarButton;

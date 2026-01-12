@@ -1,9 +1,9 @@
-﻿using cheraasje_epp.Models.Entities;
-using cheraasje_epp.Models.Filters;
+using CheraasjeEpp.Models.Entities;
+using CheraasjeEpp.Models.Filters;
 using System.Data;
 using System.Data.SQLite;
 
-namespace cheraasje_epp.Data
+namespace CheraasjeEpp.Data
 {
     internal class DataManager
     {
@@ -18,10 +18,23 @@ namespace cheraasje_epp.Data
                 $"Data Source={dbPath};Version=3;BusyTimeout=5000;";
         }
 
+        /// <summary>
+        /// Creates and opens a new SQLite connection.
+        /// </summary>
+        /// <returns>An open SQLiteConnection.</returns>
+        private SQLiteConnection GetConnection()
+        {
+            var conn = new SQLiteConnection(connectionString);
+            conn.Open();
+            return conn;
+        }
+
+        /// <summary>
+        /// Authenticates a user based on their ID and password.
+        /// </summary>
         public bool AuthenticateUser(string userID, string password)
         {
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var cmd = new SQLiteCommand(
                 "SELECT * FROM Users WHERE Id=@id AND Password=@password", conn);
@@ -31,13 +44,14 @@ namespace cheraasje_epp.Data
             using var reader = cmd.ExecuteReader();
             if (!reader.Read()) return false;
             return true;
-
         }
 
+        /// <summary>
+        /// Retrieves a user by their ID.
+        /// </summary>
         public User GetUser(int id)
         {
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var cmd = new SQLiteCommand(
                 "SELECT * FROM Users WHERE Id=@id", conn);
@@ -56,10 +70,12 @@ namespace cheraasje_epp.Data
             };
         }
 
+        /// <summary>
+        /// Retrieves a branch by its ID.
+        /// </summary>
         public Branch GetBranchById(int id)
         {
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var cmd = new SQLiteCommand(
                 "SELECT * FROM Branches WHERE Id=@id", conn);
@@ -80,13 +96,15 @@ namespace cheraasje_epp.Data
             };
         }
 
+        /// <summary>
+        /// Retrieves a list of cars based on the provided filter.
+        /// </summary>
         public List<Car> GetCars(CarFilter filter, bool companyWide = false)
         {
             var cars = new List<Car>();
             var where = new List<string>();
 
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var cmd = new SQLiteCommand();
             cmd.Connection = conn;
@@ -116,7 +134,7 @@ namespace cheraasje_epp.Data
                 cmd.Parameters.AddWithValue("@Color", $"%{filter.Color}%");
             }
 
-            if (filter.AmountOfDoors > 0)
+            if (filter.AmountOfDoors > 0 && filter.AmountOfDoors != null)
             {
                 where.Add("Doors = @Doors");
                 cmd.Parameters.AddWithValue("@Doors", filter.AmountOfDoors);
@@ -155,7 +173,7 @@ namespace cheraasje_epp.Data
                 });
             }
 
-            // Afbeeldingen ophalen per auto
+            // Fetch images per car
             using var imgCmd = new SQLiteCommand(@"
                 SELECT Path
                 FROM CarImages
@@ -179,13 +197,11 @@ namespace cheraasje_epp.Data
             return cars;
         }
 
-
         public List<Time> GetTimes(int branchId)
         {
             var times = new List<Time>();
 
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var cmd = new SQLiteCommand(
                 "SELECT * FROM OpeningTimes WHERE LocationId=@branchId", conn);
@@ -210,8 +226,7 @@ namespace cheraasje_epp.Data
             var result = new List<string>();
             var user = GetUser(Session.UserId);
 
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var cmd = new SQLiteCommand(
                 $"SELECT DISTINCT {column} FROM Cars WHERE BranchId=@branch",
@@ -229,8 +244,7 @@ namespace cheraasje_epp.Data
 
         public bool AddCar(Car car)
         {
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var transaction = conn.BeginTransaction();
 
@@ -286,14 +300,14 @@ namespace cheraasje_epp.Data
                 return false;
             }
         }
+
         public List<Branch> GetBranches()
         {
             var branches = new List<Branch>();
 
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
-            // We halen alle kolommen op uit de tabel Branches
+            // Fetch all columns from the Branches table
             using var cmd = new SQLiteCommand("SELECT * FROM Branches", conn);
 
             using var reader = cmd.ExecuteReader();
@@ -307,21 +321,21 @@ namespace cheraasje_epp.Data
                     Adress = reader["Adress"].ToString()!,
                     PhoneNumber = reader["PhoneNumber"].ToString()!,
                     PostalCode = reader["PostalCode"].ToString()!,
-                    // Let op: in je GetBranchById noem je de databasekolom 'OwnerId' 
-                    // maar sla je het op in de property 'Owner'.
+                    // Note: in GetBranchById the database column is named 'OwnerId'
+                    // but it is stored in the property 'Owner'.
                     Owner = Convert.ToInt32(reader["OwnerId"])
                 });
             }
 
             return branches;
         }
+
         public List<User> GetUsers()
         {
             var users = new List<User>();
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
-            // We halen alle gebruikers op uit de database
+            // Fetch all users from the database
             using var cmd = new SQLiteCommand("SELECT * FROM Users", conn);
 
             using var reader = cmd.ExecuteReader();
@@ -331,7 +345,7 @@ namespace cheraasje_epp.Data
                 {
                     Id = Convert.ToInt32(reader["Id"]),
                     Name = reader["Name"].ToString()!,
-                    // We halen het wachtwoord ook op, zoals je in AuthenticateUser deed
+                    // We also fetch the password, just like in AuthenticateUser
                     Password = reader["Password"].ToString()!,
                     BranchId = Convert.ToInt32(reader["BranchId"])
                 });
@@ -339,30 +353,30 @@ namespace cheraasje_epp.Data
 
             return users;
         }
+
         public void DeleteUser(int id)
         {
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var cmd = new SQLiteCommand("DELETE FROM Users WHERE Id = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
 
             cmd.ExecuteNonQuery();
         }
+
         public void DeleteBranch(int id)
         {
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var cmd = new SQLiteCommand("DELETE FROM Branches WHERE Id = @id", conn);
             cmd.Parameters.AddWithValue("@id", id);
 
             cmd.ExecuteNonQuery();
         }
+
         public void AddUser(User user)
         {
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var cmd = new SQLiteCommand(@"
         INSERT INTO Users 
@@ -378,12 +392,12 @@ namespace cheraasje_epp.Data
 
             cmd.ExecuteNonQuery();
         }
+
         public void UpdateUser(User user)
         {
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
-            // We updaten de velden voor de gebruiker waar het Id overeenkomt
+            // Update the fields for the user where the Id matches
             using var cmd = new SQLiteCommand(@"
         UPDATE Users 
         SET Name = @Name, 
@@ -396,16 +410,16 @@ namespace cheraasje_epp.Data
             cmd.Parameters.AddWithValue("@Name", user.Name);
             cmd.Parameters.AddWithValue("@Password", user.Password);
             cmd.Parameters.AddWithValue("@BranchId", user.BranchId);
-            // SQLite gebruikt 1 voor true en 0 voor false
+            // SQLite uses 1 for true and 0 for false
             cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin ? 1 : 0);
             cmd.Parameters.AddWithValue("@Id", user.Id);
 
             cmd.ExecuteNonQuery();
         }
+
         public void AddBranch(Branch branch)
         {
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var cmd = new SQLiteCommand(@"
         INSERT INTO Branches 
@@ -426,8 +440,7 @@ namespace cheraasje_epp.Data
 
         public void UpdateBranch(Branch branch)
         {
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var cmd = new SQLiteCommand(@"
         UPDATE Branches 
@@ -450,16 +463,16 @@ namespace cheraasje_epp.Data
 
             cmd.ExecuteNonQuery();
         }
+
         public bool DeleteCar(int carId)
         {
-            using var conn = new SQLiteConnection(connectionString);
-            conn.Open();
+            using var conn = GetConnection();
 
             using var transaction = conn.BeginTransaction();
 
             try
             {
-                // 1. Verwijder afbeeldingen van de auto
+                // 1. Delete images of the car
                 using var deleteImagesCmd = new SQLiteCommand(
                     "DELETE FROM CarImages WHERE CarId = @CarId",
                     conn,
@@ -468,7 +481,7 @@ namespace cheraasje_epp.Data
                 deleteImagesCmd.Parameters.AddWithValue("@CarId", carId);
                 deleteImagesCmd.ExecuteNonQuery();
 
-                // 2. Verwijder de auto zelf
+                // 2. Delete the car itself
                 using var deleteCarCmd = new SQLiteCommand(
                     "DELETE FROM Cars WHERE Id = @Id",
                     conn,

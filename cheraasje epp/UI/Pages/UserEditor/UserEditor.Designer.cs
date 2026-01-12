@@ -1,6 +1,6 @@
-﻿using cheraasje_epp.UI.Widgets;
+﻿using CheraasjeEpp.UI.Widgets;
 
-namespace cheraasje_epp.UI.Pages.AddUser
+namespace CheraasjeEpp.UI.Pages.AddUser
 {
     partial class UserEditor
     {

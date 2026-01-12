@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.UI.Pages
+﻿namespace CheraasjeEpp.UI.Pages
 {
     partial class CarView
     {
@@ -46,7 +46,7 @@
             askingPriceTextLabel = new Label();
             licensePlateTextLabel = new Label();
             transmissionTextLabel = new Label();
-            deleteButton = new cheraasje_epp.UI.Widgets.RoundedButton();
+            deleteButton = new CheraasjeEpp.UI.Widgets.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)currentCarPicture).BeginInit();
             labelTable.SuspendLayout();
             SuspendLayout();

@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.UI
+﻿namespace CheraasjeEpp.UI
 {
     partial class MainForm
     {

@@ -1,7 +1,7 @@
-﻿using cheraasje_epp.UI.Widgets;
+﻿using CheraasjeEpp.UI.Widgets;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     partial class Admin
     {
@@ -31,8 +31,7 @@ namespace cheraasje_epp.UI.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
-            pictureBox2 = new PictureBox();
+            backgroundPictureBox = new PictureBox();
             branchList = new FlowLayoutPanel();
             userList = new FlowLayoutPanel();
             branchInputField = new RoundedTextBox();
@@ -40,18 +39,18 @@ namespace cheraasje_epp.UI.Pages
             userInputField = new RoundedTextBox();
             userButton = new RoundedButton();
             menuButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox2
+            // backgroundPictureBox
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(923, 532);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            backgroundPictureBox.Image = Properties.Resources.AdminPageBackground;
+            backgroundPictureBox.Location = new Point(0, 0);
+            backgroundPictureBox.Name = "backgroundPictureBox";
+            backgroundPictureBox.Size = new Size(923, 532);
+            backgroundPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            backgroundPictureBox.TabIndex = 1;
+            backgroundPictureBox.TabStop = false;
             // 
             // branchList
             // 
@@ -157,15 +156,15 @@ namespace cheraasje_epp.UI.Pages
             Controls.Add(branchInputField);
             Controls.Add(userList);
             Controls.Add(branchList);
-            Controls.Add(pictureBox2);
+            Controls.Add(backgroundPictureBox);
             Name = "Admin";
             Size = new Size(923, 532);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private PictureBox pictureBox2;
+        private PictureBox backgroundPictureBox;
         private FlowLayoutPanel branchList;
         private FlowLayoutPanel userList;
         private RoundedTextBox branchInputField;

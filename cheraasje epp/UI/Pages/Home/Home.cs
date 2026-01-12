@@ -1,9 +1,9 @@
-using cheraasje_epp.Data;
-using cheraasje_epp.UI;
-using cheraasje_epp.UI.Pages;
-using User = cheraasje_epp.Models.Entities.User;
+using CheraasjeEpp.Data;
+using CheraasjeEpp.UI;
+using CheraasjeEpp.UI.Pages;
+using User = CheraasjeEpp.Models.Entities.User;
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     public partial class Home : UserControl, IPage
     {

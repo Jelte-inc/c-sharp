@@ -1,9 +1,9 @@
-﻿using cheraasje_epp.Data;
-using cheraasje_epp.UI;
-using cheraasje_epp.UI.Admin;
+using CheraasjeEpp.Data;
+using CheraasjeEpp.UI;
+using CheraasjeEpp.UI.Admin;
 
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     public partial class Login : UserControl, IPage
     {
@@ -20,25 +20,25 @@ namespace cheraasje_epp.UI.Pages
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            string userID = idBox.Text;      // haalt tekst uit idBox
-            string password = passwordBox.Text; // haalt tekst uit passwordBox
+            string userID = userIdTextBox.Text;      // fetches text from userIdTextBox
+            string password = passwordTextBox.Text; // fetches text from passwordTextBox
 
-            // Controleer of de velden niet leeg zijn of standaardtekst bevatten
+            // Check if fields are not empty or contain placeholder text
             if (userID == "Employee ID..." || string.IsNullOrWhiteSpace(userID) ||
                password == "Password..." || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Vul beide velden in!");
+                MessageBox.Show("Please fill in both fields!");
                 return;
             }
 
-            // Hier roep je je DataManager aan om te checken of de gebruiker bestaat
+            // Call DataManager to check if user exists
             DataManager dataManager = new DataManager();
-            var boolean = dataManager.AuthenticateUser(userID, password);
+            var isAuthenticated = dataManager.AuthenticateUser(userID, password);
 
-            if (boolean)
+            if (isAuthenticated)
             {
                 Session.Start(int.Parse(userID));
-                var user = dataManager.GetUser(Convert.ToInt32(idBox.Text));
+                var user = dataManager.GetUser(Convert.ToInt32(userIdTextBox.Text));
                 if (dataManager.GetBranchById(user.BranchId) == null)
                 {
                     if (user.IsAdmin)
@@ -55,7 +55,7 @@ namespace cheraasje_epp.UI.Pages
             }
             else
             {
-                MessageBox.Show("Ongeldige login!");
+                MessageBox.Show("Invalid login!");
             }
 
         }

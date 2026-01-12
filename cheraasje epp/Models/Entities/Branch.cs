@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.Models.Entities
+﻿namespace CheraasjeEpp.Models.Entities
 {
     public class Branch
     {

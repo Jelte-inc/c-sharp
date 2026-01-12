@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>cheraasje_epp</RootNamespace>
+    <RootNamespace>CheraasjeEpp</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -12,11 +12,11 @@
 
   <ItemGroup>
     <Compile Remove="Assets\**" />
-    <Compile Remove="cheraasje_epp\**" />
+    <Compile Remove="CheraasjeEpp\**" />
     <EmbeddedResource Remove="Assets\**" />
-    <EmbeddedResource Remove="cheraasje_epp\**" />
+    <EmbeddedResource Remove="CheraasjeEpp\**" />
     <None Remove="Assets\**" />
-    <None Remove="cheraasje_epp\**" />
+    <None Remove="CheraasjeEpp\**" />
   </ItemGroup>
 
   <ItemGroup>

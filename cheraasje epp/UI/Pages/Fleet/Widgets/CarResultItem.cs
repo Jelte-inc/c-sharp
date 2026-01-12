@@ -1,7 +1,7 @@
-﻿using cheraasje_epp.Models.Entities;
-using CheraasjeApp.UI.Controls;
+using CheraasjeEpp.Models.Entities;
+using CheraasjeEpp.UI.Widgets;
 
-namespace cheraasje_epp.UI.Pages.FleetWidgets
+namespace CheraasjeEpp.UI.Pages.FleetWidgets
 {
     public partial class CarResultItem : UserControl
     {
@@ -39,15 +39,11 @@ namespace cheraasje_epp.UI.Pages.FleetWidgets
             if (car.HasImages() && File.Exists(car.ImagePaths[0]))
             {
                 using var img = Image.FromFile(car.ImagePaths[0]);
-                pictureBox1.Image = new Bitmap(img);
+                carPictureBox.Image = new Bitmap(img);
             }
             else
             {
-                foreach (var path in car.ImagePaths)
-                {
-                    MessageBox.Show($"PATH:\n'{path}'\nEXISTS: {File.Exists(path)}");
-                }
-                pictureBox1.Image = Properties.Resources.NoImage;
+                carPictureBox.Image = Properties.Resources.NoImage;
             }
         }
 

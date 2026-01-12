@@ -1,4 +1,4 @@
-﻿namespace cheraasje_epp.Models.Filters
+﻿namespace CheraasjeEpp.Models.Filters
 {
     public class CarFilter
     {

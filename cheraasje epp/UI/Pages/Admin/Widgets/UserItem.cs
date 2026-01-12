@@ -1,10 +1,10 @@
-﻿using cheraasje_epp.Data;
-using cheraasje_epp.Models.Entities;
-using cheraasje_epp.UI.Pages.AddUser;
-using cheraasje_epp.UI.Widgets;
+﻿using CheraasjeEpp.Data;
+using CheraasjeEpp.Models.Entities;
+using CheraasjeEpp.UI.Pages.AddUser;
+using CheraasjeEpp.UI.Widgets;
 
 
-namespace cheraasje_epp.UI.Admin.Widgets
+namespace CheraasjeEpp.UI.Admin.Widgets
 {
     public partial class UserItem : UserControl, IPage
     {

@@ -1,7 +1,6 @@
-using cheraasje_epp.Models;
-using cheraasje_epp.UI;
+using CheraasjeEpp.UI;
 
-namespace cheraasje_epp
+namespace CheraasjeEpp
 {
     internal static class Program
     {

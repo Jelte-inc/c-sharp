@@ -1,8 +1,8 @@
-﻿using cheraasje_epp.Data;
-using cheraasje_epp.Models;
-using cheraasje_epp.UI.Widgets;
+﻿using CheraasjeEpp.Data;
+using CheraasjeEpp.Models;
+using CheraasjeEpp.UI.Widgets;
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     partial class Account
     {
@@ -32,25 +32,25 @@ namespace cheraasje_epp.UI.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            backgroundPictureBox = new PictureBox();
             userNameLabel = new Label();
             UserNameTitleLabel = new Label();
             UserIdTitleLabel = new Label();
             UserIdLabel = new Label();
             LogOutButton = new RoundedButton();
             menuButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // backgroundPictureBox
             // 
-            pictureBox1.Image = Properties.Resources.UserInfoPageBackground;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(923, 532);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            backgroundPictureBox.Image = Properties.Resources.UserInfoPageBackground;
+            backgroundPictureBox.Location = new Point(0, 0);
+            backgroundPictureBox.Name = "backgroundPictureBox";
+            backgroundPictureBox.Size = new Size(923, 532);
+            backgroundPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            backgroundPictureBox.TabIndex = 0;
+            backgroundPictureBox.TabStop = false;
             // 
             // userNameLabel
             // 
@@ -136,16 +136,16 @@ namespace cheraasje_epp.UI.Pages
             Controls.Add(userNameLabel);
             Controls.Add(UserIdTitleLabel);
             Controls.Add(UserIdLabel);
-            Controls.Add(pictureBox1);
+            Controls.Add(backgroundPictureBox);
             Name = "Account";
             Size = new Size(923, 532);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)backgroundPictureBox).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox backgroundPictureBox;
         private Label userNameLabel;
         private Label UserNameTitleLabel;
         private Label UserIdTitleLabel;

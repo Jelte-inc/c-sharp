@@ -1,8 +1,8 @@
-﻿using System.Drawing;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace CheraasjeApp.UI.Controls
+namespace CheraasjeEpp.UI.Widgets
 {
     public class RoundedRectangle : Control
     {
@@ -24,13 +24,13 @@ namespace CheraasjeApp.UI.Controls
             Graphics g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
-            // Maak het werkgebied iets kleiner dan de control voor een scherpe rand
+            // Make the work area slightly smaller than the control for a sharp edge
             Rectangle rect = new Rectangle(0, 0, this.Width - 1, this.Height - 1);
 
-            // 1. Maak het pad voor de ronde hoeken
+            // 1. Create the path for the rounded corners
             using (GraphicsPath path = GetRoundedPath(rect, CornerRadius))
             {
-                // 2. Kleur de binnenkant
+                // 2. Fill the inside
                 using (SolidBrush brush = new SolidBrush(FillColor))
                 {
                     g.FillPath(brush, path);
@@ -43,7 +43,7 @@ namespace CheraasjeApp.UI.Controls
             GraphicsPath path = new GraphicsPath();
             int d = radius * 2;
 
-            // Voorkom dat de radius groter is dan de helft van de hoogte/breedte
+            // Prevent radius from being larger than half of the height/width
             if (d > rect.Width) d = rect.Width;
             if (d > rect.Height) d = rect.Height;
 

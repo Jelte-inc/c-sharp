@@ -1,9 +1,9 @@
-﻿using cheraasje_epp.Data;
-using cheraasje_epp.Models.Entities;
-using cheraasje_epp.Properties;
-using cheraasje_epp.UI.Widgets;
+﻿using CheraasjeEpp.Data;
+using CheraasjeEpp.Models.Entities;
+using CheraasjeEpp.Properties;
+using CheraasjeEpp.UI.Widgets;
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     public partial class CarView : UserControl, IPage
     {
@@ -23,7 +23,7 @@ namespace cheraasje_epp.UI.Pages
             mileageLabel.Text = $"{car.Mileage} km";
             askingPriceLabel.Text = car.Price.ToString("C");
             buildYearLabel.Text = car.BuildYear.ToString();
-            if (string.IsNullOrEmpty(car.LicensePlate))
+            if (string.IsNullOrEmpty(car.LicensePlate) || car.LicensePlate == "0")
             {
                 licensePlateLabel.Text = "Not registered yet";
             }

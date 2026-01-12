@@ -1,8 +1,8 @@
-﻿using cheraasje_epp.Data;
-using cheraasje_epp.UI.Pages;
-using AdminPage = cheraasje_epp.UI.Pages.Admin;
+﻿using CheraasjeEpp.Data;
+using CheraasjeEpp.UI.Pages;
+using AdminPage = CheraasjeEpp.UI.Pages.Admin;
 
-namespace cheraasje_epp.UI.Widgets
+namespace CheraasjeEpp.UI.Widgets
 {
     internal class SideBarMenu : Panel
     {

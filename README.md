@@ -1,74 +1,59 @@
-# 🚗 Garage App – Informatica Project
+# CheraasjeEpp – Garage Management System
 
-**Auteurs:** Jelte, Remco & Joachim  
-
----
-
-## 📋 Opdracht Samenvatting
-
-Ontwikkel een **garageprogramma** waarmee medewerkers eenvoudig gegevens van auto’s kunnen opvragen en beheren.  
-Het programma moet werken met meerdere filialen, elk met een eigen voorraad en informatie.
+**Authors:** Jelte, Remco & Joachim
 
 ---
 
-## ⚙️ Functionaliteiten
+## Description
+CheraasjeEpp is a comprehensive Windows Forms application for managing a car garage chain. The system allows employees and administrators to efficiently manage vehicle inventory, branches, and users. Instead of simple text files, the application uses a robust **SQLite database** to ensure secure and reliable data storage.
 
-### 🔹 Auto’s
-Elke auto heeft de volgende eigenschappen:
-- **Merk**
-- **Model**
-- **Kleur**
-- **Aantal deuren** (`int`)
-- **Vraagprijs** (`float`)
-- **Afbeelding** (`img`)
-
-### Methoden
-| Methode | Beschrijving |
-|----------|---------------|
-| `geefNaam()` | Retourneert de combinatie *merk + model* |
-| `heeftAfbeelding()` | Retourneert *true* of *false* |
-| `updateVraagprijs()` | Wijzigt de vraagprijs van de auto |
-| `toonVraagprijs()` | Geeft de prijs weer als *double*, afgerond op 2 cijfers |
-| `toString()` | Retourneert de output van `geefNaam()` (opdracht is hier wat vaag over) |
+The application features a modern, consistent user interface and supports both daily operational tasks and administrative management.
 
 ---
 
-## 🏢 Filialen
-Het programma ondersteunt **meerdere garagelocaties**, elk met:
-- Locatiegegevens (adres, telefoonnummer, eigenaar, etc.)
-- Een eigen **inventaris** aan auto’s
+## Features
 
-Bij het inleveren moeten **minstens 3 locaties** zijn ingeprogrammeerd, elk met een bestaande voorraad.
+### Authentication & Security
+- Secure login using a unique user ID and password  
+- Role-based access control (Employee vs. Administrator)
 
----
+### Fleet Management
+- View the complete vehicle inventory per branch  
+- Advanced filtering and search options:
+  - Brand & model  
+  - Price range  
+  - Color  
+  - Number of doors  
+- Detailed vehicle view including specifications and images
 
-## 🧭 Navigatie & Interface
-- Een **menubalk** met onder andere:
-  - Medewerkersinformatie aanpassen  
-  - Wisselen tussen filialen  
-- Een **statistiekenscherm** met:
-  - Gemiddelde vraagprijs per filiaal  
-  - Totale waarde van de voorraad  
+### Branch Management
+- View branch details such as address, phone number, and owner  
+- Access branch opening hours
 
----
-
-## 💾 Gegevensopslag
-- Bij **afsluiten** worden alle gegevens opgeslagen in een `.txt`-bestand  
-- Bij **opstarten** controleert het programma of opslagbestanden bestaan en laadt deze automatisch  
-
----
-
-## 🛠️ CRUD-functionaliteit
-Gebruikers moeten:
-- Nieuwe auto’s en filialen kunnen **toevoegen**
-- Bestaande kunnen **aanpassen**
-- En eventueel **verwijderen**
+### Administration (Admin Only)
+- User management (add, edit, delete users)  
+- Branch management (add, edit, delete branches)  
+- Vehicle management (add new vehicles with images, remove sold vehicles)
 
 ---
 
-## ✅ Samenvatting van de eisen
-- [x] 3 garagelocaties met bestaande voorraad  
-- [x] Auto’s met de genoemde eigenschappen  
-- [x] CRUD-functionaliteit voor auto’s en filialen  
-- [x] Menu en statistiekenweergave  
-- [x] Opslaan en laden van data via `.txt`-bestanden  
+## Technical Details
+- **Framework:** .NET 8.0 (Windows Forms)  
+- **Language:** C#  
+- **Database:** SQLite (`database.db`)  
+- **Architecture:**
+  - Clear separation between Data, Models, and UI layers  
+  - Custom UI components (e.g., `RoundedButton`, `RoundedTextBox`) for a modern look and feel
+
+---
+
+## Installation & Usage
+1. Clone the repository.  
+2. Open the solution (`.sln`) in Visual Studio.  
+3. Ensure `database.db` is present in the `Data` folder (included by default in the build output).  
+4. Run the application using `F5` or the **Start** button.
+
+---
+
+## Project Status
+This project meets all assignment requirements and has been extended with database persistence and an enhanced user experience.

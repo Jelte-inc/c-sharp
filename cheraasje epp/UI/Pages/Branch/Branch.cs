@@ -1,9 +1,9 @@
-﻿using cheraasje_epp.Data;
-using cheraasje_epp.Models.Filters;
-using cheraasje_epp.Models.ValueObjects;
-using cheraasje_epp.UI.Widgets;
+﻿using CheraasjeEpp.Data;
+using CheraasjeEpp.Models.Filters;
+using CheraasjeEpp.Models.ValueObjects;
+using CheraasjeEpp.UI.Widgets;
 
-namespace cheraasje_epp.UI.Pages
+namespace CheraasjeEpp.UI.Pages
 {
     public partial class Branch : UserControl, IPage
     {
@@ -98,10 +98,7 @@ namespace cheraasje_epp.UI.Pages
                 branchWorth += car.Price;
             }
             branchWorthLabel.Text = new Money(branchWorth).ToString();
-            if (branchWorth != 0)
-            {
-                branchAveragePriceLabel.Text = new Money(Math.Floor((branchWorth / cars.Count))).ToString();
-            }
+            branchAveragePriceLabel.Text = (branchWorth > 0) ? new Money(Math.Floor((branchWorth / cars.Count))).ToString(): new Money(0).ToString();
             branchNameLabel.Text = dataManager.GetBranchById(Session.UserId).ToString();
             var companyCars = dataManager.GetCars(new CarFilter(), true);
             decimal companyWorth = 0;
@@ -110,10 +107,7 @@ namespace cheraasje_epp.UI.Pages
                 companyWorth += car.Price; 
             }
             globalWorthLabel.Text = new Money(companyWorth).ToString();
-            if (companyWorth != 0)
-            {
-                globalAveragePriceLabel.Text = new Money(Math.Floor(companyWorth / companyCars.Count)).ToString();
-            }
+            globalAveragePriceLabel.Text = (companyWorth > 0) ? new Money(Math.Floor(companyWorth / companyCars.Count)).ToString(): new Money(0).ToString();
         }
 
         private void menuButton_Click(object sender, EventArgs e)
