@@ -73,9 +73,9 @@ namespace CheraasjeEpp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Branch {
+        internal static System.Drawing.Bitmap AdminPageBackground {
             get {
-                object obj = ResourceManager.GetObject("Branch", resourceCulture);
+                object obj = ResourceManager.GetObject("AdminPageBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,29 @@ namespace CheraasjeEpp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CarViewPageBackground {
+        internal static System.Drawing.Bitmap Bin {
             get {
-                object obj = ResourceManager.GetObject("CarViewPageBackground", resourceCulture);
+                object obj = ResourceManager.GetObject("Bin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BranchPageBackground {
+            get {
+                object obj = ResourceManager.GetObject("BranchPageBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Edit {
+            get {
+                object obj = ResourceManager.GetObject("Edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

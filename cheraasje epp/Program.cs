@@ -1,4 +1,3 @@
-using CheraasjeEpp.Models;
 using CheraasjeEpp.UI;
 
 namespace CheraasjeEpp

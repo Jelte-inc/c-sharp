@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserItem));
             roundedRectangle1 = new CheraasjeEpp.UI.Widgets.RoundedRectangle();
             editButton = new Button();
             binButton = new Button();
@@ -49,7 +48,7 @@
             // editButton
             // 
             editButton.BackColor = Color.Red;
-            editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
+            editButton.BackgroundImage = Properties.Resources.Edit;
             editButton.BackgroundImageLayout = ImageLayout.Zoom;
             editButton.FlatAppearance.BorderSize = 0;
             editButton.FlatStyle = FlatStyle.Flat;
@@ -63,7 +62,7 @@
             // binButton
             // 
             binButton.BackColor = Color.Red;
-            binButton.BackgroundImage = (Image)resources.GetObject("binButton.BackgroundImage");
+            binButton.BackgroundImage = Properties.Resources.Bin;
             binButton.BackgroundImageLayout = ImageLayout.Zoom;
             binButton.FlatAppearance.BorderSize = 0;
             binButton.FlatStyle = FlatStyle.Flat;

@@ -23,7 +23,7 @@ namespace CheraasjeEpp.UI.Pages
             mileageLabel.Text = $"{car.Mileage} km";
             askingPriceLabel.Text = car.Price.ToString("C");
             buildYearLabel.Text = car.BuildYear.ToString();
-            if (string.IsNullOrEmpty(car.LicensePlate))
+            if (string.IsNullOrEmpty(car.LicensePlate) || car.LicensePlate == "0")
             {
                 licensePlateLabel.Text = "Not registered yet";
             }

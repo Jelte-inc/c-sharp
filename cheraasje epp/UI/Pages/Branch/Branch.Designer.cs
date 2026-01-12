@@ -30,7 +30,6 @@ namespace CheraasjeEpp.UI.Pages
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Branch));
             backgroundPictureBox = new PictureBox();
             cityLabel = new Label();
             sundayLabel = new Label();
@@ -56,7 +55,7 @@ namespace CheraasjeEpp.UI.Pages
             // 
             // backgroundPictureBox
             // 
-            backgroundPictureBox.Image = (Image)resources.GetObject("backgroundPictureBox.Image");
+            backgroundPictureBox.Image = Properties.Resources.BranchPageBackground;
             backgroundPictureBox.Location = new Point(0, 0);
             backgroundPictureBox.Name = "backgroundPictureBox";
             backgroundPictureBox.Size = new Size(923, 532);
