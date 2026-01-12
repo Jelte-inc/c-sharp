@@ -61,6 +61,10 @@ namespace CheraasjeEpp.UI.Pages.AddUser
             if (Update)
             {
                 dataManager.UpdateUser(user);
+                if (Session.UserId == user.Id)
+                {
+                    Session.SafeLogin = false;
+                }
             }
             else
             {
